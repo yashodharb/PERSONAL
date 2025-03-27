@@ -1,0 +1,105 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+#define SIZE 16
+
+
+typedef struct
+{
+  char name[SIZE];
+  int employeeID;
+  char department[SIZE];
+  int salary;
+}EMPLOYEE;
+  
+int create_Emp(EMPLOYEE *emp)
+{
+  printf("Employee Name: \n");
+  fgets(emp->name, SIZE, stdin);
+
+  printf("Employee ID: \n");
+  scanf("%d", &emp->employeeID);
+
+  printf("Department \n");
+  fgets(emp->department, SIZE, stdin);
+
+  printf("Salary: \n");
+  scanf("%d", &emp->salary); 
+  
+  return 0;
+}
+
+int view_Emp(EMPLOYEE *emp)
+{
+  printf("Employee Information\n");
+  printf("Name: %s", emp->name);
+  printf("ID  : %d", emp->employeeID);
+  printf("Department: %s", emp->department);
+  printf("Salary: %d", emp->salary);
+
+  return 0;
+}
+
+int delete_Emp(EMPLOYEE *emp)
+{
+  free(emp);
+  printf("Employee Record Deleted!");
+  return 0;
+}
+
+
+int main(void)
+{
+  EMPLOYEE *emp=NULL;
+  int choice;
+  printf("Welcome to Employee Management System\n");
+  printf("Choose the below option:\n");
+  printf("1] Create Employee\n");
+  printf("2] View Employee\n");
+  printf("3] Delete Employee\n");
+
+  scanf("%d", &choice);
+  getchar();
+
+  switch(choice)
+  {
+	case 1:
+		emp=(EMPLOYEE *)malloc(sizeof(EMPLOYEE));
+		if(emp==NULL)
+	  {
+		printf("Employee Creation Failed!\n");
+		return -1;
+	  }
+	  create_Emp(emp);
+	  break;
+	  
+     	case 2:
+	   if(emp!=NULL)
+	   {
+		 view_Emp(emp);
+	   }
+	   else
+	   {
+		 printf("No Employee Record Found\n");
+		 return -1;
+	   }
+	   break;
+     	case 3:
+		 if(emp!=NULL)
+		   {
+			 delete_Emp(emp);
+			 emp=NULL;
+		   }
+		 else
+		   {
+			 printf("No Employee Record Found!");
+		   }
+		 break;
+
+     	default:
+	   printf("Invalid Choice!");
+  }
+  return 0;
+}
+
+
