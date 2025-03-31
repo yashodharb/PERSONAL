@@ -96,15 +96,13 @@
 (setq-default mode-line-format
               '("%e"
                 mode-line-front-space
-                "Buffer: %b (%n) | " ;; Display buffer name and buffer number
-                "Position: %l:%c | " ;; Display line and column
-                "Size: %I | " ;; Display buffer size
-                "Mode: %m | " ;; Display major mode
-                "Time: " (:eval (format-time-string "%H:%M")) " | " ;; Display current time
-                "Progress: %p%% | " ;; Display percentage through the file
-                "Encoding: " (:eval (symbol-name buffer-file-coding-system)) ;; Display encoding info
-                " | "
-                mode-line-modes)) ;; Show major/minor modes
+                "%b"                        ;; Buffer name
+                " · %l:%c"                   ;; Line and column
+                " · %I"                      ;; Buffer size
+                " · %m"                      ;; Major mode
+                (:eval (unless (string= (symbol-name buffer-file-coding-system) "utf-8-unix")
+                         (concat " · " (symbol-name buffer-file-coding-system)))) ;; Show encoding if not UTF-8
+                mode-line-modes))            ;; Minor modes
 
 ;; Set Smaller Font Size for Mode Line
 (set-face-attribute 'mode-line nil :height 130) ;; Reduce mode line font size
@@ -127,7 +125,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(custom-enabled-themes '(deeper-blue))
+ '(custom-enabled-themes '(gruber-darker))
  '(custom-safe-themes
    '("da75eceab6bea9298e04ce5b4b07349f8c02da305734f7c0c8c6af7b5eaa9738" "01a9797244146bbae39b18ef37e6f2ca5bebded90d9fe3a2f342a9e863aaa4fd" "11819dd7a24f40a766c0b632d11f60aaf520cf96bd6d8f35bae3399880937970" default))
  '(package-selected-packages
@@ -138,14 +136,16 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(cursor ((t (:background "powder blue"))))
+ '(cursor ((t (:background "dark gray"))))
+ '(dired-directory ((t (:foreground "gold" :weight bold))))
  '(font-lock-comment-delimiter-face ((t (:foreground "powder blue"))))
  '(font-lock-comment-face ((t (:foreground "sky blue"))))
  '(font-lock-function-name-face ((t (:foreground "powder blue" :weight bold))))
  '(highlight ((t (:background "aquamarine" :foreground "#2e3436"))))
- '(line-number-current-line ((t (:inherit line-number :foreground "deep sky blue"))))
+ '(line-number ((t (:inherit default :foreground "yellow"))))
+ '(line-number-current-line ((t (:inherit line-number :foreground "gold"))))
  '(minibuffer-prompt ((t (:foreground "powder blue"))))
- '(mode-line ((t (:background "sky blue" :foreground "black" :box (:line-width (3 . 3) :color "sky blue" :style flat-button) :weight extra-bold :height 143))))
+ '(mode-line ((t (:background "dim gray" :foreground "black" :box (:line-width (3 . 3) :color "dim gray" :style flat-button) :weight extra-bold :height 143))))
  '(warning ((t (:foreground "light sea green" :weight bold)))))
 
 ;; Remove default scratch buffer message
