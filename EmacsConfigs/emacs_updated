@@ -20,6 +20,22 @@
   :config
   (load-theme 'gruber-darker t)) ;; Load Gruber-Darker theme
 
+;; Flycheck Configuration
+(use-package flycheck
+  :ensure t
+  :init
+  (global-flycheck-mode) ;; Enable flycheck globally
+  :config
+  (setq flycheck-indication-mode 'right-fringe) ;; Display errors on the right fringe
+  (setq flycheck-check-syntax-automatically '(save idle-change))
+  (setq flycheck-idle-change-delay 2)) ;; Delay syntax checking when idle
+
+;; Optional: Custom Flycheck Behavior for C
+(add-hook 'c-mode-hook
+          (lambda ()
+            (setq flycheck-gcc-language-standard "c11") ;; Use C11 standard
+            (setq flycheck-clang-language-standard "c11"))) ;; Apply for Clang as well
+
 ;; Scrolling Configuration
 (setq mouse-wheel-progressive-speed nil) ;; Disable accelerated scrolling
 (setq mouse-wheel-scroll-amount '(1 ((shift) . 1))) ;; Smooth scrolling, one line per wheel tick
@@ -28,41 +44,6 @@
 (setq auto-window-vscroll nil) ;; Disable automatic vertical scroll adjustments
 (setq pixel-scroll-mode nil) ;; Ensure pixel scrolling is off
 (setq fast-but-imprecise-scrolling t) ;; Optimize for immediate feedback while scrolling
-
-;; Essential Packages
-(use-package company
-  :ensure t
-  :hook (prog-mode . company-mode)
-  :config
-  (setq company-minimum-prefix-length 1
-        company-idle-delay 0.0) ;; Enable autocompletion immediately
-  (setq company-backends '(company-capf company-dabbrev company-files))) ;; Exclude company-clang
-
-(use-package flycheck
-  :ensure t
-  :init (global-flycheck-mode)) ;; Enable syntax checking globally
-
-(use-package js2-mode
-  :ensure t
-  :mode "\\.js\\'") ;; JavaScript mode for .js files
-
-(use-package prettier-js
-  :ensure t
-  :hook (js2-mode . prettier-js-mode)) ;; Enable Prettier for JavaScript formatting
-
-(use-package clang-format
-  :ensure t) ;; Clang-format integration for C/C++ formatting
-
-;; Visual Indentation Guides
-(use-package highlight-indent-guides
-  :ensure t
-  :hook (prog-mode . highlight-indent-guides-mode) ;; Enable in programming modes
-  :config
-  (setq highlight-indent-guides-method 'character   ;; Use characters for indentation
-        highlight-indent-guides-character ?◦       ;; Set fancy "o"-like dot as the visual guide character
-        highlight-indent-guides-auto-enabled nil    ;; Avoid automatic calculations
-        highlight-indent-guides-responsive 'top     ;; Highlight active indentation region
-        highlight-indent-guides-delay 0.1))         ;; Slight delay for performance
 
 ;; Ibuffer Customization
 (use-package ibuffer
@@ -74,10 +55,40 @@
 (tool-bar-mode -1) ;; Remove tool bar
 (scroll-bar-mode -1) ;; Remove scroll bar
 (setq inhibit-startup-screen t) ;; Disable startup screen
-(setq-default indent-tabs-mode t
-              tab-width 4) ;; Use tabs for indentation
+(setq-default indent-tabs-mode nil  ;; Use spaces instead of tabs globally
+              tab-width 4)          ;; Set global tab width to 4 spaces
 (setq display-line-numbers-type 'relative)
 (global-display-line-numbers-mode t) ;; Enable relative line numbers
+
+;; Ensure Tab Inserts Four Spaces in All Modes
+(defun enforce-indent-setup ()
+  "Force Tab key to insert spaces and display consistent dots for indentation."
+  (setq-local indent-tabs-mode nil) ;; Use spaces for indentation
+  (setq-local tab-width 4)          ;; Set tab width to 4 spaces
+  (local-set-key (kbd "TAB") 'indent-for-tab-command)) ;; Tab inserts spaces
+(add-hook 'after-change-major-mode-hook 'enforce-indent-setup) ;; Apply to all modes
+
+;; Enable c-mode for C files
+(add-to-list 'auto-mode-alist '("\\.c\\'" . c-mode)) ;; Ensure .c files use c-mode
+
+;; Compile Shortcut
+(defun my-compile ()
+  "Compile the current C file."
+  (interactive)
+  (save-buffer)
+  (let ((compile-command (concat "gcc -o " (file-name-sans-extension buffer-file-name) " " buffer-file-name)))
+    (compile compile-command)))
+(global-set-key (kbd "C-c C-c") 'my-compile) ;; Add a global compile shortcut
+
+;; Display Dots for Indentation Using Whitespace Mode
+(setq whitespace-style '(face spaces trailing lines-tail space-mark tab-mark))
+(setq whitespace-display-mappings
+      '((space-mark 32 [183] [46]) ;; Display spaces as centered dots
+        (tab-mark 9 [183 9] [46 9]))) ;; Display tabs as dots, consistent with spaces
+(add-hook 'c-mode-hook 'whitespace-mode) ;; Enable whitespace mode for c-mode
+
+;; Disable Electric Indent Mode Globally
+(electric-indent-mode -1)
 
 ;; Disable Arrow Keys with Guidance
 (global-set-key (kbd "<up>")
@@ -121,32 +132,19 @@
 
 ;; Custom Variables and Faces
 (custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
  '(custom-enabled-themes '(gruber-darker))
  '(custom-safe-themes
-   '("da75eceab6bea9298e04ce5b4b07349f8c02da305734f7c0c8c6af7b5eaa9738" "01a9797244146bbae39b18ef37e6f2ca5bebded90d9fe3a2f342a9e863aaa4fd" "11819dd7a24f40a766c0b632d11f60aaf520cf96bd6d8f35bae3399880937970" default))
+   '("da75eceab6bea9298e04ce5b4b07349f8c02da305734f7c0c8c6af7b5eaa9738" "01a9797244146bbae39b18ef37e6f2ca5bebded90d9fe3a2f342a9e863aaa4fd" "11819dd7a24f40a766c0c632d11f60aaf520cf96bd6d8f35bae3399880937970" default))
  '(package-selected-packages
-   '(org-bullets prettier-js js2-mode highlight-indent-guides gruber-darker-theme flycheck dracula-theme company clang-format)))
+   '(flycheck org-bullets gruber-darker-theme dracula-theme ibuffer)))
 
 (custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
  '(cursor ((t (:background "dark gray"))))
- '(dired-directory ((t (:foreground "gold" :weight bold))))
- '(font-lock-comment-delimiter-face ((t (:foreground "powder blue"))))
+ '(dired-directory ((t (:foreground "aquamarine" :weight bold))))
  '(font-lock-comment-face ((t (:foreground "sky blue"))))
- '(font-lock-function-name-face ((t (:foreground "powder blue" :weight bold))))
- '(highlight ((t (:background "aquamarine" :foreground "#2e3436"))))
  '(line-number ((t (:inherit default :foreground "yellow"))))
  '(line-number-current-line ((t (:inherit line-number :foreground "gold"))))
- '(minibuffer-prompt ((t (:foreground "powder blue"))))
- '(mode-line ((t (:background "dim gray" :foreground "black" :box (:line-width (3 . 3) :color "dim gray" :style flat-button) :weight extra-bold :height 143))))
- '(warning ((t (:foreground "light sea green" :weight bold)))))
+ '(mode-line ((t (:background "dim gray" :foreground "black" :height 143)))))
 
 ;; Remove default scratch buffer message
 (setq initial-scratch-message nil)
