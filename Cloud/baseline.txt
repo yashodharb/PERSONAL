@@ -1,0 +1,50 @@
+What is Cloud Baselining?
+
+Cloud baselining involves collecting and analyzing data about the current state of your cloud environment. This includes metrics like performance, resource utilization, cost, and security configurations. The baseline serves as a benchmark to compare against future states, helping to identify deviations or improvements.
+Key Areas of Cloud Baselining
+
+    Performance Baseline:
+
+        Measures application and infrastructure performance, such as response times, throughput, and error rates.
+
+        Helps in identifying bottlenecks and optimizing resource allocation.
+
+    Security Baseline:
+
+        Defines minimum security requirements, such as access controls, encryption standards, and compliance with regulations.
+
+        Ensures that workloads meet organizational and industry security standards.
+
+    Cost Baseline:
+
+        Tracks cloud spending to identify cost-saving opportunities and prevent budget overruns.
+
+        Useful for forecasting and optimizing cloud expenses.
+
+    Configuration Baseline:
+
+        Documents the initial setup of cloud resources, including network settings, storage configurations, and application dependencies.
+
+        Helps in maintaining consistency and avoiding misconfigurations.
+
+Why is Baselining Important?
+
+    Monitoring and Optimization: Provides a clear picture of the current state, enabling continuous improvement.
+
+    Troubleshooting: Simplifies the identification of issues by comparing current metrics with the baseline.
+
+    Compliance: Ensures adherence to regulatory and organizational standards.
+
+    Cost Management: Helps in tracking and controlling cloud expenses.
+
+Steps to Create a Cloud Baseline
+
+    Define Objectives: Identify what you want to measure (e.g., performance, security, cost).
+
+    Collect Data: Use monitoring tools to gather metrics over a defined period.
+
+    Analyze Data: Identify patterns, trends, and anomalies.
+
+    Document the Baseline: Record the findings as a reference point.
+
+    Regular Updates: Periodically review and update the baseline to reflect changes in the environment.
