@@ -1,14 +1,36 @@
-Make sure to sudo apt install apache2 and start the service
+NOTE: Make sure to sudo apt install apache2 and start the service
+
+Download Splunk from Official Splunk website
+
+Installation:
+	dpkg -i <downloaded_Splunk.deb>
+	
+Directory Installed: opt/splunk/bin
+
+Config File: sudo nano /opt/splunk/etc/splunk-launch.conf
+
+
+cd opt/splunk/bin/ as Sudo
+
+./splunk start -accept-license --answer-yes
+
+./splunk status
+
+Start Splunk:
+	cd /opt/splunk/bin
+	sudo ./splunk start
+
+Stop Splunk:
+	cd /opt/splunk/bin
+	sudo ./splunk stop
+
+
+To start as a serviced [systemctl start/stop splunkd]:
+	sudo /opt/splunk/bin/splunk enable boot-start -user splunk
 
 Username: admin
 Pass: Changeme
 
-answer cd opt/splunk/bin/ as Sudo
-./splunk start -accept-license --answer-yes
-./splunk status
-./splunk start --accept-license --answer-yes
 
 
-To start as a serviced [systemctl start splunkd]
 
-	sudo /opt/splunk/bin/splunk enable boot-start -user splunk
