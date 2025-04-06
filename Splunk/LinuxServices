@@ -1,0 +1,55 @@
+In Linux, you can start a service like HTTP, Splunk, SSH, etc either by starting the service or you can do it manually as well.
+
+We configured splunk to start as a service using the below command which made it possible to start splunk [Splunk-Daemon] using systemctl or service:
+	- ./splunk enable boot-start -systemd-managed 1
+
+Now we can use commands like
+
+	- systemctl start/stop/status splunkd
+	- service splunkd start/stop/status
+
+
+To start it manually, below is the path:
+	- cd /opt/splunk/bin
+	- ./splunk start/stop
+
+To start the HTTP service we use:
+	systemctl start apache2
+
+Other ways would be using python or other applications abstracting http/https service
+
+To manually start an HTTP service in Ubuntu without relying on systemd or service, you can use a simple command-line HTTP server like http-server or busybox httpd. Alternatively, you can use python3 -m http.server for a basic server. 
+Here's a breakdown of a few options:
+1. Using http-server (requires installation):
+
+    Install http-server: sudo apt install http-server
+    Navigate to the directory: cd /path/to/your/directory
+    Start the server: http-server
+        This will start a server on port 8080 by default.
+        To specify a different port, use -p <port_number> (e.g., http-server -p 80).
+        To serve from a specific directory, use -d <directory>. 
+
+2. Using busybox httpd (if busybox is installed):
+
+    Check if busybox is installed: which busybox
+    If not, install it: sudo apt install busybox-static
+    Navigate to the directory: cd /path/to/your/directory
+    Start the server: busybox httpd -f -vv -p 8080
+        -f foreground mode, -vv verbose output, -p 8080 port 8080. 
+
+3. Using python3 -m http.server:
+
+    Navigate to the directory: cd /path/to/your/directory
+    Start the server: python3 -m http.server
+        This will start a server on port 8000 by default.
+        To specify a different port, use --port <port_number> (e.g., python3 -m http.server --port 80). 
+
+Important Considerations:
+
+    Port 80:
+    To use port 80, you'll likely need sudo privileges (e.g., sudo http-server -p 80). 
+
+Firewall:
+If you have a firewall enabled (like UFW), you might need to configure it to allow traffic on the port you're using. 
+Foreground vs. Background:
+These commands run in the foreground, meaning the terminal will be blocked until you stop the server (usually with Ctrl+C).
