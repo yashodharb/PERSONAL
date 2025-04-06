@@ -1,4 +1,5 @@
 Make sure to sudo apt install apache2 and start the service
+
 Username: admin
 Pass: Changeme
 
@@ -7,3 +8,7 @@ answer cd opt/splunk/bin/ as Sudo
 ./splunk status
 ./splunk start --accept-license --answer-yes
 
+
+To start as a serviced [systemctl start splunkd]
+
+	sudo /opt/splunk/bin/splunk enable boot-start -user splunk
