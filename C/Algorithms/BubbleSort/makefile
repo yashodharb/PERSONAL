@@ -1,13 +1,13 @@
 CC=gcc
-CFLAGS=-O3 -pedantic -Wall -Werror -ggdb
+CFLAGS=-O3 -pedantic -Wall -Wextra -ggdb
 
-all:main
+all:	main
 
-main:	bubbleSort.o
-	$(CC) $(CFLAGS) bubbleSort.o -o main
+main:	bubble.o
+	$(CC) $(CFLAGS) bubble.o -o main
 
-bubbleSort.o:	bubbleSort.c
-	$(CC) $(CFLAGS) -c bubbleSort.c
+bubble.o:	bubble.c
+	$(CC) $(CFLAGS) -c bubble.c
 
 clean:
-	rm -rf bubbleSort.o main
+	rm -rf *.o main
