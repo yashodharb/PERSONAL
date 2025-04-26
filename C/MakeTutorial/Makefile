@@ -13,4 +13,4 @@ add.o: add.c add.h
 	$(CC) $(CFLAGS) -c add.c
 
 clean:
-	rm -f $(OBJ) calculator
+	rm -f *.o calculator
