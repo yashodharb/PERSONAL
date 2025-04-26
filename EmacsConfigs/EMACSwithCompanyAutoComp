@@ -1,4 +1,4 @@
-;;; -*- lexical-binding: t -*-
+;;; -*- lexical-binding: t; -*-
 ;; Package Manager Configuration
 (require 'package)
 (setq package-archives
@@ -9,7 +9,7 @@
 (unless package-archive-contents
   (package-refresh-contents))
 
-;; Ensure `use-package` is installed
+;; Ensure use-package is installed
 (unless (package-installed-p 'use-package)
   (package-install 'use-package))
 
@@ -17,20 +17,21 @@
 (use-package company
   :ensure t
   :config
-  (global-company-mode 1))  ;; Enable company mode globally
+  (global-company-mode 1))
 
-;; LSP Mode Configuration
+;; LSP Mode Configuration for C and C++
 (use-package lsp-mode
   :ensure t
-  :hook ((c-mode . lsp)
-         (c++-mode . lsp))
-  :commands lsp
+  :commands (lsp)
+  :hook ((c-mode c++-mode) . (lambda ()
+                               (lsp)
+                               (flymake-mode -1))) ;; disable flymake
   :config
-  (use-package company
-    :ensure t
-    :config
-    (push 'company-capf company-backends)  ;; LSP integration with company
-    ))
+  (setq lsp-idle-delay 0.0) ;; Respond instantly
+  (setq lsp-completion-provider :capf) ;; Integrate with company
+  (setq lsp-diagnostics-provider :none) ;; ❌ Disable diagnostics completely
+  (setq lsp-enable-symbol-highlighting nil) ;; No highlight
+  (setq lsp-enable-on-type-formatting nil)) ;; No auto-formatting
 
 ;; UI Customizations
 (menu-bar-mode -1) ;; Remove menu bar
@@ -42,11 +43,19 @@
 (setq display-line-numbers-type 'relative)
 (global-display-line-numbers-mode t) ;; Enable relative line numbers
 
-;; case-fold-search
-(setq-default case-fold-search t) ;; case-insensitive by default
+;; Font and UI Settings
+(set-face-attribute 'default nil
+                    :family "DejaVu Sans Mono"
+                    :height 200)
 
-(setq query-replace-defaults nil)
+;; Fullscreen on Startup
+(add-to-list 'default-frame-alist '(fullscreen . fullboth))
 
+;; Remove default scratch buffer message
+(setq initial-scratch-message nil)
+
+;; Enable icomplete-mode for minibuffer autocomplete
+(icomplete-mode 1)
 
 ;; Disable Arrow Keys with Guidance
 (global-set-key (kbd "<up>")
@@ -58,33 +67,10 @@
 (global-set-key (kbd "<right>")
                 (lambda () (interactive) (message "Use C-f instead of the right arrow key!")))
 
-;; Fullscreen on Startup
-(add-to-list 'default-frame-alist '(fullscreen . fullboth)) ;; Launch Emacs in fullscreen mode
+;; Disable Flycheck globally (no external checker tries to show errors)
+(use-package flycheck
+  :config
+  (global-flycheck-mode -1))
 
-;; Set DejaVu Sans Mono Font
-(set-face-attribute 'default nil
-                    :family "DejaVu Sans Mono" ;; Set font to DejaVu Sans Mono, a widely available font
-                    :height 200)              ;; Set font size to 200%
-
-;; Remove default scratch buffer message
-(setq initial-scratch-message nil)
-
-;; Enable icomplete-mode for minibuffer autocomplete
-(icomplete-mode 1)
-
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(custom-enabled-themes '(gruber-darker))
- '(custom-safe-themes
-   '("01a9797244146bbae39b18ef37e6f2ca5bebded90d9fe3a2f342a9e863aaa4fd" default))
- '(package-selected-packages
-   '(company lsp-mode zeal-at-point which-key super-save smartparens ripgrep prettier-js ligature js2-mode indent-bars highlight-indent-guides gruber-darker-theme good-scroll focus flycheck doom-themes doom-modeline dired-sidebar dimmer counsel clang-format async ag)))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
+;; Theme
+(load-theme 'gruber-darker t)

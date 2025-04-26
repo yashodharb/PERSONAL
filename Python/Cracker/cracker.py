@@ -9,7 +9,6 @@ import Cracker
 from colorama import Fore
 import time
 
-
 def cracker():
   start=time.time()
   print('\n{}+ PASSWORD TO BE TESTED GOES BELOW +'.format(colors.color.BLUE))

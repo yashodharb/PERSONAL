@@ -14,16 +14,6 @@
 (unless (package-installed-p 'use-package)
   (package-install 'use-package))
 
-;; Flycheck Configuration
-(use-package flycheck
-  :ensure t
-  :init
-  (global-flycheck-mode) ;; Enable flycheck globally
-  :config
-  (setq flycheck-indication-mode 'right-fringe) ;; Display errors on the right fringe
-  (setq flycheck-check-syntax-automatically '(save idle-change))
-  (setq flycheck-idle-change-delay 2)) ;; Delay syntax checking when idle
-
 ;; Ibuffer Customization
 ;;(use-package ibuffer
 ;;  :ensure t
