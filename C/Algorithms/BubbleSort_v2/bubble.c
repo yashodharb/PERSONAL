@@ -20,9 +20,9 @@ void bSort(int array[], int len){
   int j;
 
   for(i=0;i<len;i++){
-    for(j=0;j<i-1;j++){
-      if(array[i]<array[j]){
-        swap(&array[i], &array[j]);
+    for(j=0;j<len-i-1;j++){
+      if(array[j] > array[j+1]){
+        swap(&array[j], &array[j+1]);
       }
     }
   }
