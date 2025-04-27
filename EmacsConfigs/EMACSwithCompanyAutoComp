@@ -38,8 +38,8 @@
 (tool-bar-mode -1) ;; Remove tool bar
 (scroll-bar-mode -1) ;; Remove scroll bar
 (setq inhibit-startup-screen t) ;; Disable startup screen
-(setq-default indent-tabs-mode nil  ;; Use spaces instead of tabs globally
-              tab-width 4)          ;; Set global tab width to 4 spaces
+;;(setq-default indent-tabs-mode nil  ;; Use spaces instead of tabs globally
+;;              tab-width 4)          ;; Set global tab width to 4 spaces
 (setq display-line-numbers-type 'relative)
 (global-display-line-numbers-mode t) ;; Enable relative line numbers
 
