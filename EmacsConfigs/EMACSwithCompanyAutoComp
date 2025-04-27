@@ -57,6 +57,29 @@
   :config
   (setq flycheck-indication-mode nil)) ;; Disable real-time error indications
 
+;; Keep the default mode-line but add custom status indicators
+
+(defun my-mode-line-status ()
+  (concat
+   " "
+   ;; LSP Mode Status
+   (if (bound-and-true-p lsp-mode)
+       (concat "[LSP: " (or (lsp--workspace-print (lsp--current-workspace)) "Inactive") "] ")
+     "")
+   " "
+   ;; Company Mode Status
+   (if (bound-and-true-p company-mode)
+       "[Company Active] "
+     "[Company Off] ")
+   " "
+   ;; Compilation Status
+   (if (get-buffer "*compilation*")
+       "[Compiling...] "
+     "[Idle] ")))
+
+;; Add custom status without modifying mode-line formatting
+(add-to-list 'global-mode-string '(:eval (my-mode-line-status)))
+
 ;; UI Customizations
 (menu-bar-mode -1) ;; Remove menu bar
 (tool-bar-mode -1) ;; Remove tool bar
@@ -82,6 +105,11 @@
 
 ;; Enable icomplete-mode for minibuffer autocomplete
 (icomplete-mode 1)
+
+;; Make Icomplete ignore case sensitivity
+(setq completion-ignore-case t) ;; Case-insensitive completions
+(setq read-file-name-completion-ignore-case t) ;; Case-insensitive file name completion
+(setq read-buffer-completion-ignore-case t) ;; Case-insensitive buffer name completion
 
 ;; Disable Arrow Keys with Guidance
 (global-set-key (kbd "<up>")
