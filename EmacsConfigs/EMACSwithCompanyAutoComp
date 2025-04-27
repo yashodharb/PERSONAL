@@ -57,6 +57,11 @@
   :config
   (setq flycheck-indication-mode nil)) ;; Disable real-time error indications
 
+(use-package company-capf
+  :ensure nil
+  :config
+  (setq company-backends '(company-capf))) ;; Use completion-at-point functions (LSP)
+
 ;; Doom Modeline
 
 (use-package doom-modeline
@@ -77,12 +82,7 @@
    ;; Company Mode Status
    (if (bound-and-true-p company-mode)
        "[Company Active] "
-     "[Company Off] ")
-   " "
-   ;; Compilation Status
-   (if (get-buffer "*compilation*")
-       "[Compiling...] "
-     "[Idle] ")))
+     "[Company Off] ")))
 
 ;; Add custom status without modifying mode-line formatting
 (add-to-list 'global-mode-string '(:eval (my-mode-line-status)))
