@@ -1,0 +1,19 @@
+Q1.
+Answer: A. Identity as a service
+IDaaS stands for Identity as a Service. It’s basically a cloud-based solution that handles identity and access management, like logging in, user accounts, and single sign-on. It helps organizations manage who can access what, without having to run everything in-house.
+
+Q2.
+Answer: A. Advance and protect the profession.
+Sharing exam questions from a certification like CISSP is a big no-no and goes against the idea of protecting the profession. It can damage the credibility of the cert and makes it unfair for others. That’s why this violates the part about “advance and protect the profession.”
+
+Q3.
+Answer: A. ALE (Annualized Loss Expectancy)
+Gordon is figuring out how much money his organization could lose from flooding each year, which is exactly what ALE measures — the expected yearly loss from a specific risk. ARO is how often it happens, SLE is how much one event costs, and EF is how much of the asset is lost per event.
+
+Q4.
+Answer: C. Whitelisting
+Greg wants users to only be able to install approved software — not just block bad stuff, but allow only specific good stuff. That’s whitelisting. Blacklisting is the opposite (blocking known bad apps), and graylisting is somewhere in the middle. Bluelisting isn’t a thing in this context.
+
+Q5.
+Answer: A. Denial-of-service
+The botnet overloaded the server with so much traffic that it couldn’t respond to real users. That’s a classic denial-of-service (DoS) attack — more specifically, a distributed DoS (DDoS), since it came from multiple systems. It’s not reconnaissance or an insider threat — it’s just flooding the system to make it crash.

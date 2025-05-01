@@ -1,0 +1,20 @@
+Q1.
+Answer: B. 2
+RAID 1 is mirroring, so it needs at least 2 physical disks. One disk stores the data, and the second one is an exact copy for redundancy. That way, if one fails, the other still has everything.
+
+Q2.
+Answer: D. TGS (Ticket Granting Service)
+If the issue is with session keys, the TGS is the part of Kerberos that gives out the service tickets (with session keys) after the initial login. So if something’s going wrong with session keys, I’d check the Ticket Granting Service first.
+
+Q3.
+Answer: C. Civil investigation
+Since Evelyn’s organization might sue the vendor for breach of contract, that makes it a civil case, not criminal or regulatory. It’s about one company not living up to an agreement.
+
+Q4.
+Answer: C. Wave pattern
+High-frequency microwave signals are used in motion detection, and that kind of detector checks for disruptions in wave patterns caused by movement. So this would be a wave pattern detector.
+
+Q5.
+Answer: C. A stateful packet inspection firewall
+Susan’s firewall is keeping track of the state of the connection (who started the conversation) and only lets responses come in after a local system sends something out. That’s exactly what a stateful firewall does—it watches the whole session, not just individual packets.
+

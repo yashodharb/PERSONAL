@@ -1,0 +1,109 @@
+Essential Git Commands
+
+These are the must-haves for everyday Git usage:
+
+    Setting Up a Repository:
+
+        git init – Initialize a new Git repository.
+
+        git clone <repository-url> – Clone an existing repository.
+
+    Checking the State of Your Repo:
+
+        git status – Show the current state of your working directory and staging area.
+
+    Tracking and Staging Changes:
+
+        git add <file> – Stage specific files.
+
+        git add . – Stage all changes in the current directory.
+
+    Committing Changes:
+
+        git commit -m "Commit message" – Commit staged changes with a message.
+
+        git commit -a -m "Message" – Automatically stage and commit tracked files.
+
+    Branching and Merging:
+
+        git branch – List branches.
+
+        git branch <branch-name> – Create a new branch.
+
+        git checkout <branch-name> – Switch to another branch.
+
+        git merge <branch-name> – Merge a branch into your current branch.
+
+    Pushing and Pulling Changes:
+
+        git push – Push changes to the remote repository.
+
+        git pull – Pull and merge changes from a remote repository.
+
+    Viewing History:
+
+        git log – View commit history.
+
+    Undoing Changes:
+
+        git checkout -- <file> – Revert a file to the last committed state.
+
+        git reset HEAD <file> – Unstage a file.
+
+        git revert <commit> – Revert a specific commit.
+
+Good-to-Know Git Commands
+
+These are helpful for advanced tasks or troubleshooting:
+
+    Stashing Changes:
+
+        git stash – Save your changes temporarily.
+
+        git stash pop – Apply stashed changes and remove the stash.
+
+    Rebasing:
+
+        git rebase <branch-name> – Move commits to another base branch.
+
+    Advanced History Viewing:
+
+        git log --oneline – View concise commit history.
+
+        git log --graph --all – Visualize the commit graph.
+
+    Tagging:
+
+        git tag <tag-name> – Create a tag for a specific commit.
+
+    Deleting Branches:
+
+        git branch -d <branch-name> – Delete a local branch safely.
+
+        git branch -D <branch-name> – Force-delete a branch.
+
+    Handling Remote Repositories:
+
+        git remote -v – Show remote URLs.
+
+        git remote add <name> <url> – Add a remote repository.
+
+    Resolving Conflicts:
+
+        git mergetool – Open a tool to resolve merge conflicts.
+
+    Cleaning Up:
+
+        git clean -f – Remove untracked files.
+
+        git prune – Clean up unreachable objects.
+
+    Customization:
+
+        git config --global user.name "Your Name" – Set your Git username.
+
+        git config --global user.email "Your Email" – Set your Git email.
+
+    Debugging:
+
+        git diff – Show changes between commits, branches, or the working tree.

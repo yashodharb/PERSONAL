@@ -1,0 +1,24 @@
+Q1.
+Answer: C. Content reviews
+To keep the security awareness program up to date, Alyssa should do regular content reviews. That way she can catch anything that’s outdated due to changes in technology and update the material accordingly.
+
+Q2.
+Answer: B. Residual risk
+Residual risk is the amount of risk that’s still left even after you put controls in place. Gavin wants to report what’s still a threat to the organization after they’ve taken precautions, so that’s residual risk.
+
+Q3.
+Answers: A and B
+A. Block packets with internal source addresses from entering the network
+B. Block packets with external source addresses from leaving the network
+These two rules help stop IP spoofing. A makes sure nobody is pretending to be inside the network when they’re not. B stops people on the inside from spoofing their IP to look like they’re coming from outside. Both help protect the network from being tricked or misused.
+
+Q4.
+Answer: B. A CDN
+Ed should use a Content Delivery Network (CDN) because it makes websites and content load faster by spreading copies of it around the world. That way, users get it from the closest location, which helps with speed and reliability.
+
+Q5.
+Answers: A, B, and C
+A. Preventing the modification of data on a storage device
+B. Returning data requested from the device
+C. Reporting errors sent by the device to the forensic host
+These are all things a forensic disk controller does. It keeps the original data safe by not letting it be changed (A), still lets investigators read the data (B), and also tells them if there are errors with the device (C). Blocking read commands (D) wouldn’t make sense because they need to read the data to investigate it.

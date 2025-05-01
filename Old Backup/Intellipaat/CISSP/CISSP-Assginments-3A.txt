@@ -1,0 +1,23 @@
+Q1.
+Answer: B. A captive portal
+A captive portal is that screen you see when you connect to Wi-Fi at a coffee shop or airport — where you enter your email or agree to terms before using the internet. It lets Ben collect customer info without setting up user accounts or passwords ahead of time. WPA2-PSK or WPA3 would require a password, which isn't as flexible or good for marketing purposes.
+
+Q2.
+Answer: C. Guideline
+Since Kevin’s document is general advice and not strict rules, it’s best called a guideline. A policy would be high-level rules, a standard would be more specific and mandatory, and a procedure would be detailed steps. Guidelines are just best practices — that fits here.
+
+Q3.
+Answer: D. Clipping
+Clipping is when you set a limit (like “report only if it happens 5 times in 1 hour”) so you don’t get overwhelmed with alerts. That’s exactly what Tom is doing — ignoring a few failed logins unless it gets suspicious. It helps reduce noise while still catching real issues.
+
+Q4.
+Answer: B. RADIUS
+RADIUS handles authentication, authorization, and accounting (AAA) and is widely used for things like Wi-Fi access. It’s an open standard, which is what Sally needs. XTACACS is Cisco-proprietary, and OAuth/OpenID Connect are more for web apps, not network access.
+
+Q5.
+Answer: C. Inference
+The clerk didn’t directly access the salary, but figured it out by comparing totals from before and after. That’s called inference — using allowed data to figure out something you’re not supposed to know. It’s sneaky but not hacking — just smart observation.
+
+Q6.
+Answer: B. Grant rule
+In the Take-Grant model, if Bob has read access and Alice wants it, the Grant rule would let Bob give his rights to Alice — if the system allows that relationship. The Take rule is for taking rights from someone, not giving them. So Grant fits best here.

@@ -1,0 +1,49 @@
+* Local Port forwarding.
+
+	- Port Forwarding is a technique where the devices outside the private network can access the services from the private network.
+	- Also know as Port Mapping or tunneling.
+----------------------------------------------------------------------------------------------------------------------------------------
+
+* How it works:
+	- A router or a firewall acts as the gateway to the private network.
+	- The router or the firewall maps a port on the private network to an address inside the network
+	- This allow the external devices to access the application and services in the private network.
+
+* SSH:
+
+- Local Port Forwarding:
+	- All the requests to 127.0.0.1:32000 will be transffered to the machine 10.42.42.80:80 through 192.168.2.105
+
+- Command:
+	- ssh user@ssh_server -L [bind_address:port]local_port:destination_host:destination_host_port
+	- ssh yash@192.168.2.105 -L 127.0.0.1:32000:10.42.42.80:80 -N
+----------------------------------------------------------------------------------------------------------------------------------------
+- Reverse Remote Port Forwarding
+	- ssh user@ssh_server -R [bind_Address:port]remote_port:destination_host:destination_host_port
+
+	* Get a shell on the pivot machine
+	* Launch a ssh server on our machine
+	* Create a dedicated account without shell on our machine to limitate the hackback
+	* Launch the reverse from the pivot machine
+	* Request 127.0.0.1:14000 to reach 10.42.42.80:80
+
+
+[PRACTICAL]:
+	- # On our machine:
+		- sudo systemctl start sshd
+		- sudo useradd sshpivot --no-create-home --shell /bin/false
+		- sudo passwd sshpivot
+
+	- # On the pivot machine:
+		- ssh yash@192.168.2.149 -R 127.0.0.1:14000:10.42.42.80:80 -N
+----------------------------------------------------------------------------------------------------------------------------------------
+
+* Dynamic Port Forwarding
+
+	- ssh user@ssh_server -D [bind_address:port]local_port
+	- ssh user@ssh_server -D 127.0.0.1: 12000 -N
+
+* We can request any machine through the proxy
+
+	- curl --head http://10.42.42.2 --proxy socks5://127.0.0.1:12000
+ 

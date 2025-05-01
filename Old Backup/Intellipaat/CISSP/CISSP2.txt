@@ -1,0 +1,136 @@
+ISSMCRDOWSIAEEMXXPEEDEFXHLTSAOTNNXLHPNMIE TXPEDDEFXHX
+
+2]Explain the process Bob should use to digitally sign a message to Alice.
+
+	Bob hashes the message
+	Bob encrypts the hash with his private key to create a signature
+	Bob sends the message + signature to Alice
+	Alice hashes the message and compares it with the decrypted signature (using Bob’s public key)
+
+3] What are the two primary rules or principles of the Bell-LaPadula security model? Also, what are the two rules of Biba? 
+
+model is designed to protect confidentiality—making sure sensitive information doesn't leak down to users without clearance.
+
+Two Primary Rules:
+Simple Security Property ("No Read Up")
+
+A subject at a lower security level cannot read data at a higher security level.
+
+Prevents unauthorized access to classified data.
+
+
+Star (*) Security Property ("No Write Down")
+
+A subject at a higher security level cannot write data to a lower level.
+
+Prevents leaking secrets to lower-clearance levels.
+
+
+The Biba model, on the other hand, aims to protect integrity—making sure data isn't improperly modified by less trusted sources.
+
+Two Rules:
+Simple Integrity Property ("No Read Down")
+
+A subject at a higher integrity level cannot read data at a lower integrity level.
+
+Prevents contamination by untrusted data.
+
+Integrity Property ("No Write Up")
+
+A subject at a lower integrity level cannot write data to a higher integrity level.
+
+Prevents less trustworthy users from corrupting more trusted data.
+
+
+
+
+4] What are the four security modes for systems processing classified information
+
+1. Dedicated Security Mode
+All users have the necessary clearance.
+
+All users have formal access approval.
+
+All users have a valid need-to-know for all information on the system.
+
+Since everyone has access to everything, no additional access controls are required by the system.
+
+This is the most restrictive in terms of user access requirements but the simplest to implement technically.
+
+2. System High Security Mode
+All users have the necessary clearance and formal access approvals.
+
+Not all users have a need-to-know for all the information.
+
+The system must enforce access controls based on need-to-know.
+
+This mode requires more sophisticated internal access control mechanisms compared to the dedicated mode.
+
+3. Compartmented Security Mode
+Not all users have the same clearance levels, formal access, or need-to-know.
+
+The system must enforce access based on a combination of clearance, formal access approval, and need-to-know.
+
+Typically used when information is separated into compartments or categories.
+
+This mode introduces more complexity in managing access control.
+
+4. Multilevel Security Mode
+Users have varying levels of clearance, access, and need-to-know.
+
+The system enforces strict access controls using security labels and mandatory access control mechanisms.
+
+Users can access only the information for which they have all three: appropriate clearance, formal approval, and need-to-know.
+
+This mode supports simultaneous processing of multiple levels of classified information.
+
+
+
+5] What kinds of potential issues can an emergency visit from the fire department leave in its wake?
+
+ Physical Damage
+Broken doors/windows: Firefighters may force entry if keys or access codes are unavailable.
+
+Ceiling/wall damage: To check for fire spread, firefighters may break through ceilings or walls.
+
+Water damage: From fire hoses or sprinkler activation, even for small incidents.
+
+Damage to equipment: Sensitive IT, electrical, or lab equipment can be damaged by water or physical disruption.
+
+2. System Disruptions
+Sprinkler system activation: Can flood areas, trigger alarms, and damage electronics.
+
+Power shutdowns: Fire response may require shutting off power for safety, affecting operations.
+
+HVAC shutdowns: Systems may be stopped to prevent smoke spread, leading to overheating or system failure.
+
+Access control disruptions: Doors held open or access systems bypassed during the response.
+
+3. Operational Impact
+Business interruption: Evacuation and damage can halt operations, even if only for a short time.
+
+Data loss or server downtime: If server rooms are affected by power or water, data integrity can be compromised.
+
+Contamination: Fire suppression chemicals or water can cause contamination in cleanrooms, labs, or kitchens.
+
+4. Security Risks
+Unsecured access points: After forced entry or during evacuation, doors may be left open or unlocked.
+
+Disabled surveillance systems: Cameras or alarms may be temporarily shut down or damaged.
+
+Loss of confidential materials: In the chaos, documents or devices might be misplaced or accessed inappropriately.
+
+5. Compliance and Reporting Issues
+Incident reporting requirements: Organizations may need to report to regulators, insurers, or compliance bodies.
+
+Audit trail interruptions: Emergency shutdowns can disrupt logs and monitoring systems.
+
+6. Safety and Health Concerns
+Slippery floors or debris: Water and broken materials can create physical hazards.
+
+Air quality issues: Smoke, dust, or fire suppression residue may remain in the environment.
+
+Stress or trauma: Employees may experience anxiety or fear after an emergency incident.
+
+
+	

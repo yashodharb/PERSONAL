@@ -1,0 +1,107 @@
+1] Name six different administrative controls used to secure personnel.
+
+Security Policies
+
+Define rules and expectations for employee behavior regarding security practices (e.g., acceptable use policy, data classification policy).
+
+Background Checks
+
+Conducted before hiring to verify a candidate’s criminal, employment, and credit history, helping to reduce insider threats.
+
+Security Awareness Training
+
+Educates employees on identifying threats like phishing, proper data handling, and secure use of systems.
+
+Job Rotation
+
+Employees periodically switch roles or responsibilities to reduce fraud risks and ensure no one has exclusive control.
+
+Separation of Duties (SoD)
+
+Splits critical tasks between individuals to prevent abuse of power or fraud (e.g., one person authorizes a transaction, another executes it).
+
+Termination Procedures
+
+Ensures secure offboarding of employees, including revoking access, conducting exit interviews, and collecting company asset
+
+
+
+2] What are the seven major steps or phases in the implementation of a classification scheme?
+
+Identify Data Owners
+
+Assign responsibility for classifying and managing data to specific business units or individuals (data owners).
+
+Establish a Classification Policy
+
+Develop and formalize the rules, criteria, and categories (e.g., Public, Internal, Confidential, Highly Confidential) for classifying data.
+
+Data Inventory and Mapping
+
+Locate and document where data is stored, how it's transmitted, and who has access—this helps determine classification needs.
+
+Classify the Data
+
+Apply classification labels to data based on its sensitivity, value, and regulatory requirements.
+
+Implement Controls Based on Classification
+
+Apply security controls (e.g., encryption, access controls, logging) appropriate to the classification level.
+
+User Training and Awareness
+
+Train employees on how to recognize, handle, and protect classified data according to the policy.
+
+Monitor, Audit, and Review
+
+Continuously monitor classification practices, conduct audits, and update classifications and policies as business needs or regulations change.
+
+3] What are the four main steps of the business continuity planning process?
+
+Business Impact Analysis (BIA)
+
+Identify and evaluate the effects of disruptions on business operations.
+
+Determine critical functions, dependencies, Recovery Time Objectives (RTOs), and Recovery Point Objectives (RPOs).
+
+Risk Assessment
+
+Identify potential threats (natural, technical, human) and assess the likelihood and impact of each.
+
+Evaluate existing controls and identify vulnerabilities.
+
+Strategy Development
+
+Design recovery strategies and solutions to maintain or restore operations.
+
+This may include alternate sites (hot/warm/cold), cloud backup, remote work plans, and communication strategies.
+
+Plan Development and Testing
+
+Document the BCP, assign roles, and establish procedures.
+
+Regularly test (e.g., tabletop exercises, simulations) and update the plan to ensure effectiveness.
+
+4] Describe the difference between scoping and tailoring. 
+
+Scoping
+Definition: The process of determining which security controls are applicable to an information system based on factors such as system function, environment, operational constraints, and risk tolerance.
+
+Focus: Selecting relevant controls.
+
+Example: If a system is not connected to the internet, controls related to external network threats may be scoped out.
+
+Tailoring
+Definition: The process of modifying or refining the selected security controls to better fit the specific context of the organization or system.
+
+Focus: Customizing the chosen controls.
+
+Example: Adjusting password length requirements from the baseline policy to align with the organization's authentication needs
+
+5] Describe the best method to sanitize SSDs
+
+ATA Secure Erase: Often built into SSD firmware, but may not work consistently across manufacturers.
+
+Physical destruction: Works, but not always necessary unless the drive is highly sensitive and being decommissioned.
+
+Overwriting (wiping): Not reliable for SSDs due to wear-leveling and hidden memory cells.

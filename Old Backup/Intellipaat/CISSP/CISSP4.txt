@@ -1,0 +1,59 @@
+Define the difference between need-to-know and the principle of least privilege
+
+The need-to-know principle means you only get access to certain information if you actually need it to do your job. Even if you have a high level of clearance, you won’t get to see stuff unless it directly relates to what you’re working on.
+
+The principle of least privilege is more about what you’re allowed to do—like what files you can open, what software you can run, or whether you can install programs. It means you only get the bare minimum permissions you need to do your job.
+
+
+List and explain the five types of disaster recovery tests.
+
+Checklist Review
+This is the most basic test. You just read through the disaster recovery plan and make sure everything is up to date—like phone numbers, backup locations, and steps. No actual testing happens, just reviewing stuff.
+
+2. Tabletop Exercise
+This is like a meeting where everyone talks through what they’d do in a disaster. No one actually does anything with the systems; it’s more like a practice run on paper where everyone says what their role is and what they’d do.
+
+3. Simulation Test
+This one’s a bit more hands-on. You pretend a disaster happens and go through the motions, like restoring from backup or switching systems. It’s still not real, but it’s closer to actually testing the plan.
+
+4. Parallel Test
+Now you're actually running the backup systems at the same time as the real ones to see if they work. You're not switching over yet, just checking if the backup systems can handle everything.
+
+5. Full Interruption Test
+This is the real deal. You shut down the main system completely and try running everything from the backup. It’s risky but it's the best way to know if your recovery plan actually works.
+
+
+1. Relevant
+The evidence has to actually relate to the case. Like, it needs to help prove or disprove something important about what happened. If it doesn’t matter to the case, it won’t be accepted.
+
+2. Reliable
+The evidence has to be trustworthy. That means it was collected the right way, hasn’t been tampered with, and it comes from a solid source. If it seems sketchy or could’ve been messed with, it might not be allowed.
+
+3. Legally Obtained
+This one’s huge. If the evidence was collected in a way that broke the law—like without a warrant when one was needed—it can be thrown out. Even if it’s super relevant and reliable, it has to be collected legally to count.
+
+
+Explain the difference between static and dynamic analysis of application code
+
+
+Static Analysis
+This is like checking your code without running it.
+
+Dynamic Analysis
+This is testing the code while it’s running.
+
+How far backward does the waterfall model allow developers to travel when a development flaw is discovered
+
+n the Waterfall model, if a development flaw is discovered, you can go back only one step at a time—you can’t just jump all the way back to the beginning.
+
+
+List all the ISC2 code of ethics
+
+Protect society, the common good, necessary public trust and confidence, and the infrastructure.
+
+Act honorably, honestly, justly, responsibly, and legally.
+
+Provide diligent and competent service to principals.
+
+Advance and protect the profession.
+

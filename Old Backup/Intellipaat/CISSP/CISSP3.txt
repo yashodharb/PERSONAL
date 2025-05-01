@@ -1,0 +1,138 @@
+1] Discuss methods used to secure 802.11 wireless networking
+
+Strong Encryption
+WPA2 (Wi-Fi Protected Access 2): Uses AES encryption. Considered secure for most environments.
+
+WPA3: An improvement over WPA2, with stronger encryption and protection against brute-force attacks.
+
+Avoid WEP and WPA (original): These are outdated and vulnerable.
+
+2. Authentication Mechanisms
+Pre-shared Key (PSK): Suitable for small/home networks (WPA2/WPA3-Personal).
+
+802.1X / EAP (Extensible Authentication Protocol): Enterprise-grade solution that authenticates users via a RADIUS server and digital certificates (WPA2/WPA3-Enterprise).
+
+3. Disable Unused Services
+Turn off WPS (Wi-Fi Protected Setup): Vulnerable to brute-force attacks.
+
+Disable SSID broadcast (optional): Can hide the network from casual users (not a strong security measure on its own).
+
+4. MAC Address Filtering
+Allows only specific devices (based on MAC address) to connect.
+
+Note: Can be bypassed with MAC spoofing, so not sufficient as a sole security measure.
+
+5. Network Segmentation
+Separate guest networks: Keep guest users isolated from the internal network.
+
+Use VLANs and firewalls to control traffic between wireless and wired networks.
+
+6. Use of VPN
+VPNs add an additional encryption layer and protect data from eavesdropping on open networks.
+
+7. Intrusion Detection/Prevention Systems (WIDS/WIPS)
+WIDS: Monitors wireless traffic for signs of attacks like rogue access points or deauthentication floods.
+
+WIPS: Takes active steps to block or mitigate detected threats.
+
+8. Signal Control
+Limit signal range: Use directional antennas or reduce signal power to prevent signal leakage outside intended areas.
+
+Shielding (e.g., Faraday cages): In highly secure environments, physical methods can prevent signal propagation.
+
+9. Regular Auditing and Monitoring
+Regularly check for:
+
+Rogue access points
+
+Unauthorized clients
+
+Weak or default configurations
+
+10. Firmware and Patch Management
+Keep wireless access points and client devices up to date with security patches to mitigate known vulnerabilities.
+
+
+
+
+2]  What are some security issues with email and options for safeguarding against them?
+
+Phishing
+
+Fake emails designed to trick users into revealing sensitive information or clicking malicious links.
+
+Spam
+
+Unsolicited messages that may contain malware, phishing attempts, or just unwanted advertising.
+
+Malware and Attachments
+
+Emails can carry infected attachments or links leading to malicious downloads.
+
+Man-in-the-Middle (MITM) Attacks
+
+Emails intercepted in transit can be read or modified if not properly encrypted.
+
+Email Spoofing
+
+Attackers forge sender addresses to make emails appear as if from a trusted source.
+
+Lack of Authentication
+
+Without proper sender verification, it's hard to trust the origin of a message.
+
+Information Leakage
+
+Sensitive content sent without encryption can be exposed to unauthorized parties.
+
+
+
+3] Name the method that allows users to log on once and access resources in multiple organizations without authenticating again.
+
+Federated Identity Management (FIM).
+
+
+4] List three elements to identify when attempting to identify and prevent access control attacks.
+
+Authentication Weaknesses
+
+Look for weak or easily guessable credentials, lack of multifactor authentication (MFA), or systems using outdated authentication methods.
+
+Attackers often exploit these to gain unauthorized access.
+
+Authorization Bypass
+
+Identify whether users can access resources beyond their intended privileges (horizontal or vertical privilege escalation).
+
+Misconfigured roles or insecure APIs can lead to these types of attacks.
+
+Audit and Logging Gaps
+
+Check for insufficient or missing logging of access attempts.
+
+Without proper auditing, unauthorized or suspicious access patterns may go undetected.
+
+
+
+5] What is the difference between static and dynamic code testing techniques
+
+Static Code Testing
+
+Done without executing the code (before runtime)
+
+Dynamic Code Testing
+
+one during execution (at runtime)
+
+
+6] What is the difference between mutation fuzzing and generational fuzzing
+
+Mutation Fuzzing
+
+Takes known good inputs (valid data) and mutates (modifies) them to create new test cases.
+
+Generational Fuzzing
+
+Builds input from scratch based on knowledge of the input structure or protocol.
+
+

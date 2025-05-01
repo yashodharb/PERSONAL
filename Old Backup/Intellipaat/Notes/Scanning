@@ -1,0 +1,1 @@
+nmap -Pn -sS -A -oX test 10.0.2.7

@@ -1,0 +1,25 @@
+Q1.
+Answer: B. Isolation
+Ben wants each transaction to do its thing without being affected by others that are happening at the same time. That’s called Isolation — it keeps things clean so that changes from one transaction aren’t seen by another until everything’s done.
+
+Q2.
+Answer: B. Worm
+The malware is spreading from one system to another on its own — that’s the behavior of a worm. A virus usually needs help to spread (like opening a file), and a Trojan tricks users into running it. A logic bomb just sits quietly until triggered — not spreading by itself.
+
+Q3.
+Answers: A. FERPA, B. HIPAA, C. SOX
+These laws can actually lead to criminal penalties if they’re seriously violated (like intentionally exposing private info or committing fraud). PCI DSS is important too, but it’s enforced by the credit card industry — it usually leads to fines, not jail time.
+
+Q4.
+Answer: C. SYN, SYN/ACK, ACK
+That’s the classic three-way handshake used in TCP. First, one side sends SYN to start the connection, the other replies with SYN/ACK, and then the first side sends ACK to confirm. After that, the connection is open.
+
+Q5.
+Answers: A, C, and D
+
+    A. Remotely wiping the contents of a mobile device – Useful if the device is lost or stolen.
+
+    C. Enforcing the use of device encryption – Keeps data safe if the device falls into the wrong hands.
+
+    D. Managing device backups – Helps protect important data on mobile devices.
+    B doesn’t make sense because if the device isn’t registered or enrolled, the MDM can’t just take over — the user has to join the system first.
