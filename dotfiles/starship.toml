@@ -1,0 +1,13 @@
+format = "$username@$hostname $directory$character"
+
+[username]
+style_user = "bold green"
+show_always = true
+
+[hostname]
+ssh_only = false
+style = "bold yellow"
+
+[directory]
+style = "cyan"
+truncation_length = 3
