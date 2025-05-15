@@ -1,0 +1,79 @@
+Computer accounts can be classified based on their purpose or role in a system. Here's an overview:
+1. User Accounts
+
+    Administrator Account: Has full control over the system, allowing changes to system settings, software installations, and user management.
+
+    Standard User Account: Meant for daily use; limited privileges to prevent accidental system changes or security breaches.
+
+    Guest Account: Temporary account with minimal privileges, often used for short-term access.
+
+2. Service Accounts
+
+    System Service Accounts: Used by applications and services to run tasks automatically (e.g., Splunk service account).
+
+    Daemon Accounts: Specific to Unix/Linux systems, meant for background processes like web servers or database management.
+
+3. Group Accounts
+
+    Accounts associated with a group of users, often used in organizations to provide shared access and permissions (e.g., a "developers" group).
+
+4. Domain Accounts
+
+    Accounts managed by a central server in a network domain, allowing users to log in and access shared resources across multiple systems.
+
+5. Technical or Role-Based Accounts
+
+    Root Account: A Unix/Linux account with absolute control over the system; only to be used for administrative tasks.
+
+    SSH Accounts: Used for secure remote access to servers.
+
+    Proxy Accounts: Facilitates indirect access to resources, often for security purposes.
+
+6. Cloud Accounts
+
+    Accounts used to access and manage cloud services (e.g., AWS or Azure accounts), often tied to a user's identity.
+
+
+
+
+
+Splunk uses a dedicated service account for its operations, usually called splunk (or an account you create specifically during installation). Here's how it works and why it's important:
+
+    Purpose: The Splunk service account is responsible for running Splunk's processes (like splunkd). It ensures that Splunk operates in a secure and isolated manner, without interfering with other system users or processes.
+
+    Permissions: This account typically owns all Splunk-related files and directories (e.g., /opt/splunk). It must have sufficient privileges to read logs, write configurations, and execute tasks within Splunk.
+
+    Avoid Common Pitfalls: Changing the ownership of Splunk files to a different user (like your personal account) can break functionality, as Splunk's internal processes expect to run under the designated service account.
+
+If you need to perform administrative tasks without switching users, you can do this:
+bash
+
+sudo -u splunk ./splunk start
+
+Key Takeaway: Always ensure Splunk files are owned by the splunk user and avoid directly using the service account for tasks unrelated to Splunk.
+SSH Accounts
+
+An SSH account is used to enable secure, remote access to a system over the network. Here's the lowdown:
+
+    Purpose: It ensures encrypted communication between the client (your computer) and the server, protecting data like login credentials and commands.
+
+    Setup:
+
+        User Account: Typically, you connect using a specific user account on the remote system (e.g., ssh user@remote_host).
+
+        Key-based Authentication: For improved security, SSH accounts often use key pairs (public and private keys) instead of passwords. You can generate an SSH key with:
+        bash
+
+    ssh-keygen -t rsa
+
+    Then, add the public key (id_rsa.pub) to the remote system under ~/.ssh/authorized_keys.
+
+    Service Accounts: In some setups, service-specific accounts might be used for automating tasks (e.g., deploying code via CI/CD pipelines).
+
+Best Practices:
+
+    Use key-based authentication instead of passwords.
+
+    Restrict SSH access to trusted users via /etc/ssh/sshd_config (e.g., AllowUsers yashodhar).
+
+    Regularly monitor SSH logs (/var/log/auth.log on Linux) for unusual activity.

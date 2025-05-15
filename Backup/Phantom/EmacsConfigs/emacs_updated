@@ -1,0 +1,83 @@
+;;; -*- lexical-binding: t -*-
+
+;; Package Manager Configuration
+(require 'package)
+(setq package-archives
+      '(("melpa" . "https://melpa.org/packages/")
+        ("gnu" . "https://elpa.gnu.org/packages/")))
+(package-initialize)
+
+(unless package-archive-contents
+  (package-refresh-contents))
+
+;; Ensure `use-package` is installed
+(unless (package-installed-p 'use-package)
+  (package-install 'use-package))
+
+;; Ibuffer Customization
+;;(use-package ibuffer
+;;  :ensure t
+;;  :bind ("C-x C-b" . ibuffer)) ;; Replace default buffer list with ibuffer
+
+;; UI Customizations
+(menu-bar-mode -1) ;; Remove menu bar
+(tool-bar-mode -1) ;; Remove tool bar
+(scroll-bar-mode -1) ;; Remove scroll bar
+(setq inhibit-startup-screen t) ;; Disable startup screen
+(setq-default indent-tabs-mode nil  ;; Use spaces instead of tabs globally
+              tab-width 4)          ;; Set global tab width to 4 spaces
+(setq display-line-numbers-type 'relative)
+(global-display-line-numbers-mode t) ;; Enable relative line numbers
+
+;; case-fold-search
+(setq-default case-fold-search t) ;; case-insensitive by default
+
+;; Disable Arrow Keys with Guidance
+(global-set-key (kbd "<up>")
+                (lambda () (interactive) (message "Use C-p instead of the up arrow key!")))
+(global-set-key (kbd "<down>")
+                (lambda () (interactive) (message "Use C-n instead of the down arrow key!")))
+(global-set-key (kbd "<left>")
+                (lambda () (interactive) (message "Use C-b instead of the left arrow key!")))
+(global-set-key (kbd "<right>")
+                (lambda () (interactive) (message "Use C-f instead of the right arrow key!")))
+
+;; Fullscreen on Startup
+(add-to-list 'default-frame-alist '(fullscreen . fullboth)) ;; Launch Emacs in fullscreen mode
+
+;; Enhanced and Smaller Mode Line
+(setq-default mode-line-format
+              '("%e"
+                mode-line-front-space
+                "%b"                        ;; Buffer name
+                " · %l:%c"                   ;; Line and column
+                " · %I"                      ;; Buffer size
+                " · %m"                      ;; Major mode
+                (:eval (unless (string= (symbol-name buffer-file-coding-system) "utf-8-unix")
+                         (concat " · " (symbol-name buffer-file-coding-system)))) ;; Show encoding if not UTF-8
+                mode-line-modes))            ;; Minor modes
+
+;; Set DejaVu Sans Mono Font
+(set-face-attribute 'default nil
+                    :family "DejaVu Sans Mono" ;; Set font to DejaVu Sans Mono, a widely available font
+                    :height 200)              ;; Set font size to 200%
+
+;; Remove default scratch buffer message
+(setq initial-scratch-message nil)
+
+;; Enable icomplete-mode for minibuffer autocomplete
+(icomplete-mode 1)
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(custom-enabled-themes '(gruber-darker))
+ '(custom-safe-themes
+   '("01a9797244146bbae39b18ef37e6f2ca5bebded90d9fe3a2f342a9e863aaa4fd" default)))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )

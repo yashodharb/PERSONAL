@@ -1,0 +1,165 @@
+The 4 Stages of Building a C Program
+
+The correct order is:
+1. Preprocessing
+2. Compilation
+3. Assembly
+4. Linking
+🔍 1. Preprocessing
+
+    What happens? All # directives (like #include, #define) are handled.
+
+    What you get: A .i file (pure C code with macros expanded and headers included).
+
+    Command: gcc -E main.c -o main.i
+
+2. Compilation
+
+    What happens? The preprocessed C code is translated to assembly code.
+
+    What you get: A .s file (human-readable assembly code).
+
+    Command: gcc -S main.i -o main.s
+
+3. Assembling
+
+    What happens? Assembly code is turned into machine code (object file).
+
+    What you get: A .o file (binary object file).
+
+    Command: gcc -c main.s -o main.o
+
+ 4. Linking
+
+    What happens? Combines your object file(s) with standard libraries (like libc) to produce an executable.
+
+    What you get: A final executable (a.out by default or yourname if named).
+
+    Command: gcc main.o -o main
+
+
+Final Flow (All in One)
+
+This is what happens internally when you do:
+
+gcc main.c -o main
+
+It runs:
+
+    Preprocessor → .i
+
+    Compiler → .s
+
+    Assembler → .o
+
+    Linker → main
+
+
+* Manually link two files in GCC, such as main.c and add.c, you’ll follow this two-step process:
+
+Step-by-Step Example
+
+Let’s say you have these two files:
+
+add.c:
+
+	int add(int a, int b) {
+    		return a + b;
+	}
+
+main.c:
+
+	#include <stdio.h>
+
+	int add(int a, int b);  // Function declaration
+
+	int main() {
+    		int result = add(3, 4);
+    		printf("Result: %d\n", result);
+    		return 0;
+	}		
+
+Step 1: Compile each file to an object file
+
+gcc -c main.c   # produces main.o
+gcc -c add.c    # produces add.o
+
+	-c tells GCC to compile only (don’t link).
+
+	You now have main.o and add.o.
+
+Step 2: Link the object files together
+
+gcc main.o add.o -o program
+
+	This links main.o and add.o into a final executable called program.
+
+Run It
+
+	./program
+
+Output:
+
+	Result: 7
+
+
+Why Use a Makefile?
+
+Imagine your project grows to 10 or 50+ .c files. Manually compiling each one every time is tedious and inefficient.
+
+Makefile:
+
+	Automates compilation and linking.
+
+    	Tracks dependencies so only changed files are recompiled.
+
+    	Makes your project easier to maintain, share, and build.
+
+Manual Steps Recap
+
+From earlier:
+
+	gcc -c main.c   # → main.o
+	gcc -c add.c    # → add.o
+	gcc main.o add.o -o program
+
+We want to translate that logic into a Makefile.
+
+Makefile Breakdown
+
+# Target    : Dependencies
+#  Command(s) to build target
+
+program: main.o add.o
+	gcc main.o add.o -o program
+
+main.o: main.c
+	gcc -c main.c
+
+add.o: add.c
+	gcc -c add.c
+
+clean:
+	rm -f *.o program
+
+Logic Behind It
+
+    	Targets like program, main.o, and add.o represent files to be created.
+
+    	Dependencies (e.g., main.c) are source files required to build those targets.
+
+    	Commands under each rule are executed only if the dependencies have changed.
+
+How It Works (Step-by-step)
+
+    You type: make
+
+    It looks at the first target (program) and checks:
+
+        Does program exist?
+
+        Are any dependencies (main.o, add.o) newer than program?
+
+    If so, it rebuilds program.
+
+    If main.c or add.c changed, their .o files are recompiled too.

@@ -1,0 +1,64 @@
+History of Virtualization
+
+Virtualization originated in the 1960s with IBM's development of time-sharing systems for mainframes
+
+. These systems allowed multiple users to share computing resources efficiently. Over time, virtualization evolved to include hypervisors, which abstract physical hardware and enable multiple virtual machines (VMs) to run on a single server. This innovation revolutionized data centers by improving resource utilization and simplifying management.
+Evolution to Containers
+
+Containers emerged as a lightweight alternative to VMs. Unlike VMs, which virtualize entire operating systems, containers isolate applications and their dependencies within the same OS kernel. The concept began with Unix's chroot in 1979, followed by technologies like FreeBSD Jails (2000), Linux VServer (2001), and Docker (2013), which popularized containerization
+
+.
+How Containers Are Implemented
+
+Containers rely on OS-level virtualization using features like namespaces and control groups (cgroups). Namespaces isolate resources such as processes and network interfaces, while cgroups manage resource allocation like CPU and memory. Docker, a leading container platform, simplifies container creation and management by providing tools to package applications and their dependencies into portable images
+
+.
+Creating a Container with an Example App
+
+Let's create a container for a simple
+
+application:
+
+    Set Up the Application:
+
+        Create a directory and add app.js:
+        javascript
+
+const express = require('express');
+const app = express();
+app.get('/', (req, res) => res.send('Hello, World!'));
+app.listen(3000, () => console.log('App running on port 3000'));
+
+Initialize package.json:
+bash
+
+    npm init -y
+    npm install express
+
+Write a Dockerfile:
+dockerfile
+
+FROM node:lts-alpine
+WORKDIR /app
+COPY . .
+RUN npm install
+CMD ["node", "app.js"]
+EXPOSE 3000
+
+Build and Run the Container:
+bash
+
+    docker build -t my-node-app .
+    docker run -d -p 3000:3000 my-node-app
+
+    Access the App: Open http://localhost:3000 in your browser to see "Hello, World!"
+
+Hosting the Container
+
+You can host containers on platforms like Docker Hub, AWS, Azure, or Google Cloud. For self-hosting:
+
+    Install Docker on your server.
+
+    Push your container image to a private registry.
+
+    Use docker run to deploy the container on your server

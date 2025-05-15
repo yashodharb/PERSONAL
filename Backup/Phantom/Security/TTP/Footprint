@@ -1,0 +1,63 @@
+Footprinting using Search engines:
+
+Google Dorking techniques [all/intitle, all/inurl, filetype, cache]
+OSINT
+Meta-Data analyzers [Tools and Online]
+Gathering Information from FTP Search Engines
+Gathering Information from IoT Search Engines [shodan.io]
+
+
+Footprinting via web-services:
+Finding the Company’s Domains and Subdomains Using Netcraft
+Gathering Personal Information using Online People Search Service [PeekYou]
+Gathering an Email List Using theHarvester
+Gathering Information using Deep and Dark Web Searching [TOR]
+Determining Target OS through Passive Footprinting [https://search.censys.io/?q=]
+
+*[Censys.io is a search engine and data platform that scans the internet to collect information about publicly accessible devices and services. It helps security professionals, researchers, and organizations understand vulnerabilities and assess the attack surface of internet-connected assets. Censys.io provides tools like Censys Search, which allows users to search for and analyze data on internet-connected devices, and Censys Attack Surface Management, which helps organizations monitor and manage their internet-facing assets]
+
+Footprinting through Social Networking sites:
+Gathering Employees' Information from LinkedIn Using theHarvester [Harvester -d eccouncil.org -l 200 -b linkedin]
+
+Gathering Personal Information from Various Social Networking Sites Using Sherlock [sherlock <userName>]
+
+Performing Website Footprinting:
+Ping Command [ping www.certified website.com -f -I 1500 a]
+Gathering Information about a Target Website Using Photon. [GITHUB: https://github.com/s0md3v/Photon]
+
+Gathering Information about a Target Website Using Central Ops
+https://www.centralops.net
+
+Extracting a Company’s Data using Web Data Extractor
+
+Mirroring a Target Website using HTTrack Website Copier
+
+Gathering Information about a Target Website Using GRecon [Alternative: https://github.com/KawaCoder/GhostRecon]
+
+Gathering a Wordlist from the Target Website Using CeWL
+[https://github.com/digininja/CeWL] [cewl -w wordlist.txt -d 2 -m 5 https://www.certifiedhacker.com]
+
+Performing Email Footprinting:
+Gathering Information about a Target by Tracing Emails Using eMailTrackerPro
+
+Performing Whois Footprinting [http://whois.domaintools.com]
+You can also use other Whois lookup tools such as SmartWhois
+(https://www.tamos.com), Batch IP Converter (http://www.sabsoft.com),
+etc. to extract additional target Whois information
+
+Performing DNS Footprinting:
+DNS-Dumpster [https://dnsdumpster.com]
+dnsrecon [https://github.com/darkoperator/dnsrecon
+nslookup
+whois
+dig
+
+Gathering Information of Subdomain and DNS Records Using SecurityTrails:
+[https://securitytrails.com]
+
+Performing Network Footprinting:
+[https://www.arin.net/about/welcome/region]
+
+Performing Network Traceroute in Windows and Linux Machines:
+tracert
+traceroute

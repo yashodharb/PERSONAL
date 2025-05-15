@@ -1,0 +1,86 @@
+Steps for Using pstree in Malware Analysis
+
+    Install pstree:
+
+        On Linux, you can install it using:
+        bash
+
+sudo apt-get install psmisc
+
+On macOS, use Homebrew:
+bash
+
+    brew install pstree
+
+Run pstree:
+
+    Execute the command:
+    bash
+
+    pstree -p
+
+    The -p flag includes process IDs, which are crucial for further investigation.
+
+Analyze the Output:
+
+    Look for processes that seem out of place or have unusual parent-child relationships.
+
+    For example, if a legitimate process spawns a child process with a suspicious name or behavior, it could indicate malware activity.
+
+Combine with Other Tools:
+
+    Use pstree alongside tools like strace, lsof, or top to gather more information about suspicious processes.
+
+    For memory analysis, tools like Volatility can complement pstree by providing deeper insights into process behavior
+
+        .
+
+Example Scenario
+
+Imagine you suspect malware is running on your system. After executing pstree, you notice a process named malicious.exe spawned by explorer.exe. This is unusual because explorer.exe typically doesn't spawn such processes. You can then:
+
+    Use lsof to check open files and network connections for malicious.exe.
+
+    Use strace to monitor system calls made by the process.
+
+1www.eyehatemalwares.com
+2www.varonis.com
+
+How you might use pstree to analyze firefox.exe in a Linux environment:
+Scenario: Investigating firefox.exe
+
+    Run pstree:
+    bash
+
+pstree -p | grep firefox
+
+This command will display the process tree for firefox.exe and its child processes. The -p flag includes process IDs, and grep firefox filters the output to focus on Firefox.
+
+Example Output:
+
+systemd(1)─┬─firefox(1234)─┬─firefox(1235)
+           │               ├─firefox(1236)
+           │               └─plugin-container(1237)
+
+    firefox(1234) is the main Firefox process.
+
+    firefox(1235) and firefox(1236) are child processes, possibly handling tabs or extensions.
+
+    plugin-container(1237) is a process for managing plugins.
+
+Analyze the Tree:
+
+    Look for unusual child processes or unexpected parent processes. For example, if firefox.exe is spawned by a suspicious process, it could indicate malware activity.
+
+Further Investigation:
+
+    Use lsof to check open files and network connections:
+    bash
+
+lsof -p 1234
+
+Use strace to monitor system calls:
+bash
+
+strace -p 1234
+

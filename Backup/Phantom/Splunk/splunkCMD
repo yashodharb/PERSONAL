@@ -1,0 +1,85 @@
+NOTE: Make sure to sudo apt install apache2 and start the service
+
+Download Splunk from Official Splunk website
+
+Installation:
+	dpkg -i <downloaded_Splunk.deb>
+	
+Directory Installed: opt/splunk/bin
+
+Config File: sudo nano /opt/splunk/etc/splunk-launch.conf
+
+
+cd opt/splunk/bin/
+
+sudo ./splunk start -accept-license --answer-yes
+
+sudo ./splunk status/Start/Stop
+
+
+To start as a serviced [systemctl start/stop splunkd]:
+	./splunk enable boot-start -systemd-managed 1
+	
+To start as a serviced [systemctl start/stop splunkd] for a particular user [For example we are using Splunk service account] [It is not recommended to take ownership from service to self or to a user for privacy reasons. Since Service accounts are more secure and have less priviledges]
+	sudo /opt/splunk/bin/splunk enable boot-start -user splunk [splunk is default service account spawned by Splunk]
+
+Start Splunk:
+	cd /opt/splunk/bin
+	sudo ./splunk start
+
+Stop Splunk:
+	cd /opt/splunk/bin
+	sudo ./splunk stop
+	
+To revert from service-Daemon:
+	sudo ./splunk disable boot-start
+
+
+
+This is what I initially set
+
+Username: admin
+Pass: Changeme
+
+Default is admin and password is setup while setting up splunk. It will prompt for the same. This was a test.
+
+----------------------------------------------------------------------------------------------------------------------------------------
+
+MISC:
+Reload Systemd:
+
+    Inform systemd about the changes:
+    					sudo systemctl daemon-reload
+
+Why Not Start Services as Root?
+
+    Security Risks:
+
+        Services running as root have unrestricted access to the system. If a service is compromised, an attacker could gain complete control over the machine.
+
+        This increases the risk of malware or privilege escalation attacks.
+
+    Unnecessary Privileges:
+
+        Most services only require specific privileges (e.g., access to certain files or ports). Running them as root provides more access than needed, violating the principle of least privilege.
+
+    Human Error:
+
+        Mistakes made while managing services as root (e.g., incorrect configurations or commands) can lead to widespread damage to the system.
+
+    Auditing and Accountability:
+
+        When services run under a dedicated service account, their actions are easier to track in logs. Using root makes it hard to distinguish between system-level and service-level activities.
+
+When Root Might Be Necessary
+
+    Low-Numbered Ports: Services like web servers (e.g., Apache, Nginx) need root privileges to bind to ports below 1024. However, modern services often drop privileges immediately after binding by switching to a less-privileged user.
+
+    System-Level Changes: If a service needs to manage system-wide configurations, root access might be required during setup or initialization.
+
+Best Practices
+
+    Use Dedicated Service Accounts:
+
+        Run services as a specific user with limited permissions. For example:
+        bash

@@ -1,0 +1,209 @@
+What is cloud computing? Types, examples and benefits
+
+Cloud computing is a general term for the on-demand delivery of hosted computing and IT services over the internet with pay-as-you-go pricing. Users can obtain technology services such as processing power, storage and databases from a cloud provider, eliminating the need to purchase, operate and maintain on-premises physical data centers and servers.
+Table of Contents
+
+    How does cloud computing work?
+    What are the benefits of cloud computing?
+    What are the different types of cloud computing services?
+    Cloud computing deployment models
+    Characteristics of cloud computing
+    What are the disadvantages of cloud computing?
+    What are some examples of cloud computing?
+    Cloud computing use cases
+    Cloud computing vs. traditional web hosting
+    Cloud computing service providers
+    Cloud computing security
+    Future of cloud computing and emerging technologies
+
+A cloud can be private, public or a hybrid. A public cloud sells services to anyone on the internet. A private cloud is a proprietary network or a data center that supplies hosted services to a limited number of people, with certain access and permissions settings. A hybrid cloud offers a mixed computing environment where data and resources can be shared between public and private clouds. Regardless of the type, the goal of cloud computing is to provide easy, scalable access to computing resources and IT services.
+
+Cloud infrastructure involves the hardware and software components required for the proper deployment of a cloud computing model. Cloud computing can also be thought of as utility computing or on-demand computing.
+
+The name cloud computing was inspired by the cloud symbol often used to represent the internet in flowcharts and diagrams.
+How does cloud computing work?
+
+Cloud computing lets client devices access rented computing resources, such as data, analytics and cloud applications over the internet. It relies on a network of remote data centers, servers and storage systems that are owned and operated by cloud service providers (CSPs). The providers are responsible for the storage capacity, security and computing power needed to maintain the data users send to the cloud.
+
+An internet network connection links the front end -- the accessing client device, browser, network and cloud software applications -- with the back end, which consists of databases, servers, operating systems and computers. The back end functions as a repository, storing data accessed by the front end.
+
+A central server manages communication between the front and back ends. It relies on protocols to facilitate the exchange of data. The central server uses both software and middleware to manage connectivity between different client devices and cloud servers. Typically, there's a dedicated server for each application or workload.
+
+The following steps are generally involved in cloud computing.
+
+-    A customer initiates a request for a cloud service, such as storing a file, running an application or analyzing data. This request is sent to a cloud provider through the internet.
+-    The request reaches a large data center, managed by the cloud provider, containing thousands of servers, storage systems and networking equipment.
+-    The cloud provider's software allocates the necessary resources such as virtual servers, storage space and network bandwidth to fulfill the customer's request. This allocation is 	 						dynamic as the resources are assigned and de-allocated as needed.
+    The allocated resources process the request. For example, if a file is being stored, it is uploaded to a designated storage location; if an application is being run, it's executed on a virtual server.
+    Once the task is complete, the result is sent back to the customer over the internet. This could be the stored file, the output of the application or the results of the data analysis.
+
+The cloud provider typically charges the customer based on the resources consumed, such as storage space used, compute time or network bandwidth.
+
+Cloud computing relies heavily on virtualization and automation technologies. Virtualization lets IT organizations create virtual instances of servers, storage and other resources that enable multiple virtual machines (VMs) or cloud environments run on a single physical server using software known as a hypervisor. This simplifies the abstraction and provisioning of cloud resources into logical entities, letting users easily request and use these resources. Automation and accompanying orchestration capabilities provide users with a high degree of self-service to provision resources, connect services and deploy workloads without direct intervention from the cloud provider's IT staff.
+What are the benefits of cloud computing?
+
+Cloud computing provides a variety of benefits for modern business, including the following:
+
+    Cost management. Using cloud infrastructure can reduce capital costs, as organizations don't have to spend massive amounts of money buying and maintaining equipment; investing in hardware, facilities or utilities; or building large data centers to accommodate their growing businesses. In addition, companies don't need large IT teams to handle cloud data center operations because they can rely on the expertise of their cloud providers' teams. Cloud computing also cuts costs related to downtime. Since downtime rarely happens in cloud computing, companies don't have to spend time and money to fix issues that might be related to downtime.
+    Data and workload mobility. Storing information in the cloud means users can access it from anywhere with any device with just an internet connection. That means users don't have to carry around USB drives, an external hard drive or multiple CDs to access their data. They can access corporate data via smartphones and other mobile devices, letting remote employees stay current with co-workers and customers. End users can easily process, store, retrieve and recover resources in the cloud. In addition, cloud vendors provide all the upgrades and updates automatically, saving time and effort.
+    Business continuity and disaster recovery. All organizations worry about data loss. Storing data in the cloud guarantees that users can always access their data even if their devices, such as laptops or smartphones, are inoperable. With cloud-based services, organizations can quickly recover their data in the event of natural disasters or power outages. This benefits BCDR and helps ensure that workloads and data are available even if the business suffers damage or disruption.
+    Speed and agility. Cloud computing facilitates rapid deployment of applications and services, letting developers swiftly provision resources and test new ideas. This eliminates the need for time-consuming hardware procurement processes, thereby accelerating time to market.
+    Environmental sustainability. By maximizing resource utilization, cloud computing can help promote environmental sustainability. Cloud providers can save energy costs and reduce their carbon footprint by consolidating workloads onto shared infrastructure. These providers often operate large-scale data centers designed for energy efficiency.
+    Automatic updates. Cloud services often include automatic updates so users always have access to the latest features and security patches without manual intervention.
+
+What are the different types of cloud computing services?
+
+Cloud services can be classified into the following general delivery categories:
+Infrastructure as a service (IaaS)
+
+IaaS providers, such as Amazon Web Services (AWS), supply a virtual server instance and storage, as well as application programming interfaces (APIs) that let users migrate workloads to a VM. Users have an allocated storage capacity and can start, stop, access and configure the VM and storage as desired. IaaS providers offer small, medium, large, extra-large, and memory- or compute-optimized instances, in addition to customization of instances for various workload needs. The IaaS cloud model is closest to a remote data center for business users.
+Platform as a service (PaaS)
+
+In the PaaS model, cloud providers host development tools on their infrastructures. Users access these tools over the internet using APIs, web portals or gateway software. PaaS is used for general software development and many PaaS providers host the software after it's developed. Examples of PaaS products include Salesforce Lightning, AWS Elastic Beanstalk and Google App Engine.
+Software as a service (SaaS)
+
+A SaaS distribution model delivers software applications over the internet; these applications are often called web services. Users can access SaaS applications and services from any location using a computer or mobile device with internet access. In the SaaS model, users gain access to application software and databases. An example of a SaaS application is Microsoft 365 for productivity and email services.
+Function as a service (FaaS)
+
+FaaS, also known as serverless computing, lets users run code in the cloud without having to worry about the underlying infrastructure. Users can create and deploy functions that respond to events or triggers. FaaS abstracts server and infrastructure management, letting developers concentrate solely on code creation.
+Cloud computing services can be classified into SaaS, PaaS, IaaS and FaaS.
+The main types of cloud computing.
+Cloud computing deployment models
+
+There are several cloud computing deployment methods, including the following:
+Private cloud
+
+A business's data center delivers private cloud services to internal users. With a private cloud, an organization builds and maintains its own underlying cloud infrastructure. This model offers the versatility and convenience of the cloud while preserving the management, control and security common to local data centers. Internal users might be billed for services through IT chargeback.
+
+Examples of private cloud technologies and vendors include AWS, Citrix Cloud, IBM Cloud, OpenStack and VMware.
+Public cloud
+
+In the public cloud model, a third-party CSP delivers the cloud service over the internet. The resources are shared between multiple organizations to implement cost efficiency and scalability.
+
+Public cloud services are sold on demand, typically by the minute or hour, though long-term commitments are available for many services. Customers only pay for the central processing unit cycles, storage or bandwidth they consume. Examples of public CSPs include AWS, Google Cloud Platform (GCP), IBM, Microsoft Azure, Oracle and Tencent Cloud.
+Hybrid cloud
+
+A hybrid cloud is a combination of public cloud services and an on-premises private cloud, with orchestration and automation between the two. Companies can run mission-critical workloads or sensitive applications on the private cloud and use the public cloud to handle workload bursts or spikes in demand.
+
+The goal of a hybrid cloud is to create a unified, automated and scalable environment that takes advantage of all that a public cloud infrastructure can provide, while still maintaining control over mission-critical data.
+Multi-cloud
+
+Organizations are increasingly embracing a multi-cloud model or the use of multiple IaaS providers. This lets applications migrate between different cloud providers or operate concurrently across two or more cloud providers.
+
+Organizations adopt multi-cloud for various reasons, including to help them minimize the risk of a cloud service outage or to take advantage of more competitive pricing from a particular provider. It also helps organizations avoid vendor lock-in, letting them switch from one provider to another if needed.
+
+However, multi-cloud deployment and application development can be a challenge because of the differences between cloud providers' services and APIs.
+
+Multi-cloud deployments should become easier as cloud providers work to standardize and converge their services and APIs. Industry initiatives such as the Open Cloud Computing Interface aim to promote interoperability and simplify multi-cloud deployments.
+Community cloud
+
+A community cloud supports a particular community that has the same concerns, mission, policy, security requirements and compliance considerations. A community cloud is either managed by these organizations or a third-party vendor and can be on- or off-premises.
+Characteristics of cloud computing
+
+Cloud computing has been around for several decades and today's cloud computing infrastructure demonstrates an array of characteristics that have brought meaningful benefits to businesses of all sizes.
+
+Common characteristics of cloud computing include the following:
+
+    Self-service provisioning. End users can spin up compute resources for almost any type of workload on demand. An end user can provision computing capabilities, such as server time and network storage, eliminating the traditional need for IT administrators to provision and manage compute resources.
+    Elasticity. Companies can freely scale up as computing needs increase and scale down as demands decrease. This eliminates the need for massive investments in local infrastructure, which might not remain active.
+    Pay per use. Compute resources are measured at a granular level, letting users pay only for the resources and workloads they use.
+    Workload resilience. CSPs often deploy redundant resources to ensure resilient storage and to keep users' important workloads running -- often across multiple global regions.
+    Migration flexibility. Organizations can move certain workloads to or from the cloud or to different cloud platforms automatically.
+    Broad network access. A user can access cloud data or upload data to the cloud from anywhere with an internet connection using any device.
+    Multi-tenancy and resource pooling. Multi-tenancy lets several customers share the same physical infrastructures or the same applications, and still retain privacy and security over their own data. With resource pooling, cloud providers service numerous customers from the same physical resources. The cloud provider resource pools should be large and flexible enough so they can meet the requirements of multiple customers.
+    Security. Security is integral in cloud computing and most providers prioritize the application and maintenance of security measures to ensure the confidentiality, integrity and availability of data being hosted on their platforms. Along with strong security features, providers also offer various compliance certifications to guarantee their services adhere to industry standards and regulations.
+
+What are the disadvantages of cloud computing?
+
+Despite the clear upsides to relying on cloud services, cloud computing also comes with certain challenges, such as the following:
+
+    Security challenges. Security is often considered the greatest challenge organizations face with cloud computing. When relying on the cloud, organizations risk data breaches, hacking of APIs and interfaces, compromised credentials and authentication issues. Furthermore, there's a lack of transparency regarding how and where sensitive information entrusted to a cloud provider is handled. Security demands careful attention to cloud configurations and business policy and practice.
+    Unpredictable costs. Pay-as-you-go subscription plans for cloud use, along with scaling resources to accommodate fluctuating workload demands, can make it difficult to define and predict final costs. Cloud costs are also frequently interdependent, with one cloud service often using one or more other cloud services -- all of which appear in the recurring monthly bill. This can create additional unplanned cloud costs.
+    Lack of expertise. With cloud-supporting technologies rapidly advancing, organizations are struggling to keep up with the growing demand for tools, as well as employees with the proper skills and knowledge needed to architect, deploy and manage workloads and data in a cloud.
+    IT governance difficulties. The emphasis on do-it-yourself in cloud computing can make IT governance difficult, as there's no control over provisioning, deprovisioning and management of infrastructure operations. This can make it challenging for organizations to properly manage risks and security, IT compliance and data quality.
+    Compliance with industry laws. When transferring data from on-premises local storage to cloud storage, it can be difficult to manage compliance with industry regulations through a third party. It's important to know where data and workloads are hosted to maintain regulatory compliance and proper business governance.
+    Management of multiple clouds. Every cloud is different, so multi-cloud deployments can disjoint efforts to address more general cloud computing challenges.
+    Cloud performance. Performance -- such as latency -- is largely beyond the control of the organization contracting for cloud services with a provider. Network and provider outages can interfere with productivity and disrupt business processes if organizations aren't prepared with contingency plans.
+    Cloud migration. Moving applications and other data to the cloud often causes complications. Migration projects frequently take longer than anticipated and go over budget. The issue of workload and data repatriation -- moving from the cloud back to a local data center -- is often overlooked until unforeseen costs or performance problems arise.
+    Vendor lock-in. Switching between cloud providers can cause significant issues. This includes technical incompatibility, legal and regulatory limitations and substantial costs incurred from sizable data migrations.
+    Integration challenges. Integrating cloud systems with existing systems can pose compatibility challenges. For example, certain legacy systems might not be easily compatible with cloud technologies, requiring significant adjustments or updates to integrate them effectively.
+
+What are some examples of cloud computing?
+
+Cloud computing has evolved and diversified into a wide array of offerings and capabilities designed to suit almost any business need. Examples of cloud computing capabilities and diversity include the following:
+
+    Google Docs, Microsoft 365. Users can access Google Docs and Microsoft 365 via the internet. Users can be more productive because they can access work presentations and spreadsheets stored in the cloud anytime from anywhere on any device.
+    Email, Calendar, Skype, WhatsApp. Emails, calendars, Skype and WhatsApp take advantage of the cloud's ability to provide access to data remotely so users can examine their data on any device, whenever and wherever they want.
+    Zoom, Microsoft Teams. Zoom is a cloud-based software platform for video and audio conferencing that records meetings and saves them to the cloud, letting users access them anywhere and at any time. Another common communication and collaboration platform is Microsoft Teams.
+    AWS Lambda. Lambda lets developers run code for applications or back-end services without provisioning or managing servers. The pay-as-you-go model accommodates real-time changes in data usage and data storage. Other examples of major cloud providers that also support serverless computing capabilities include Google Cloud Run Functions and Microsoft Azure Functions.
+    Salesforce. Salesforce is a cloud-centric customer relationship management platform that helps businesses oversee their sales, marketing and customer service operations.
+    Dropbox. This is a cloud storage service that lets users store files online and access them from any device. Dropbox also supports file sharing and collaboration.
+
+Cloud computing use cases
+
+How is the cloud actually used? The myriad services and capabilities found in modern public clouds have been applied across countless use cases, such as the following:
+
+    Testing and development. Ready-made, tailored environments can expedite timelines and milestones.
+    Production workload hosting. Organizations use the public cloud to host live production workloads. This requires careful design and architecture of the cloud resources and services needed to create an operational environment for the workload and its required level of resilience.
+    Big data analytics. Remote data centers using cloud storage are flexible, scalable and provide valuable data-driven insights. Major cloud providers offer services tailored to big data analytics and projects, such as Amazon EMR and Google Cloud Dataproc.
+    IaaS. IaaS lets companies host IT infrastructures and access compute, storage and network capabilities in a scalable manner. Pay-as-you-go subscription models are cost-effective, as they can help companies save on upfront IT costs.
+    PaaS. PaaS can help companies develop, run and manage applications more easily, flexibly and at a lower cost than maintaining a platform on-premises. PaaS services can also increase the development speed for applications and enable higher-level programming.
+    Hybrid cloud. Organizations have the option to use the appropriate cloud -- private or public -- for different workloads and applications to optimize cost and efficiency.
+    Multi-cloud. Using multiple different cloud services from separate cloud providers can help subscribers find the best cloud service fit for diverse workloads with specific requirements.
+    Storage. Large amounts of data can be stored remotely and accessed easily. Clients only have to pay for the storage they use.
+    Disaster recovery. Cloud offers faster recovery than traditional on-premises DR. Furthermore, it's offered at lower costs.
+    Data backup. Cloud backup options are generally easier to use. Users don't have to worry about availability and computing capacity, and the cloud provider manages data security.
+    Artificial intelligence as a service. Cloud computing lets individuals without formal knowledge or expertise in data sciences reap the benefits of AIaaS. For example, a web developer might create a facial recognition app with their web development skills. AI is available as a service in the cloud and accessible via the API. This lets users automate routine tasks, saving time and personnel costs. Businesses can also enhance decision-making by using AI to predict outcomes based on historical data sets.
+    Internet of things. Cloud computing simplifies the processing and management of data from IoT devices. Cloud platforms offer the scalability and processing capacity required to handle the enormous amounts of data produced by IoT devices, facilitating real-time analytics and decision-making. For example, an IoT device system such as Google Nest or Amazon Alexa can collect data on how much energy is used inside a smart home. The device can then use cloud computing to analyze the gathered data and make recommendations to the homeowner on how to reduce energy consumption.
+    Social networking. While cloud computing is often associated with enterprise use cases, it's also widely used in social networking. For example, platforms such as Meta, X and LinkedIn exemplify the SaaS model of cloud computing, which lets users connect and share through tweets, photos, messages and social media posts.
+
+Cloud computing vs. traditional web hosting
+
+Given the many different services and capabilities of the public cloud, there has been some confusion between cloud computing and major uses, such as web hosting. While the public cloud is often used for web hosting, the two are quite different. Significant innovations in virtualization and distributed computing, as well as improved access to high-speed internet have accelerated interest in cloud computing.
+
+The distinct characteristics of cloud computing that differentiate it from traditional web hosting include the following:
+
+    Cloud computing lets users access large amounts of computing power on demand -- typically sold by the minute or hour. With traditional hosting, users typically pay for a set amount of storage and processing power. Since resources are limited, businesses can look into virtual private servers or dedicated hosting as their demands grow.
+    Cloud computing is elastic, meaning users can have as much or as little of a service as they want at any given time. Traditional hosting often constrains scalability, particularly in shared hosting. Shared hosting involves multiple websites sharing resources on a single server, which can potentially cause performance issues and slower website speeds if a site encounters a sudden surge in traffic.
+    Service is fully managed by the provider on cloud computing platforms; the consumer needs nothing but a PC and internet access. While shared traditional hosting is also fully managed by the provider, typically users are required to control their website from a user-friendly interface such as cPanel.
+    Cloud hosting is more reliable than traditional hosting. Cloud providers maintain redundant infrastructure and operate across numerous data centers, reducing downtime and increasing availability. Traditional hosting is based on a single server, making it more prone to hardware failures and higher downtime threats.
+    Both cloud hosting and traditional hosting have security considerations. Cloud hosting providers make significant investments in security to safeguard data and infrastructure. However, certain organizations might find traditional hosting more suitable, as it provides greater control over security and can accommodate specific security requirements.
+    Cloud computing generally provides better performance than traditional web hosting by distributing workloads across multiple servers, ensuring faster load times and an enhanced user experience. Traditional web hosting performance can be affected by the number of users sharing the same server resources, leading to slower load times during peak usage.
+
+Cloud computing service providers
+
+The cloud service market has no shortage of providers. According to Gartner's Magic Quadrant 2024, the eight top cloud platform service providers hold 97% of the global market share. The three public CSPs -- AWS, Google Cloud Platform and Microsoft Azure -- rank at the top, followed by other leading vendors including Oracle, Alibaba, IBM, Huawei and Tencent.
+Top cloud providers.
+Public cloud providers AWS, Azure and Google Cloud Platform rank as the top three leaders in the industry.
+
+When selecting a cloud service vendor, organizations should consider the following:
+
+    The intended use case. The suite of services can vary between providers, and business users must select a provider offering services -- such as big data analytics or AI services -- that support their use case.
+    Pricing. Cloud services typically rely on a pay-per-use model, but providers often have variations in their pricing plans.
+    Location of the CSP's physical servers. If the cloud provider will be storing sensitive data, an organization should consider the physical location of the provider's servers.
+    Reliability and security. A provider's service-level agreement should specify a level of service uptime that's satisfactory to client business needs. Organizations should also pay close attention to what technologies and configuration settings are used to secure sensitive information.
+
+Cloud computing security
+
+Security remains a primary concern for businesses contemplating cloud adoption -- especially public cloud adoption. Public CSPs share their underlying hardware infrastructure among numerous customers, as the public cloud is a multi-tenant environment. This environment demands significant isolation between logical compute resources. At the same time, access to public cloud storage and compute resources is guarded by account login credentials.
+
+Many organizations bound by complex regulatory obligations and governance standards are still hesitant to place data or workloads in the public cloud for fear of outages, loss or theft. However, this resistance is fading, as logical isolation has proven reliable and the addition of data encryption and various identity and access management tools have improved security within the public cloud.
+
+Ultimately, the responsibility for establishing and maintaining a secure cloud environment falls to the individual business user responsible for building the workload's architecture -- the combination of cloud resources and services in which the workload runs -- and using the security features offered by the cloud provider.
+Future of cloud computing and emerging technologies
+
+Cloud computing is expected to see substantial breakthroughs and the adoption of new technologies. According to a Grand View Research report, the worldwide public cloud services market is forecast to grow at a CAGR of 21.2 % from 2024 to 2030.
+
+Some major trends and key points shaping the future of cloud computing include the following:
+
+    Digital transformation. Organizations are increasingly migrating mission-critical workloads to public clouds. One reason for this shift is that business executives who want their companies to compete in the new world of digital transformation are demanding the public cloud.
+    Fewer barriers to adoption. Business leaders are also looking to the public cloud to take advantage of its elasticity, modernize internal computer systems, and empower critical business units and their DevOps teams. Cloud providers, such as IBM and VMware, are concentrating on meeting the needs of enterprise IT, in part by removing the barriers to public cloud adoption that caused IT decision-makers to previously shy away from fully embracing the public cloud.
+    Public cloud is ready for mission-critical apps. Generally, when contemplating cloud adoption, many enterprises mainly focused on new cloud-native applications -- designing and building applications specifically intended to use cloud services – as they haven't been willing to move their most mission-critical apps into the public cloud. However, these organizations are beginning to realize the cloud is ready for the enterprise if they select the right cloud platforms.
+    Advanced FinOps cost controls. Advanced FinOps for controlling cloud computing costs is emerging as a key trend in cloud computing. As cloud environments become more complex and costs rise, organizations are adopting AI-driven tools and strategies to optimize spending. By using analytics, automation and machine learning, advanced FinOps helps identify inefficiencies, predict future costs and provide proactive measures to maximize cloud investment value.
+    Expansion of serverless offerings. Cloud providers are locked in ongoing competition for cloud market share, so the public cloud continues to evolve, expand and diversify its range of services. This has resulted in public IaaS providers offering more than common compute and storage instances. For example, serverless, or event-driven, computing is a cloud service that executes specific functions, such as image processing and database updates. Traditional cloud deployments require users to establish a compute instance and load code into that instance. The user then decides how long to run -- and pay for -- that instance. With serverless computing, developers simply create code and the cloud provider loads and executes that code in response to real-world events so users don't have to worry about the server or instance aspect of the cloud deployment. Users only pay for the number of transactions the function executes. AWS Lambda, Google Cloud Run Functions and Azure Functions are examples of serverless computing services.
+    Big data services. Public cloud computing also lends itself well to big data processing, which demands enormous compute resources for relatively short durations. Cloud providers have responded with big data services, including Google BigQuery for large-scale data warehousing and Microsoft Azure Data Lake Analytics for processing huge data sets.
+    Growth of edge computing. The demand for faster data processing and real-time analytics is driving the rise of edge computing. By processing data closer to its source, edge computing reduces latency and enhances response times. This is especially beneficial for applications that require immediate data processing, such as IoT devices, autonomous vehicles and real-time analytics. The integration of edge computing with AI enables real-time decision-making and advanced analytics at the edge, without relying on constant cloud connectivity.
+    Ready to use machine learning and large language model offerings. Another crop of emerging cloud technologies and services relates to AI, machine learning and LLMs. These technologies provide a range of cloud-based, ready-to-use AI and machine learning services for client needs. Examples of these services include Amazon Machine Learning, Amazon Lex, Amazon Polly, Google Cloud Machine Learning Engine and Google Cloud Speech API.
+    Blockchain. The connection between blockchain and cloud computing is poised to strengthen, as companies recognize blockchain's potential to improve operational efficiency, security and transparency. This trend is further supported by increased investment and the expansion of blockchain-as-a-service platforms.
+
+When contemplating a move to the cloud, businesses must assess key factors such as latency, bandwidth, quality of service and security

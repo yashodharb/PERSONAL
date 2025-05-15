@@ -1,0 +1,90 @@
+prod vs dev vs uat environmemnt and other
+
+Understanding the differences between Development (Dev), User Acceptance Testing (UAT), Production (Prod), and other environments is critical for maintaining a structured and efficient software lifecycle. Here's a breakdown:
+1. Development (Dev) Environment
+
+    Purpose: This is where developers build and test the application code during its creation or modification.
+
+    Characteristics:
+
+        Rapid iterations and frequent changes.
+
+        May include debug tools and detailed logging.
+
+        Errors and issues are expected and tolerated.
+
+    Access: Limited to developers and possibly QA testers.
+
+    Example Activities:
+
+        Writing code.
+
+        Running unit tests.
+
+        Initial integration of components.
+
+2. User Acceptance Testing (UAT) Environment
+
+    Purpose: Designed for end users or clients to test the application to verify it meets business requirements.
+
+    Characteristics:
+
+        Closely mirrors the production environment.
+
+        Focused on ensuring functionality, usability, and compliance with requirements.
+
+        Minimal developer tools; used by QA teams or stakeholders.
+
+    Access: End users, QA teams, and stakeholders.
+
+    Example Activities:
+
+        Testing workflows and scenarios as per user stories.
+
+        Identifying usability or functionality gaps.
+
+        Gaining client approval before release.
+
+3. Production (Prod) Environment
+
+    Purpose: This is the live environment where the application is deployed for real users.
+
+    Characteristics:
+
+        High stability and performance.
+
+        Contains actual user data.
+
+        Strictly monitored for uptime and security.
+
+    Access: Restricted; mainly support teams and administrators.
+
+    Example Activities:
+
+        Handling live user traffic.
+
+        Monitoring application health.
+
+        Addressing real-time issues or incidents.
+
+4. Other Environments
+
+    Staging:
+
+        Purpose: A replica of the production environment for final testing.
+
+        Used to test deployment processes and simulate real-world scenarios.
+
+    Testing/QA:
+
+        Purpose: Dedicated to running automated and manual tests on the application.
+
+        Focuses on finding bugs and validating code changes.
+
+    Sandbox:
+
+        Purpose: A safe space for experimenting with new technologies or workflows without affecting other environments.
+
+    Disaster Recovery (DR):
+
+        Purpose: A backup environment to restore services in case of production failure.

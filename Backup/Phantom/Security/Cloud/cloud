@@ -1,0 +1,19 @@
+Types of storage in Cloud
+
+File Sytem Storage
+block storage
+object storage
+
+Types of disk.
+Throughput and IOPs. [IOPs -> Input/Ouput per second]-> Metrics used while choosing the type of disk you need while cloud storage.
+
+Monolith vs Microservices
+
+Monolith:
+A monolithic architecture is a traditional software development model where all application components are packagedtogether and deployed as a single unit. 
+
+Microservices:
+A microservices architecture breaks down an application into smaller, independent services that communicate with each other through APIs.
+
+Containers are more faster than virtualiztion.
+Production code and libraries and dependencies are bundled together.

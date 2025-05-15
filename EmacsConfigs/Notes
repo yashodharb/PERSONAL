@@ -1,0 +1,171 @@
+File Header:
+emacs-lisp
+
+;;; -*- lexical-binding: t; -*-
+
+This sets lexical binding for the file, meaning variables are bound locally instead of dynamically. It improves performance and is generally recommended.
+Package Manager Configuration:
+emacs-lisp
+
+(require 'package)
+(setq package-archives
+      '(("melpa" . "https://melpa.org/packages/")
+        ("gnu" . "https://elpa.gnu.org/packages/")))
+(package-initialize)
+
+(unless package-archive-contents
+  (package-refresh-contents))
+
+    require 'package → Loads the built-in Emacs package manager.
+
+    package-archives → Defines repositories where packages are downloaded (MELPA & GNU).
+
+    package-initialize → Initializes the package system.
+
+    package-refresh-contents → Updates the package list if it's empty (useful on first run).
+
+Ensure use-package is installed:
+emacs-lisp
+
+(unless (package-installed-p 'use-package)
+  (package-install 'use-package))
+
+    use-package is an Emacs package that simplifies managing other packages.
+
+    The unless condition checks if it's installed; if not, it installs it.
+
+Company Mode (Auto-Completion):
+emacs-lisp
+
+(use-package company
+  :ensure t
+  :config
+  (global-company-mode 1))
+
+    Enables Company Mode, a completion framework that provides suggestions.
+
+    global-company-mode 1 → Turns it on globally.
+
+LSP (Language Server Protocol) Configuration for C/C++:
+emacs-lisp
+
+(use-package lsp-mode
+  :ensure t
+  :commands (lsp)
+  :hook ((c-mode c++-mode) . (lambda ()
+                               (lsp)
+                               (flymake-mode -1))) ;; disable flymake
+  :config
+  (setq lsp-idle-delay 0.0) ;; Respond instantly
+  (setq lsp-completion-provider :capf) ;; Integrate with company
+  (setq lsp-diagnostics-provider :none) ;; ❌ Disable diagnostics completely
+  (setq lsp-enable-symbol-highlighting nil) ;; No highlight
+  (setq lsp-enable-on-type-formatting nil)) ;; No auto-formatting
+
+    use-package lsp-mode → Configures LSP Mode for better code analysis.
+
+    :hook ((c-mode c++-mode) . (lambda () (lsp) (flymake-mode -1)))
+
+        Hooks LSP to C/C++ buffers.
+
+        Disables Flymake, which can interfere with diagnostics.
+
+    setq lsp-diagnostics-provider :none → Turns off error highlighting (removes the red underline).
+
+UI Customizations (Remove Menus & Toolbars):
+emacs-lisp
+
+(menu-bar-mode -1) ;; Remove menu bar
+(tool-bar-mode -1) ;; Remove tool bar
+(scroll-bar-mode -1) ;; Remove scroll bar
+(setq inhibit-startup-screen t) ;; Disable startup screen
+(setq-default indent-tabs-mode nil  ;; Use spaces instead of tabs globally
+              tab-width 4)          ;; Set global tab width to 4 spaces
+(setq display-line-numbers-type 'relative)
+(global-display-line-numbers-mode t) ;; Enable relative line numbers
+
+    Removes GUI elements (menu-bar-mode, tool-bar-mode, scroll-bar-mode).
+
+    Disables the Emacs startup screen.
+
+    Uses spaces instead of tabs.
+
+    Enables relative line numbers (useful in Vim-like workflows).
+
+Font & UI Settings:
+emacs-lisp
+
+(set-face-attribute 'default nil
+                    :family "DejaVu Sans Mono"
+                    :height 200)
+
+    Sets the default font to "DejaVu Sans Mono" with 200% height.
+
+Fullscreen on Startup:
+emacs-lisp
+
+(add-to-list 'default-frame-alist '(fullscreen . fullboth))
+
+    Makes Emacs start in fullscreen mode.
+
+Remove Default Scratch Buffer Message:
+emacs-lisp
+
+(setq initial-scratch-message nil)
+
+    The scratch buffer usually has a startup message. This removes it.
+
+Minibuffer AutoComplete (icomplete-mode):
+emacs-lisp
+
+(icomplete-mode 1)
+
+    Enables autocomplete in the minibuffer, improving usability.
+
+Disable Arrow Keys (Encourages Using Emacs Keybindings):
+emacs-lisp
+
+(global-set-key (kbd "<up>")
+                (lambda () (interactive) (message "Use C-p instead of the up arrow key!")))
+(global-set-key (kbd "<down>")
+                (lambda () (interactive) (message "Use C-n instead of the down arrow key!")))
+(global-set-key (kbd "<left>")
+                (lambda () (interactive) (message "Use C-b instead of the left arrow key!")))
+(global-set-key (kbd "<right>")
+                (lambda () (interactive) (message "Use C-f instead of the right arrow key!")))
+
+    Binds arrow keys to messages, encouraging the use of Emacs navigation keys.
+
+Disable Flycheck (External Syntax Checking):
+emacs-lisp
+
+(use-package flycheck
+  :config
+  (global-flycheck-mode -1))
+
+    Turns off Flycheck, a syntax-checking package.
+
+Theme Customization:
+emacs-lisp
+
+(load-theme 'gruber-darker t)
+
+    Loads the Gruber Darker theme.
+
+Final Thoughts:
+
+This script streamlines Emacs for a minimalist, distraction-free coding environment with:
+
+    Automatic package setup.
+
+    C/C++ language support with LSP.
+
+    Autocomplete via Company.
+
+    UI simplifications.
+
+    No syntax-checking diagnostics (removing unwanted red underlines).
+
+    Vim-like line numbering.
+
+    Encouragement to use Emacs keybindings.

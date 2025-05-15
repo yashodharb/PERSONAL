@@ -1,0 +1,90 @@
+Intrusion Detection System (IDS) and Intrusion Prevention System (IPS)
+
+IDS and IPS are critical components of network security, designed to detect and prevent unauthorized access or malicious activities. Here's a detailed overview:
+Types of IDS
+
+    Network-Based IDS (NIDS):
+
+        Monitors network traffic for suspicious activities.
+
+        Deployed at strategic points like gateways or routers.
+
+        Example: Detecting unusual traffic patterns or port scans.
+
+    Host-Based IDS (HIDS):
+
+        Monitors activities on individual devices or hosts.
+
+        Tracks file changes, logins, and system calls.
+
+        Example: Detecting unauthorized file modifications.
+
+    Protocol-Based IDS (PIDS):
+
+        Focuses on monitoring specific protocols (e.g., HTTP, FTP).
+
+        Ensures protocol compliance and detects anomalies.
+
+    Application Protocol-Based IDS (APIDS):
+
+        Monitors application-level protocols for suspicious behavior.
+
+        Example: Detecting SQL injection attacks in web applications.
+
+    Hybrid IDS:
+
+        Combines features of multiple IDS types for comprehensive monitoring.
+
+        Example: A system that integrates NIDS and HIDS.
+
+Types of IPS
+
+    Network-Based IPS (NIPS):
+
+        Deployed at network entry points to block malicious traffic.
+
+        Example: Preventing DDoS attacks by filtering traffic.
+
+    Host-Based IPS (HIPS):
+
+        Protects individual devices by blocking malicious activities.
+
+        Example: Stopping malware execution on a host.
+
+    Signature-Based IPS:
+
+        Detects threats based on known attack patterns or signatures.
+
+        Example: Blocking traffic matching a known malware signature.
+
+    Anomaly-Based IPS:
+
+        Identifies deviations from normal behavior to detect unknown threats.
+
+        Example: Detecting zero-day attacks.
+
+    Policy-Based IPS:
+
+        Enforces predefined security policies to block unauthorized actions.
+
+        Example: Blocking access to restricted websites.
+
+Usage of IDS/IPS
+
+    Threat Detection: IDS identifies potential threats and alerts administrators, while IPS actively blocks them.
+
+    Network Security: Protects networks from unauthorized access, malware, and DDoS attacks.
+
+    Compliance: Ensures adherence to security policies and regulatory requirements.
+
+    Incident Response: Provides valuable data for analyzing and responding to security incidents.
+
+History of IDS/IPS
+
+    1980s: The concept of intrusion detection emerged with Dorothy Denning's paper, "An Intrusion-Detection Model," which introduced statistical anomaly detection.
+
+    1990s: Early IDS systems like the Intrusion Detection Expert System (IDES) were developed, focusing on rule-based detection.
+
+    2000s: IPS gained popularity as organizations sought proactive measures to block threats. Signature-based and anomaly-based detection methods became standard.
+
+    Present Day: Modern IDS/IPS systems integrate machine learning, AI, and advanced analytics for real-time threat detection and prevention.

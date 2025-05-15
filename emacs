@@ -1,0 +1,157 @@
+;;; -*- lexical-binding: t; -*-
+
+;; Package Manager Configuration
+(require 'package)
+(setq package-archives
+      '(("melpa" . "https://melpa.org/packages/")
+        ("gnu" . "https://elpa.gnu.org/packages/")))
+(package-initialize)
+
+(unless package-archive-contents
+  (package-refresh-contents))
+
+;; Ensure use-package is installed
+(unless (package-installed-p 'use-package)
+  (package-install 'use-package))
+
+;; AutoComplete with Company Mode
+(use-package company
+  :ensure t
+  :config
+  (global-company-mode 1)
+  (company-tng-configure-default) ;; Tab-and-go behavior
+  (setq company-idle-delay 0) ;; Show completions instantly
+  (setq company-minimum-prefix-length 1) ;; Trigger after 1 character
+  (setq company-selection-wrap-around t) ;; Enable wrap-around selection
+  (setq company-tooltip-align-annotations t)) ;; Align annotations properly
+
+;; LSP Mode Configuration for C and C++
+(use-package lsp-mode
+  :ensure t
+  :commands (lsp)
+  :hook ((c-mode c++-mode) . (lambda ()
+                               (lsp)
+                               (flymake-mode -1))) ;; Disable Flymake
+  :config
+  (setq lsp-idle-delay 0) ;; Respond instantly
+  (setq lsp-completion-provider :capf) ;; Integrate with Company
+  (setq lsp-diagnostics-provider :none) ;; Disable diagnostics completely
+  (setq lsp-enable-symbol-highlighting nil) ;; No symbol highlighting
+  (setq lsp-enable-on-type-formatting nil) ;; No auto-formatting
+  (setq lsp-log-io nil) ;; Reduce logging overhead
+  (setq lsp-enable-file-watchers nil) ;; Avoid unnecessary file monitoring
+  (setq lsp-completion-enable-additional-text-edit nil) ;; Prevent unwanted edits
+  (setq lsp-clients-clangd-args '("--background-index" "--clang-tidy"))) ;; Optimize Clangd
+
+;; LSP-UI for better UI experience
+(use-package lsp-ui
+  :ensure t
+  :config
+  (setq lsp-ui-doc-enable t) ;; Enable documentation popups
+  (setq lsp-ui-doc-position 'top) ;; Show documentation at the top
+  (setq lsp-ui-sideline-enable nil)) ;; Disable sideline diagnostics
+
+;; Ensure Flycheck does not interfere with LSP
+(use-package flycheck
+  :ensure t
+  :config
+  (setq flycheck-indication-mode nil)) ;; Disable real-time error indications
+
+(use-package company-capf
+  :ensure nil
+  :config
+  (setq company-backends '(company-capf))) ;; Use completion-at-point functions (LSP)
+
+;; Doom Modeline
+
+(use-package doom-modeline
+  :ensure t
+  :init
+  (doom-modeline-mode 1)) ;; Enable it globally
+
+;; Keep the default mode-line but add custom status indicators
+
+(defun my-mode-line-status ()
+  (concat
+   " "
+   ;; LSP Mode Status
+   (if (bound-and-true-p lsp-mode)
+       (concat "[LSP: " (or (lsp--workspace-print (lsp--current-workspace)) "Inactive") "] ")
+     "")
+   " "
+   ;; Company Mode Status
+   (if (bound-and-true-p company-mode)
+       "[Company Active] "
+     "[Company Off] ")))
+
+;; Add custom status without modifying mode-line formatting
+(add-to-list 'global-mode-string '(:eval (my-mode-line-status)))
+
+;; UI Customizations
+(menu-bar-mode -1) ;; Remove menu bar
+(tool-bar-mode -1) ;; Remove tool bar
+(scroll-bar-mode -1) ;; Remove scroll bar
+(setq inhibit-startup-screen t) ;; Disable startup screen
+;;(setq-default indent-tabs-mode nil  ;; Use spaces instead of tabs globally
+;;              tab-width 4)          ;; Set global tab width to 4 spaces
+(setq display-line-numbers-type 'relative)
+(global-display-line-numbers-mode t) ;; Enable relative line numbers
+
+;; Show column number in mode-line
+(column-number-mode 1)
+
+;; Display file size in mode-line
+(size-indication-mode 1)
+
+
+;; Font and UI Settings
+(set-face-attribute 'default nil
+                    :family "DejaVu Sans Mono"
+                    :height 200)
+
+
+
+;; Fullscreen on Startup
+(add-to-list 'default-frame-alist '(fullscreen . fullboth))
+
+;; Remove default scratch buffer message
+(setq initial-scratch-message nil)
+
+;; Enable icomplete-mode for minibuffer autocomplete
+(icomplete-mode 1)
+
+;; Make icomplete ignore case sensitivity
+(setq completion-ignore-case t) ;; Case-insensitive completions
+(setq read-file-name-completion-ignore-case t) ;; Case-insensitive file name completion
+(setq read-buffer-completion-ignore-case t) ;; Case-insensitive buffer name completion
+
+;; Disable Arrow Keys with Guidance
+(global-set-key (kbd "<up>")
+                (lambda () (interactive) (message "Use C-p instead of the up arrow key!")))
+(global-set-key (kbd "<down>")
+                (lambda () (interactive) (message "Use C-n instead of the down arrow key!")))
+(global-set-key (kbd "<left>")
+                (lambda () (interactive) (message "Use C-b instead of the left arrow key!")))
+(global-set-key (kbd "<right>")
+                (lambda () (interactive) (message "Use C-f instead of the right arrow key!")))
+
+;; Disable Flycheck globally (no external checker tries to show errors)
+(use-package flycheck
+  :config
+  (global-flycheck-mode -1))
+
+;; Theme
+(load-theme 'gruber-darker t)
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   '(company-shell lsp-ui ripgrep lsp-mode gruber-darker-theme flycheck doom-themes doom-modeline company clang-format)))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(mode-line ((t (:background "gray12" :foreground "#ffffff")))))

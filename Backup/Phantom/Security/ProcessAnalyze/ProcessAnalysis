@@ -1,0 +1,58 @@
+Commands for Process Analysis
+
+    pstree - Displays running processes in a tree-like structure with parent-child relationships.
+    bash
+
+pstree -p
+
+lsof - Lists open files and network connections for a specific process.
+bash
+
+lsof -p <PID>
+
+strace - Traces and monitors system calls made by a process.
+bash
+
+strace -p <PID>
+
+htop - Interactive system monitor to view resource usage of processes.
+bash
+
+htop
+
+tcpdump - Captures and analyzes network traffic for specific processes or interfaces.
+bash
+
+sudo tcpdump -i <interface>
+
+Volatility Framework - Memory analysis tool for forensic investigation.
+bash
+
+volatility -f <memory_dump> --profile=<profile> pslist
+
+auditctl (Auditd) - Sets up auditing rules for monitoring process behavior.
+bash
+
+sudo auditctl -w /usr/bin/firefox -p x -k firefox-watch
+
+ausearch (Auditd) - Searches audit logs for specific rules or keywords.
+bash
+
+    sudo ausearch -k firefox-watch
+
+Workflow Integration
+
+You can combine these commands to form a comprehensive investigation sequence, such as:
+
+    Use pstree to identify suspicious processes.
+
+    Use htop to monitor resource consumption.
+
+    Use lsof for file/network analysis.
+
+    Use strace for real-time system calls.
+
+    Use tcpdump for traffic monitoring.
+
+    Use Volatility and Auditd for advanced forensic and long-term monitoring
+
