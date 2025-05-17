@@ -1,0 +1,39 @@
+* {
+  border: none;
+  border-radius: 12px;
+  font-family: JetBrainsMono Nerd Font, monospace;
+  font-size: 14px;
+  min-height: 30px;
+}
+
+window#waybar {
+  background: transparent;
+  color: #ffffff;
+}
+
+#sway-workspaces,
+#custom-cpu_temp,
+#custom-gpu_temp,
+#cpu,
+#custom-gpu,
+#memory,
+#clock,
+#tray {
+  background-color: rgba(30, 30, 30, 0.7);
+  padding: 4px 10px;
+  margin: 4px 6px;
+  border-radius: 12px;
+}
+
+#workspaces button {
+  padding: 4px 8px;
+  border-radius: 8px;
+  margin: 0 3px;
+  background: transparent;
+  color: #ccc;
+}
+
+#workspaces button.focused {
+  background-color: rgba(100, 100, 255, 0.4);
+  color: #ffffff;
+}
