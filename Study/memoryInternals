@@ -1,0 +1,51 @@
+Goals of this topic is to learn how physical address space is mapped to virtual addresses.
+
+MMU -> Memory Management Unit.
+
+Reference:
+https://student.cs.uwaterloo.ca/~cs350/W19/notes/virtualmemory-1up.pdf
+
+If physical addresses are P bits, then the maximum amount of
+addressable physical memory is 2P bytes
+
+A physical address refers to a memory location. Each physical address points to a unit of memory. But what unit?
+In almost all modern computer architectures, each memory address points to 1 byte of memory.
+This is a design decision in most systems. That’s why:
+1 address = 1 byte
+
+What does a P-bit address mean?
+A P-bit physical address means each address is made up of P bits, and therefore there are:
+2ᴾ unique address values
+So the system can generate 2ᴾ distinct addresses, i.e., can point to 2ᴾ distinct memory locations.
+
+What is stored at each address?
+Each of those addresses points to 1 byte.
+So if you can generate 2ᴾ addresses, and each address refers to 1 byte, then:
+
+Total addressable memory = 2ᴾ bytes
+
+Why not bits? Why bytes?
+
+Because computer systems are byte-addressable.
+
+That means:
+
+Address 0 → 1 byte
+
+Address 1 → next byte
+
+Address 15 (if P = 4) → 16th byte
+
+If systems were bit-addressable, then yes — you’d say 2ᴾ bits instead. But that’s rare and inefficient.
+
+Final Summary:
+Concept	Value
+Address size	P bits
+Number of addresses	2ᴾ
+Size per address	1 byte
+Total addressable memory	2ᴾ bytes ✅
+
+Example: P = 4
+Address range: 0000 to 1111 → 16 total addresses
+Each address points to: 1 byte
+→ 16 bytes of total addressable memory = 2⁴ bytes

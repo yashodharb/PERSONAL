@@ -1,0 +1,61 @@
+ (" Goal:",
+     "Create a tiny program using only 4-bit addresses and 4-bit data to:\n"
+     "Add two numbers stored in memory and save the result back into memory."),
+
+    ("⚙️ System Overview (4-bit Computer):",
+     "Address size: 4 bits → 16 memory locations (0 to 15)\n"
+     "Data size: 4 bits → Values from 0 to 15 (binary 0000 to 1111)\n"
+     "Memory: 16 bytes (each byte = 4 bits of data)\n"
+     "Instructions: Very simple instruction set (like a basic CPU)"),
+
+    (" Simple Instruction Set (4-bit Architecture):",
+     "Opcode | Instruction | Description\n"
+     "0001 | LOAD A, X   | Load value from memory address X into register A\n"
+     "0010 | LOAD B, X   | Load value from memory address X into register B\n"
+     "0011 | ADD         | Add A and B, store result in A\n"
+     "0100 | STORE A, X  | Store register A into memory address X\n"
+     "1111 | HALT        | Stop the program"),
+
+    (" Program: Add 6 + 7 and store result",
+     "Address | Contents (Binary) | Instruction\n"
+     "0000    | 0001 1010         | LOAD A, 10 (load 6)\n"
+     "0001    | 0010 1011         | LOAD B, 11 (load 7)\n"
+     "0010    | 0011 0000         | ADD\n"
+     "0011    | 0100 1100         | STORE A, 12 (store result)\n"
+     "0100    | 1111 0000         | HALT\n"
+     "1010    | 0110              | Data = 6 (at addr 10)\n"
+     "1011    | 0111              | Data = 7 (at addr 11)\n"
+     "1100    | 0000              | Result placeholder (0)"),
+
+    (" Execution Walkthrough",
+     "Registers:\nA = 0000\nB = 0000\nPC (Program Counter) = 0000\n\n"
+     "Step-by-step:\n"
+     "1. PC = 0000 → 0001 1010 → LOAD A, 10 → A ← MEM[10] = 0110 (6)\n"
+     "2. PC = 0001 → 0010 1011 → LOAD B, 11 → B ← MEM[11] = 0111 (7)\n"
+     "3. PC = 0010 → 0011 0000 → ADD → A = A + B = 6 + 7 = 13 → A = 1101\n"
+     "4. PC = 0011 → 0100 1100 → STORE A, 12 → MEM[12] = 1101\n"
+     "5. PC = 0100 → 1111 0000 → HALT → Stop"),
+
+    (" Final Memory State (after execution):",
+     "Address | Data (4 bits) | Meaning\n"
+     "10      | 0110          | Input A = 6\n"
+     "11      | 0111          | Input B = 7\n"
+     "12      | 1101          | Result = 13\n"
+     "...     | ...           | (rest unchanged)"),
+
+    (" Key Concepts Demonstrated",
+     "- Even with just 4-bit addresses and data, you can:\n"
+     "  - Fetch instructions from memory\n"
+     "  - Load and store values\n"
+     "  - Perform arithmetic\n"
+     "  - Write the result back\n"
+     "- CPU fetches instructions using a Program Counter (PC)\n"
+     "- Instructions tell the CPU what to do (add, load, store)\n"
+     "- Memory is used for both instructions and data"),
+
+    (" Imagine This in Real Hardware",
+     "It’s like a very small-scale version of real CPUs (like Intel 8080 or ARM), just:\n"
+     "- Fewer bits\n"
+     "- Smaller memory\n"
+     "- Limited instructions\n"
+     "But the core concepts are identical."),
