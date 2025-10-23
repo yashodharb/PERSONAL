@@ -1,0 +1,113 @@
+Hiding Information in PNG format
+
+PNG Reference:
+https://www.libpng.org/pub/png/spec/1.2/PNG-Structure.html#PNG-file-signature
+
+How Graphics is rendered.
+
+The Core Idea: Turning Numbers into Light
+At the heart of computer graphics, the computer is doing this:
+Take numeric data → calculate colors → light up pixels on your display.
+Every image you see — text, icons, videos, 3D worlds — is really just an enormous grid of tiny dots (pixels), each storing color values like:
+Pixel = [Red, Green, Blue] = [255, 128, 0]
+Those values are sent to your monitor many times per second (typically 60–144 times), creating motion and color.
+
+⚙️ 2. Hardware Layers
+a. CPU (Central Processing Unit)
+The CPU runs your program logic — it decides what to draw:
+“Draw a red circle here”, “Render this model”, “Move the camera”.
+But the CPU is too slow for drawing millions of pixels per frame. That’s where the GPU comes in.
+
+b. GPU (Graphics Processing Unit)
+The GPU is a specialized parallel processor designed for graphics math.
+It handles thousands of small calculations at once — perfect for:
+Filling pixels with color (rasterization)
+Applying lighting and shading
+Running vertex and pixel shaders
+3D transformations (rotating, projecting 3D to 2D)
+You can think of the GPU as a tiny army of math units all running the same small program on lots of data (SIMD — Single Instruction, Multiple Data).
+
+c. Video Memory (VRAM)
+The GPU has its own VRAM to store:
+Textures (images that wrap around 3D models)
+Framebuffers (where the GPU writes the final image)
+Geometry data (vertices, meshes)
+Shader programs
+The GPU continuously writes images into a framebuffer, and the display reads it to show on your monitor.
+
+d. Display Interface (HDMI / DisplayPort)
+Once a frame is ready, the display controller sends it (as electrical signals or digital data) to your monitor through HDMI/DisplayPort.
+The monitor’s electronics convert that data into light using LEDs or LCD pixels.
+
+️ 3. Software Stack
+
+Here’s how your code reaches the GPU:
+Your Code → Graphics API → GPU Driver → GPU Hardware → Display
+
+a. Graphics APIs
+These are standardized interfaces to talk to the GPU:
+* OpenGL / Vulkan (cross-platform)
+* DirectX (Windows)
+* Metal (macOS)
+* WebGPU (browsers)
+
+They define commands like:
+* glDrawArrays(...);
+* vkCmdDraw(...);
+which tell the GPU what to render and how.
+
+b. GPU Drivers
+These translate API calls into GPU-specific instructions.
+Every GPU (NVIDIA, AMD, Intel) has its own driver that knows its chip architecture.
+
+c. Operating System
+* The OS manages:
+* Window surfaces (where your app draws)
+* Compositing (combining windows into one desktop view)
+* Display refresh scheduling
+
+For example, in Linux, X11 or Wayland handle these tasks; on macOS, Quartz does it.
+
+4. The Rendering Pipeline (for 3D Graphics)
+
+Here’s what happens when you render a 3D scene (like in a game):
+* Model Data (Vertices) — 3D coordinates of shapes.
+* Vertex Shader — runs on each vertex, applies transforms (rotation, projection).
+* Rasterization — converts 3D triangles into 2D pixels.
+* Fragment Shader — decides the color of each pixel (lighting, texture, etc.).
+* Framebuffer Output — final image stored in GPU memory.
+This pipeline repeats 60+ times per second, producing smooth motion.
+
+5. Example: Drawing a Triangle
+
+Simplified conceptual path:
+Your program: “Draw a triangle”
+
+→ CPU sends triangle vertices (x,y,z) to GPU
+→ GPU vertex shader transforms coordinates
+→ GPU rasterizer fills the triangle area
+→ Fragment shader colors each pixel
+→ Framebuffer stores image
+→ Display controller sends pixels to monitor
+
+The whole process happens in milliseconds, synchronized with your display refresh rate.
+
+⚡ 6. Specialized Systems
+
+* 2D Graphics → simpler, focuses on pixels, shapes, blending.
+* 3D Graphics → involves geometry, perspective, shading, lighting.
+* Ray Tracing → simulates light rays physically (modern GPUs can do this in real time).
+* Compute Shaders → use the GPU for non-graphics math (AI, physics).
+
+
+7. If You Want to Learn How It Really Works (Bottom-Up)
+
+Here’s a great path (from circuits to modern rendering):
+
+Stage	Focus	Example Project
+1. Electronics & Displays	        How monitors draw pixels	Build a simple VGA controller on an FPGA
+2. Framebuffers & Bitmaps	        Draw pixels manually in C	Write to /dev/fb0 in Linux
+3. Software Rendering	                Render shapes using math	Bresenham’s line, triangle rasterizer
+4. OpenGL / Vulkan	                Talk directly to GPU	        Draw a rotating cube
+5. Shaders & GLSL	                Write GPU programs	        Lighting and texture shader
+6. Game Engines / Graphics Frameworks	Abstraction layer	        Unity, Unreal, or custom C++ engine
