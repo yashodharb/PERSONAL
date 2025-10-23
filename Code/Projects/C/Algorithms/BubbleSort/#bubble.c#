@@ -21,8 +21,8 @@ void bSort(int array[], int len){
 
   for(i=0;i<len;i++){
     for(j=0;j<len-i-1;j++){
-      if(array[i] > array[j]){
-        swap(&array[i], &array[j]);
+      if(array[j] > array[j+1]){
+        swap(&array[j], &array[j+1]);
       }
     }
   }
