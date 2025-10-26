@@ -30,8 +30,18 @@
 (global-display-line-numbers-mode t) ;; Enable relative line numbers
 
 
-(setq whitespace-style '(face tabs spaces trailing space-mark tab-mark))
+;;(setq whitespace-style '(face tabs spaces trailing space-mark tab-mark))
+;;(global-whitespace-mode 1)
 
+(require 'whitespace)
+(setq whitespace-style '(face spaces tabs newline space-mark tab-mark))
+(setq whitespace-display-mappings
+      '((space-mark   ?\    [?\u00B7]  [?.])    ;; middle dot for space
+        (newline-mark ?\n   [?$ ?\n])
+        (tab-mark     ?\t   [?\u2192 ?\t] [?> ?\t]))) ;; arrow for tab
+(set-face-attribute 'whitespace-space nil :foreground "gray40" :background nil)
+(set-face-attribute 'whitespace-newline nil :foreground "gray40" :background nil)
+(set-face-attribute 'whitespace-tab nil :foreground "gray40" :background nil)
 (global-whitespace-mode 1)
 
 ;; case-fold-search
@@ -81,11 +91,25 @@
 (use-package lsp-mode
   :ensure t
   :hook ((c-mode c++-mode) . lsp)
-  :commands lsp)
+  :commands lsp
+  :config
+  ;; Disable features we don't need
+  (setq lsp-enable-symbol-highlighting nil
+        lsp-enable-on-type-formatting nil
+        lsp-signature-auto-activate nil
+        lsp-diagnostics-provider :none   ;; ← disables error checking
+        lsp-enable-folding nil
+        lsp-enable-links nil))
 
 (use-package lsp-ui
   :ensure t
-  :commands lsp-ui-mode)
+  :commands lsp-ui-mode
+  :config
+  ;; Disable UI extras (docs, sideline, etc.)
+  (setq lsp-ui-sideline-enable nil
+        lsp-ui-doc-enable nil))
+
+
 
 ;; Disable the debuginfod prompt completely
 (setenv "DEBUGINFOD_URLS" "")
