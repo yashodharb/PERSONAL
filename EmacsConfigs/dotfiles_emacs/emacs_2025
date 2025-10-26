@@ -108,7 +108,12 @@
         lsp-signature-auto-activate nil
         lsp-diagnostics-provider :none   ;; ← disables error checking
         lsp-enable-folding nil
-        lsp-enable-links nil))
+        lsp-enable-links nil
+        ;; Disable breadcrumb headerline
+        lsp-headerline-breadcrumb-enable nil))
+
+
+
 
 (use-package lsp-ui
   :ensure t
