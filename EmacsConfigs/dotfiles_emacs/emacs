@@ -1,0 +1,108 @@
+;;; -*- lexical-binding: t -*-
+
+;; Package Manager Configuration
+(require 'package)
+(setq package-archives
+      '(("melpa" . "https://melpa.org/packages/")
+        ("gnu"   . "https://elpa.gnu.org/packages/")))
+(package-initialize)
+
+(unless package-archive-contents
+  (package-refresh-contents))
+
+;; Ensure use-package
+(unless (package-installed-p 'use-package)
+  (package-install 'use-package))
+(eval-when-compile
+  (require 'use-package))
+(setq use-package-always-ensure t)
+
+;; LSP mode for Rust and C/C++
+(use-package lsp-mode
+  :commands (lsp lsp-deferred)
+  :hook ((rust-mode . lsp-deferred)
+         (c-mode    . lsp-deferred)
+         (c++-mode  . lsp-deferred))
+  :init
+  (setq lsp-keymap-prefix "C-c l") ;; optional
+  :custom
+  (lsp-enable-snippet             nil)
+  (lsp-completion-enable          nil)
+  (lsp-enable-symbol-highlighting nil)
+  (lsp-signature-auto-activate     nil))
+
+(use-package lsp-ui
+  :after lsp-mode
+  :commands lsp-ui-mode
+  :custom
+  (lsp-ui-doc-enable     nil)
+  (lsp-ui-sideline-enable nil))
+
+(use-package rust-mode
+  :mode "\\.rs\\'"
+  :hook (rust-mode . lsp-deferred))
+
+;; Note: c-mode and c++-mode are built‑in; we rely on lsp‑hook above.
+
+;; UI Customizations
+(menu-bar-mode -1)
+(tool-bar-mode -1)
+(scroll-bar-mode -1)
+(setq inhibit-startup-screen t)
+(setq-default indent-tabs-mode nil
+              tab-width         4)
+(setq display-line-numbers-type 'relative)
+(global-display-line-numbers-mode t)
+(setq-default case-fold-search t)
+
+;; Disable Arrow Keys with Guidance
+(global-set-key (kbd "<up>")
+                (lambda () (interactive) (message "Use C‑p instead of the up arrow key!")))
+(global-set-key (kbd "<down>")
+                (lambda () (interactive) (message "Use C‑n instead of the down arrow key!")))
+(global-set-key (kbd "<left>")
+                (lambda () (interactive) (message "Use C‑b instead of the left arrow key!")))
+(global-set-key (kbd "<right>")
+                (lambda () (interactive) (message "Use C‑f instead of the right arrow key!")))
+
+;; Fullscreen on Startup
+(add-to-list 'default-frame-alist '(fullscreen . fullboth))
+
+;; Mode line
+(setq-default mode-line-format
+              '("%e"
+                mode-line-front-space
+                "%b"
+                " · %l:%c"
+                " · %I"
+                " · %m"
+                (:eval (unless (string= (symbol-name buffer-file-coding-system) "utf-8-unix")
+                         (concat " · " (symbol-name buffer-file-coding-system))))
+                mode-line-modes))
+
+;; Font
+(set-face-attribute 'default nil
+                    :family "JetBrainsMono Nerd Font"
+                    :height 170)
+
+(setq initial-scratch-message nil)
+(icomplete-mode 1)
+
+;; Themes (retain existing)
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(custom-enabled-themes '(gruber-darker))
+ '(custom-safe-themes
+   '("01a9797244146bbae39b18ef37e6f2ca5bebded90d9fe3a2f342a9e863aaa4fd"
+     default))
+ '(package-selected-packages '(gruber-darker-theme lsp-ui python-mode rust-mode)))
+
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
