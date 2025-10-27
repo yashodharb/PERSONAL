@@ -94,39 +94,69 @@
 (setq initial-scratch-message nil)
 
 
-(use-package company
-  :ensure t
-  :hook (after-init . global-company-mode)
-  :config
-  (setq company-idle-delay 0.1
-        company-minimum-prefix-length 1))
+;; ---------------------------------------------------------------------------
+;; Modern Completion Stack (Corfu + Vertico + Orderless)
+;; ---------------------------------------------------------------------------
 
+(use-package corfu
+  :ensure t
+  :custom
+  (corfu-auto t)
+  (corfu-auto-delay 0.1)
+  (corfu-auto-prefix 1)
+  (corfu-preview-current nil)
+  (corfu-min-width 25)
+  (corfu-max-width 80)
+  (corfu-count 14)
+  (corfu-scroll-margin 4)
+  :init
+  (global-corfu-mode))
+
+(use-package corfu-popupinfo
+  :after corfu
+  :hook (corfu-mode . corfu-popupinfo-mode)
+  :custom
+  (corfu-popupinfo-delay 0.5))
+
+(use-package vertico
+  :ensure t
+  :init
+  (vertico-mode))
+
+(use-package orderless
+  :ensure t
+  :custom
+  (completion-styles '(orderless basic))
+  (completion-category-defaults nil)
+  (completion-category-overrides '((file (styles basic partial-completion)))))
+
+(use-package savehist
+  :init
+  (savehist-mode))
+
+;; ---------------------------------------------------------------------------
+;; LSP Configuration (integrated with Corfu)
+;; ---------------------------------------------------------------------------
 (use-package lsp-mode
   :ensure t
   :hook ((c-mode c++-mode) . lsp)
   :commands lsp
-  :config
-  ;; Disable features we don't need
-  (setq lsp-enable-symbol-highlighting nil
-        lsp-enable-on-type-formatting nil
-        lsp-signature-auto-activate nil
-        lsp-diagnostics-provider :none   ;; ← disables error checking
-        lsp-enable-folding nil
-        lsp-enable-links nil
-        ;; Disable breadcrumb headerline
-        lsp-headerline-breadcrumb-enable nil))
-
-
-
+  :custom
+  (lsp-completion-provider :none)
+  (lsp-enable-symbol-highlighting nil)
+  (lsp-enable-on-type-formatting nil)
+  (lsp-signature-auto-activate nil)
+  (lsp-diagnostics-provider :none)
+  (lsp-enable-folding nil)
+  (lsp-enable-links nil)
+  (lsp-headerline-breadcrumb-enable nil))
 
 (use-package lsp-ui
   :ensure t
   :commands lsp-ui-mode
   :config
-  ;; Disable UI extras (docs, sideline, etc.)
   (setq lsp-ui-sideline-enable nil
         lsp-ui-doc-enable nil))
-
 
 
 ;; Disable the debuginfod prompt completely

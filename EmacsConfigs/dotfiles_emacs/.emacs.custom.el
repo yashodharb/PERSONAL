@@ -88,8 +88,8 @@
      "01a9797244146bbae39b18ef37e6f2ca5bebded90d9fe3a2f342a9e863aaa4fd"
      default))
  '(package-selected-packages
-   '(all-the-icons company disable-mouse gruber-darker-theme magit
-                   rainbow-delimiters yasnippet)))
+   '(all-the-icons corfu disable-mouse gruber-darker-theme magit
+                   orderless rainbow-delimiters vertico yasnippet)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
