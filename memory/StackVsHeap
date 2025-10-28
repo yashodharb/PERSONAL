@@ -1,0 +1,19 @@
+If you know the size ahead of time, use stack. Otherwise use heap.
+
+In general, data structures with constant size can go on the stack. Structures with variable size must be in the heap.
+Try to understand object/memory allocation lifetimes.
+static for the lifetime of the process
+stack for the lifetime of the block, as a function call
+temporary, the compiler handles these
+and when those can't do the job, heap, where the allocation and release of objects/memory has to be controlled by app logic.
+
+
+Typically this is determined by the scope or lifetime of the data. Ask yourself “how long does this data need to live?”
+A simple example: in a video game, everything is centered around rendering frames in a loop. If something is only needed for the current frame, you might allocate it on the stack. But if the data needs to survive across multiple frames, you would typically put it in the heap.
+Similarly, in a web server, everything is centered around handling requests. If something needs to survive across multiple requests, use the heap.
+The need to use the heap will often be obvious because there is no way to make it work with the stack. Just remember that when you return from a function, that stack frame disappears.
+The exception is when you only need something during the current call stack, but it is very large (megabytes). In that case you would use the heap not because of lifetime issues, but to avoid exhausting the stack.
+
+Apart from the other answer here regarding sizes, i choose stack or heap based on scope. Heap if i’m returning a non primitive “memory data”, stack if i want that non primitive to free itself as the block ends.
+
+Heap is a pretty advanced program you have to run. A stack is much simpler. If you try and build a computer from scratch and then write your program you might skip heap because it is a lot of work to build and get it to work. I did a C/Assembly course and there we built an extremely rudimentary heap, even the best possible heap probably has problems since you end up with holes and it is a lot of things to track. The stack on the other hand, super easy. So they seem like "pretty much the same thing" since you get both for free. Compare to a bicycle or a car. If you had to build from scratch without any help, you would prefer to build the bicycle. But if you are given both and have infinite resources and fuel, you would not understand why not just use the car.
