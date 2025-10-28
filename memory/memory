@@ -1,0 +1,43 @@
+Address (High)
+0xFFFFFFFFFFFFFFFF  ← Kernel space (inaccessible to user)
+──────────────────────────────
+     Stack (grows downward)
+──────────────────────────────
+     Heap (malloc/new)
+──────────────────────────────
+     Uninitialized data (.bss)
+──────────────────────────────
+     Initialized data (.data)
+──────────────────────────────
+     Read-only data (.rodata)
+──────────────────────────────
+     Code / Text (.text)
+──────────────────────────────
+0x0000000000000000  ← NULL / invalid memory
+Address (Low)
+
+
+
+Virtual Address Space (x86-64)
+──────────────────────────────────────
+0x00007FFFFFFFFFFF  ← user stack top
+│
+│ Stack
+│ Heap
+│ Data (.data/.bss/.rodata)
+│ Code (.text)
+│
+0x0000000000400000  ← start of program code
+──────────────────────────────────────
+0x0000000000000000  ← unmapped
+──────────────────────────────────────
+
+Physical Memory (DRAM)
+──────────────────────────────────────
+[0x0000000000000000] → 4 KB page 0 (used by kernel)
+[0x0000000000100000] → page 1 (process A)
+[0x0000000000200000] → page 2 (process B)
+...
+[0x00000003FFFFFFFF] → last usable DRAM page (~16 GB)
+──────────────────────────────────────
+[Swap Space / Pagefile] → On SSD (if enabled)
