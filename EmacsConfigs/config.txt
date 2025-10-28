@@ -1,0 +1,137 @@
+1. Package Managers and Core Setup
+
+Purpose: Ensures packages are installed and usable everywhere.
+
+Component	Description
+package.el	Built-in Emacs package manager used for all packages
+MELPA + GNU ELPA	Package sources
+use-package	Declarative package manager to simplify config
+
+2. Installed / Used Packages
+
+Here’s the full list of all explicitly used packages from your config:
+
+Package	Installed via	Purpose
+use-package	Built-in bootstrap	Manage other packages declaratively
+yasnippet	(require 'yasnippet)	Snippet expansion support
+python-mode	use-package	Python syntax, indentation, REPL support
+rust-mode	use-package	Rust syntax highlighting & indentation
+multiple-cursors	use-package	Edit multiple lines/cursors at once
+corfu	use-package	In-buffer completion frontend
+corfu-popupinfo	use-package	Adds inline documentation/tooltips to Corfu
+vertico	use-package	Minibuffer completion interface
+orderless	use-package	Flexible pattern matching for completion
+savehist	use-package	Persistent minibuffer history
+lsp-mode	use-package	Language Server Protocol client for C/C++
+lsp-ui	use-package	LSP UI enhancements (hover, docs, sideline)
+
+Total = 12 packages
+
+3. Enabled Features / Custom Behaviors
+General UX Enhancements
+
+Custom custom-file at ~/.emacs.custom.el
+
+Disabled UI clutter:
+
+Menu bar
+
+Tool bar
+
+Scroll bar
+
+Disabled startup screen
+
+Relative line numbers (global-display-line-numbers-mode t)
+
+Fullscreen on startup ((fullscreen . fullboth))
+
+DejaVu / JetBrainsMono Nerd Font at size 17pt
+
+Removed scratch buffer message
+
+Simplified modeline (custom format)
+
+Case-insensitive search & completion
+
+4 Editing Enhancements
+
+Spaces instead of tabs globally (indent-tabs-mode nil)
+
+Tab width set to 4
+
+Whitespace visualization (spaces, tabs, newlines) with gray markers
+
+Arrow keys disabled — replaced with hints to use C-n, C-p, etc.
+
+Multiple cursors with bindings:
+
+C-> → mark next
+
+C-< → mark previous
+
+C-c C-< → mark all
+
+C-S-c C-S-c → edit lines
+
+Autocompletion Stack (Modern)
+
+Corfu for inline completion
+
+Auto popup after 0.1s delay
+
+Up to 14 candidates
+
+Corfu Popup Info for documentation tooltips
+
+Vertico for minibuffer completion
+
+Orderless for fuzzy-style matching
+
+Savehist to remember minibuffer history
+
+Case-insensitive completions globally
+
+ Language Server & Debugging
+
+LSP Mode enabled for C and C++
+
+Completion integrated with Corfu (no built-in LSP completion)
+
+Symbol highlighting, docs, and on-type formatting disabled (clean look)
+
+LSP-UI loaded but with sideline/docs disabled
+
+GDB integrated:
+
+Debuginfod disabled
+
+Multi-window mode enabled
+
+Starts at main automatically
+
+ Language Support
+
+Python (python-mode)
+
+Rust (rust-mode)
+
+Misc Utilities
+
+icomplete-mode for minibuffer autocompletion
+
+yasnippet globally enabled for snippets
+
+ 4. Things Implicitly Enabled / Configured
+Built-in feature	Enabled?	Notes
+lexical-binding		Enabled via file header
+icomplete-mode		Lightweight minibuffer completion
+whitespace-mode	 (global)	Shows visible space/tab/newline markers
+global-display-line-numbers-mode		Relative numbering
+savehist-mode		Persistent minibuffer history
+yas-global-mode		Global snippets
+vertico-mode		Minibuffer UI
+global-corfu-mode		Inline completion
+corfu-popupinfo-mode		Inline doc popups
+lsp-mode	 (for C/C++)	Language servers
+lsp-ui-mode		UI layer for LSP (but minimal)
