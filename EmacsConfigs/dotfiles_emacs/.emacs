@@ -151,7 +151,7 @@
 ;; ---------------------------------------------------------------------------
 (use-package lsp-mode
   :ensure t
-  :hook ((c-mode c++-mode) . lsp)
+  :hook ((c-mode c++-mode rust-mode) . lsp)
   :commands lsp
   :custom
   (lsp-completion-provider :none)
@@ -162,6 +162,9 @@
   (lsp-enable-folding nil)
   (lsp-enable-links nil)
   (lsp-headerline-breadcrumb-enable nil))
+
+;; rust lsp mode
+(setq lsp-auto-guess-root t)
 
 (use-package lsp-ui
   :ensure t
