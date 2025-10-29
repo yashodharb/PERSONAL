@@ -30,12 +30,16 @@
 (unless (package-installed-p 'use-package)
   (package-install 'use-package))
 
+(require 'use-package)
+(setq use-package-always-ensure t)
+
 ;; ---------------------------------------------------------------------------
-;; Yas-snippet
+;; Yasnippet
 ;; ---------------------------------------------------------------------------
 
-(require 'yasnippet)      ;; load yasnippet
-(yas-global-mode 1)        ;; enable yasnippet globally
+(use-package yasnippet
+  :config
+  (yas-global-mode 1))
 
 ;; Ibuffer Customization
 ;;(use-package ibuffer
@@ -64,6 +68,16 @@
             (setq indent-tabs-mode nil)  ;; use spaces, not tabs
             (setq tab-width 4)           ;; visual width of tab = 4
             (setq c-basic-offset 4)))    ;; actual indentation level = 4
+
+;; ---------------------------------------------------------------------------
+;; indentation settings {any programming mode (like Python, JS, etc.) to default to 4 spaces}
+;; ---------------------------------------------------------------------------
+
+(add-hook 'prog-mode-hook
+          (lambda ()
+            (setq indent-tabs-mode nil)
+            (setq tab-width 4)))
+
 
 ;; ---------------------------------------------------------------------------
 ;; Whitespace settings
@@ -149,17 +163,25 @@
 ;; Python and RUST support added
 ;; ---------------------------------------------------------------------------
 
-(use-package python-mode :ensure t)
-(use-package rust-mode :ensure t)
-;;(use-package multiple-cursors :ensure t)
+
+(use-package python-mode
+  :ensure t
+  :defer t) ;; load only when a Python file is opened
+
+(use-package rust-mode
+  :ensure t
+  :defer t) ;; load only when a Rust file is opened
+
 (use-package multiple-cursors
   :ensure t
+  :defer t  ;; load only when one of its commands is used
   :bind (("C->" . mc/mark-next-like-this)
          ("C-<" . mc/mark-previous-like-this)
          ("C-c C-<" . mc/mark-all-like-this)
          ("C-S-c C-S-c" . mc/edit-lines)))
+
 ;; ---------------------------------------------------------------------------
-;; Modern Completion Stack (Corfu + Vertico + Orderless)
+;; Corfu (completion UI)
 ;; ---------------------------------------------------------------------------
 
 (use-package corfu
@@ -176,11 +198,14 @@
   :init
   (global-corfu-mode))
 
-(use-package corfu-popupinfo
-  :after corfu
-  :hook (corfu-mode . corfu-popupinfo-mode)
-  :custom
-  (corfu-popupinfo-delay 0.5))
+;; ---------------------------------------------------------------------------
+;; Corfu Popup Info (built into corfu)
+;; ---------------------------------------------------------------------------
+
+(with-eval-after-load 'corfu
+  (require 'corfu-popupinfo)
+  (setq corfu-popupinfo-delay 0.5)
+  (corfu-popupinfo-mode))
 
 ;; ---------------------------------------------------------------------------
 ;; Vertico
@@ -226,7 +251,10 @@
   (lsp-diagnostics-provider :none)
   (lsp-enable-folding nil)
   (lsp-enable-links nil)
-  (lsp-headerline-breadcrumb-enable nil))
+  (lsp-headerline-breadcrumb-enable nil)
+;; Prevent LSP from overriding Emacs indentation settings
+  (lsp-enable-indentation nil)
+  (lsp-enable-on-type-formatting nil))
 
 (setq lsp-auto-guess-root t)
 
