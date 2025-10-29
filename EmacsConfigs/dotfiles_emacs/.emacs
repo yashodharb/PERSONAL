@@ -4,19 +4,35 @@
 
 (load-file "~/.emacs.custom.el")
 
+;; ---------------------------------------------------------------------------
 ;; Package Manager Configuration
+;; ---------------------------------------------------------------------------
+
 (require 'package)
 (setq package-archives
       '(("melpa" . "https://melpa.org/packages/")
         ("gnu" . "https://elpa.gnu.org/packages/")))
 (package-initialize)
 
+;; ---------------------------------------------------------------------------
+;; Package Refresh
+;; ---------------------------------------------------------------------------
+
+
 (unless package-archive-contents
   (package-refresh-contents))
 
+;; ---------------------------------------------------------------------------
 ;; Ensure `use-package` is installed
+;; ---------------------------------------------------------------------------
+
+
 (unless (package-installed-p 'use-package)
   (package-install 'use-package))
+
+;; ---------------------------------------------------------------------------
+;; Yas-snippet
+;; ---------------------------------------------------------------------------
 
 (require 'yasnippet)      ;; load yasnippet
 (yas-global-mode 1)        ;; enable yasnippet globally
@@ -26,7 +42,10 @@
 ;;  :ensure t
 ;;  :bind ("C-x C-b" . ibuffer)) ;; Replace default buffer list with ibuffer
 
+;; ---------------------------------------------------------------------------
 ;; UI Customizations
+;; ---------------------------------------------------------------------------
+
 (menu-bar-mode -1) ;; Remove menu bar
 (tool-bar-mode -1) ;; Remove tool bar
 (scroll-bar-mode -1) ;; Remove scroll bar
@@ -37,8 +56,18 @@
 (global-display-line-numbers-mode t) ;; Enable relative line numbers
 
 
-;;(setq whitespace-style '(face tabs spaces trailing space-mark tab-mark))
-;;(global-whitespace-mode 1)
+;; ---------------------------------------------------------------------------
+;; C/C++ indentation settings
+;; ---------------------------------------------------------------------------
+(add-hook 'c-mode-common-hook
+          (lambda ()
+            (setq indent-tabs-mode nil)  ;; use spaces, not tabs
+            (setq tab-width 4)           ;; visual width of tab = 4
+            (setq c-basic-offset 4)))    ;; actual indentation level = 4
+
+;; ---------------------------------------------------------------------------
+;; Whitespace settings
+;; ---------------------------------------------------------------------------
 
 (require 'whitespace)
 (setq whitespace-style '(face spaces tabs newline space-mark tab-mark))
@@ -51,15 +80,25 @@
 (set-face-attribute 'whitespace-tab nil :foreground "gray40" :background nil)
 (global-whitespace-mode 1)
 
+
+;; ---------------------------------------------------------------------------
 ;; Case-insensitive search
+;; ---------------------------------------------------------------------------
+
 (setq-default case-fold-search t)
 
+;; ---------------------------------------------------------------------------
 ;; Case-insensitive completion for file names, buffers, etc.
+;; ---------------------------------------------------------------------------
+
 (setq read-file-name-completion-ignore-case t)
 (setq read-buffer-completion-ignore-case t)
 (setq completion-ignore-case t)
 
+;; ---------------------------------------------------------------------------
 ;; Disable Arrow Keys with Guidance
+;; ---------------------------------------------------------------------------
+
 (global-set-key (kbd "<up>")
                 (lambda () (interactive) (message "Use C-p instead of the up arrow key!")))
 (global-set-key (kbd "<down>")
@@ -69,8 +108,16 @@
 (global-set-key (kbd "<right>")
                 (lambda () (interactive) (message "Use C-f instead of the right arrow key!")))
 
+;; ---------------------------------------------------------------------------
+;; Disable Arrow Keys with Guidance
+;; ---------------------------------------------------------------------------
+
 ;; Fullscreen on Startup
 (add-to-list 'default-frame-alist '(fullscreen . fullboth)) ;; Launch Emacs in fullscreen mode
+
+;; ---------------------------------------------------------------------------
+;; Disable Arrow Keys with Guidance
+;; ---------------------------------------------------------------------------
 
 ;; Enhanced and Smaller Mode Line
 (setq-default mode-line-format
@@ -84,19 +131,24 @@
                          (concat " · " (symbol-name buffer-file-coding-system)))) ;; Show encoding if not UTF-8
                 mode-line-modes))            ;; Minor modes
 
-
+;; ---------------------------------------------------------------------------
 ;; Set DejaVu Sans Mono Font
+;; ---------------------------------------------------------------------------
+
 (set-face-attribute 'default nil
                     :family "JetBrainsMono Nerd Font" ;; Set font to DejaVu Sans Mono, a widely available font
                     :height 170)              ;; Set font size to 200%
 
+;; ---------------------------------------------------------------------------
 ;; Remove default scratch buffer message
-(setq initial-scratch-message nil)
+;; ---------------------------------------------------------------------------
 
+(setq initial-scratch-message nil)
 
 ;; ---------------------------------------------------------------------------
 ;; Python and RUST support added
 ;; ---------------------------------------------------------------------------
+
 (use-package python-mode :ensure t)
 (use-package rust-mode :ensure t)
 ;;(use-package multiple-cursors :ensure t)
@@ -130,10 +182,18 @@
   :custom
   (corfu-popupinfo-delay 0.5))
 
+;; ---------------------------------------------------------------------------
+;; Vertico
+;; ---------------------------------------------------------------------------
+
 (use-package vertico
   :ensure t
   :init
   (vertico-mode))
+
+;; ---------------------------------------------------------------------------
+;; Orderless
+;; ---------------------------------------------------------------------------
 
 (use-package orderless
   :ensure t
@@ -142,6 +202,10 @@
   (completion-category-defaults nil)
   (completion-category-overrides '((file (styles basic partial-completion)))))
 
+;; ---------------------------------------------------------------------------
+;; Save-hist
+;; ---------------------------------------------------------------------------
+
 (use-package savehist
   :init
   (savehist-mode))
@@ -149,6 +213,7 @@
 ;; ---------------------------------------------------------------------------
 ;; LSP Configuration (integrated with Corfu)
 ;; ---------------------------------------------------------------------------
+
 (use-package lsp-mode
   :ensure t
   :hook ((c-mode c++-mode rust-mode) . lsp)
@@ -163,7 +228,6 @@
   (lsp-enable-links nil)
   (lsp-headerline-breadcrumb-enable nil))
 
-;; rust lsp mode
 (setq lsp-auto-guess-root t)
 
 (use-package lsp-ui
@@ -173,16 +237,24 @@
   (setq lsp-ui-sideline-enable nil
         lsp-ui-doc-enable nil))
 
+;; ---------------------------------------------------------------------------
+;; LSP Configuration (integrated with Corfu)
+;; ---------------------------------------------------------------------------
+
 
 ;; Disable the debuginfod prompt completely
 (setenv "DEBUGINFOD_URLS" "")
 (setq gdb-command-name "gdb -q -iex 'set debuginfod enabled off'")
 
+
 ;; Optional: enable GDB multi-window mode for a nice UI
 (setq gdb-many-windows t
       gdb-show-main t)
 
+;; ---------------------------------------------------------------------------
 ;; Enable icomplete-mode for minibuffer autocomplete
+;; ---------------------------------------------------------------------------
+
 (icomplete-mode 1)
 
 
