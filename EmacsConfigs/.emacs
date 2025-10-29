@@ -1,23 +1,5 @@
 ;;; -*- lexical-binding: t -*-
 
-;; ---------------------------------------------------------------------------
-;; Startup Performance Tweaks
-;; ---------------------------------------------------------------------------
-
-(setq gc-cons-threshold most-positive-fixnum
-      gc-cons-percentage 0.6)
-
-(add-hook 'emacs-startup-hook
-          (lambda ()
-            (setq gc-cons-threshold (* 16 1024 1024)  ;; 16 MB
-                  gc-cons-percentage 0.1)))
-
-(let ((file-name-handler-alist nil))) ;; Disable file handler slowdowns during init
-
-;; ---------------------------------------------------------------------------
-;; Custom File
-;; ---------------------------------------------------------------------------
-
 (setq custom-file "~/.emacs.custom.el")
 (load-file "~/.emacs.custom.el")
 
@@ -31,12 +13,19 @@
         ("gnu" . "https://elpa.gnu.org/packages/")))
 (package-initialize)
 
+;; ---------------------------------------------------------------------------
+;; Package Refresh
+;; ---------------------------------------------------------------------------
+
 (unless package-archive-contents
   (package-refresh-contents))
 
+;; ---------------------------------------------------------------------------
+;; Ensure `use-package` is installed
+;; ---------------------------------------------------------------------------
+
 (unless (package-installed-p 'use-package)
   (package-install 'use-package))
-
 (require 'use-package)
 (setq use-package-always-ensure t)
 
@@ -56,30 +45,9 @@
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
 (setq inhibit-startup-screen t)
-
-(setq-default indent-tabs-mode nil
-              tab-width 4)
-
+(setq-default indent-tabs-mode nil tab-width 4)
 (setq display-line-numbers-type 'relative)
 (global-display-line-numbers-mode t)
-
-;; ---------------------------------------------------------------------------
-;; Smooth Scrolling
-;; ---------------------------------------------------------------------------
-
-(setq scroll-step 1
-      scroll-margin 8
-      scroll-conservatively 10000
-      mouse-wheel-scroll-amount '(1 ((shift) . 1))
-      mouse-wheel-progressive-speed nil)
-
-;; ---------------------------------------------------------------------------
-;; Backups and Auto-Save
-;; ---------------------------------------------------------------------------
-
-(setq backup-directory-alist '(("." . "~/.emacs.d/backups"))
-      auto-save-file-name-transforms '((".*" "~/.emacs.d/auto-save-list/" t))
-      create-lockfiles nil)
 
 ;; ---------------------------------------------------------------------------
 ;; C/C++ indentation settings
@@ -92,7 +60,7 @@
             (setq c-basic-offset 4)))
 
 ;; ---------------------------------------------------------------------------
-;; indentation settings {any programming mode (like Python, JS, etc.) to default to 4 spaces}
+;; Generic indentation (Python, JS, etc.)
 ;; ---------------------------------------------------------------------------
 
 (add-hook 'prog-mode-hook
@@ -116,7 +84,7 @@
 (global-whitespace-mode 1)
 
 ;; ---------------------------------------------------------------------------
-;; Case-insensitive search & completion
+;; Case-insensitive search and completion
 ;; ---------------------------------------------------------------------------
 
 (setq-default case-fold-search t)
@@ -128,14 +96,10 @@
 ;; Disable Arrow Keys with Guidance
 ;; ---------------------------------------------------------------------------
 
-(global-set-key (kbd "<up>")
-                (lambda () (interactive) (message "Use C-p instead of the up arrow key!")))
-(global-set-key (kbd "<down>")
-                (lambda () (interactive) (message "Use C-n instead of the down arrow key!")))
-(global-set-key (kbd "<left>")
-                (lambda () (interactive) (message "Use C-b instead of the left arrow key!")))
-(global-set-key (kbd "<right>")
-                (lambda () (interactive) (message "Use C-f instead of the right arrow key!")))
+(global-set-key (kbd "<up>")    (lambda () (interactive) (message "Use C-p instead of ↑")))
+(global-set-key (kbd "<down>")  (lambda () (interactive) (message "Use C-n instead of ↓")))
+(global-set-key (kbd "<left>")  (lambda () (interactive) (message "Use C-b instead of ←")))
+(global-set-key (kbd "<right>") (lambda () (interactive) (message "Use C-f instead of →")))
 
 ;; ---------------------------------------------------------------------------
 ;; Fullscreen on Startup
@@ -144,7 +108,7 @@
 (add-to-list 'default-frame-alist '(fullscreen . fullboth))
 
 ;; ---------------------------------------------------------------------------
-;; Enhanced and Smaller Mode Line
+;; Simplified Mode Line
 ;; ---------------------------------------------------------------------------
 
 (setq-default mode-line-format
@@ -159,7 +123,7 @@
                 mode-line-modes))
 
 ;; ---------------------------------------------------------------------------
-;; Set Font
+;; Font
 ;; ---------------------------------------------------------------------------
 
 (set-face-attribute 'default nil
@@ -173,17 +137,17 @@
 (setq initial-scratch-message nil)
 
 ;; ---------------------------------------------------------------------------
-;; Python and RUST support
+;; Python & Rust support
 ;; ---------------------------------------------------------------------------
 
-(use-package python-mode
-  :defer t)
+(use-package python-mode :defer t)
+(use-package rust-mode :defer t)
 
-(use-package rust-mode
-  :defer t)
+;; ---------------------------------------------------------------------------
+;; Multiple Cursors
+;; ---------------------------------------------------------------------------
 
 (use-package multiple-cursors
-  :defer t
   :bind (("C->" . mc/mark-next-like-this)
          ("C-<" . mc/mark-previous-like-this)
          ("C-c C-<" . mc/mark-all-like-this)
@@ -203,8 +167,6 @@
   (corfu-max-width 80)
   (corfu-count 14)
   (corfu-scroll-margin 4)
-  (corfu-quit-no-match 'separator)
-  (corfu-preselect 'prompt)
   :init
   (global-corfu-mode))
 
@@ -214,12 +176,11 @@
   (corfu-popupinfo-mode))
 
 ;; ---------------------------------------------------------------------------
-;; Vertico + Orderless + Savehist (modern completion stack)
+;; Vertico + Orderless (Better Completion)
 ;; ---------------------------------------------------------------------------
 
 (use-package vertico
-  :init
-  (vertico-mode))
+  :init (vertico-mode))
 
 (use-package orderless
   :custom
@@ -227,18 +188,12 @@
   (completion-category-defaults nil)
   (completion-category-overrides '((file (styles basic partial-completion)))))
 
+;; ---------------------------------------------------------------------------
+;; Save-hist (remember minibuffer history)
+;; ---------------------------------------------------------------------------
+
 (use-package savehist
-  :init
-  (savehist-mode))
-
-;; ---------------------------------------------------------------------------
-;; Save Recent Files and Session
-;; ---------------------------------------------------------------------------
-
-(recentf-mode 1)
-(setq recentf-max-saved-items 200)
-(save-place-mode 1)
-(desktop-save-mode 1)
+  :init (savehist-mode))
 
 ;; ---------------------------------------------------------------------------
 ;; LSP Configuration
@@ -268,7 +223,7 @@
         lsp-ui-doc-enable nil))
 
 ;; ---------------------------------------------------------------------------
-;; Disable debuginfod prompt
+;; GDB Config
 ;; ---------------------------------------------------------------------------
 
 (setenv "DEBUGINFOD_URLS" "")
@@ -277,17 +232,23 @@
       gdb-show-main t)
 
 ;; ---------------------------------------------------------------------------
-;; Quality-of-life Defaults
-;; ---------------------------------------------------------------------------
-
-(fset 'yes-or-no-p 'y-or-n-p)
-(setq ring-bell-function 'ignore)
-(setq sentence-end-double-space nil)
-(global-auto-revert-mode 1)
-(show-paren-mode 1)
-
-;; ---------------------------------------------------------------------------
-;; Enable icomplete-mode for minibuffer autocomplete
+;; icomplete for minibuffer autocomplete
 ;; ---------------------------------------------------------------------------
 
 (icomplete-mode 1)
+
+;; ---------------------------------------------------------------------------
+;; Performance Optimizations
+;; ---------------------------------------------------------------------------
+
+(setq gc-cons-threshold (* 128 1024 1024))  ;; 128MB before GC
+(setq read-process-output-max (* 4 1024 1024))  ;; 4MB for LSP data
+(setq idle-update-delay 0.5)
+(setq fast-but-imprecise-scrolling t)
+(setq redisplay-skip-fontification-on-input t)
+(setq jit-lock-defer-time 0)
+(setq inhibit-compacting-font-caches t)
+
+;; Enable native-comp (faster Lisp)
+(when (boundp 'native-comp-async-report-warnings-errors)
+  (setq native-comp-async-report-warnings-errors nil))
