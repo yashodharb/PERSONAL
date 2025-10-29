@@ -1,0 +1,293 @@
+;;; -*- lexical-binding: t -*-
+
+;; ---------------------------------------------------------------------------
+;; Startup Performance Tweaks
+;; ---------------------------------------------------------------------------
+
+(setq gc-cons-threshold most-positive-fixnum
+      gc-cons-percentage 0.6)
+
+(add-hook 'emacs-startup-hook
+          (lambda ()
+            (setq gc-cons-threshold (* 16 1024 1024)  ;; 16 MB
+                  gc-cons-percentage 0.1)))
+
+(let ((file-name-handler-alist nil))) ;; Disable file handler slowdowns during init
+
+;; ---------------------------------------------------------------------------
+;; Custom File
+;; ---------------------------------------------------------------------------
+
+(setq custom-file "~/.emacs.custom.el")
+(load-file "~/.emacs.custom.el")
+
+;; ---------------------------------------------------------------------------
+;; Package Manager Configuration
+;; ---------------------------------------------------------------------------
+
+(require 'package)
+(setq package-archives
+      '(("melpa" . "https://melpa.org/packages/")
+        ("gnu" . "https://elpa.gnu.org/packages/")))
+(package-initialize)
+
+(unless package-archive-contents
+  (package-refresh-contents))
+
+(unless (package-installed-p 'use-package)
+  (package-install 'use-package))
+
+(require 'use-package)
+(setq use-package-always-ensure t)
+
+;; ---------------------------------------------------------------------------
+;; Yasnippet
+;; ---------------------------------------------------------------------------
+
+(use-package yasnippet
+  :config
+  (yas-global-mode 1))
+
+;; ---------------------------------------------------------------------------
+;; UI Customizations
+;; ---------------------------------------------------------------------------
+
+(menu-bar-mode -1)
+(tool-bar-mode -1)
+(scroll-bar-mode -1)
+(setq inhibit-startup-screen t)
+
+(setq-default indent-tabs-mode nil
+              tab-width 4)
+
+(setq display-line-numbers-type 'relative)
+(global-display-line-numbers-mode t)
+
+;; ---------------------------------------------------------------------------
+;; Smooth Scrolling
+;; ---------------------------------------------------------------------------
+
+(setq scroll-step 1
+      scroll-margin 8
+      scroll-conservatively 10000
+      mouse-wheel-scroll-amount '(1 ((shift) . 1))
+      mouse-wheel-progressive-speed nil)
+
+;; ---------------------------------------------------------------------------
+;; Backups and Auto-Save
+;; ---------------------------------------------------------------------------
+
+(setq backup-directory-alist '(("." . "~/.emacs.d/backups"))
+      auto-save-file-name-transforms '((".*" "~/.emacs.d/auto-save-list/" t))
+      create-lockfiles nil)
+
+;; ---------------------------------------------------------------------------
+;; C/C++ indentation settings
+;; ---------------------------------------------------------------------------
+
+(add-hook 'c-mode-common-hook
+          (lambda ()
+            (setq indent-tabs-mode nil)
+            (setq tab-width 4)
+            (setq c-basic-offset 4)))
+
+;; ---------------------------------------------------------------------------
+;; indentation settings {any programming mode (like Python, JS, etc.) to default to 4 spaces}
+;; ---------------------------------------------------------------------------
+
+(add-hook 'prog-mode-hook
+          (lambda ()
+            (setq indent-tabs-mode nil)
+            (setq tab-width 4)))
+
+;; ---------------------------------------------------------------------------
+;; Whitespace settings
+;; ---------------------------------------------------------------------------
+
+(require 'whitespace)
+(setq whitespace-style '(face spaces tabs newline space-mark tab-mark))
+(setq whitespace-display-mappings
+      '((space-mark   ?\    [?\u00B7]  [?.])
+        (newline-mark ?\n   [?$ ?\n])
+        (tab-mark     ?\t   [?\u2192 ?\t] [?> ?\t])))
+(set-face-attribute 'whitespace-space nil :foreground "gray40" :background nil)
+(set-face-attribute 'whitespace-newline nil :foreground "gray40" :background nil)
+(set-face-attribute 'whitespace-tab nil :foreground "gray40" :background nil)
+(global-whitespace-mode 1)
+
+;; ---------------------------------------------------------------------------
+;; Case-insensitive search & completion
+;; ---------------------------------------------------------------------------
+
+(setq-default case-fold-search t)
+(setq read-file-name-completion-ignore-case t)
+(setq read-buffer-completion-ignore-case t)
+(setq completion-ignore-case t)
+
+;; ---------------------------------------------------------------------------
+;; Disable Arrow Keys with Guidance
+;; ---------------------------------------------------------------------------
+
+(global-set-key (kbd "<up>")
+                (lambda () (interactive) (message "Use C-p instead of the up arrow key!")))
+(global-set-key (kbd "<down>")
+                (lambda () (interactive) (message "Use C-n instead of the down arrow key!")))
+(global-set-key (kbd "<left>")
+                (lambda () (interactive) (message "Use C-b instead of the left arrow key!")))
+(global-set-key (kbd "<right>")
+                (lambda () (interactive) (message "Use C-f instead of the right arrow key!")))
+
+;; ---------------------------------------------------------------------------
+;; Fullscreen on Startup
+;; ---------------------------------------------------------------------------
+
+(add-to-list 'default-frame-alist '(fullscreen . fullboth))
+
+;; ---------------------------------------------------------------------------
+;; Enhanced and Smaller Mode Line
+;; ---------------------------------------------------------------------------
+
+(setq-default mode-line-format
+              '("%e"
+                mode-line-front-space
+                "%b"
+                "   %l:%c"
+                "   %I"
+                "   %m"
+                (:eval (unless (string= (symbol-name buffer-file-coding-system) "utf-8-unix")
+                         (concat " � " (symbol-name buffer-file-coding-system))))
+                mode-line-modes))
+
+;; ---------------------------------------------------------------------------
+;; Set Font
+;; ---------------------------------------------------------------------------
+
+(set-face-attribute 'default nil
+                    :family "JetBrainsMono Nerd Font"
+                    :height 170)
+
+;; ---------------------------------------------------------------------------
+;; Remove default scratch buffer message
+;; ---------------------------------------------------------------------------
+
+(setq initial-scratch-message nil)
+
+;; ---------------------------------------------------------------------------
+;; Python and RUST support
+;; ---------------------------------------------------------------------------
+
+(use-package python-mode
+  :defer t)
+
+(use-package rust-mode
+  :defer t)
+
+(use-package multiple-cursors
+  :defer t
+  :bind (("C->" . mc/mark-next-like-this)
+         ("C-<" . mc/mark-previous-like-this)
+         ("C-c C-<" . mc/mark-all-like-this)
+         ("C-S-c C-S-c" . mc/edit-lines)))
+
+;; ---------------------------------------------------------------------------
+;; Corfu (completion UI)
+;; ---------------------------------------------------------------------------
+
+(use-package corfu
+  :custom
+  (corfu-auto t)
+  (corfu-auto-delay 0.1)
+  (corfu-auto-prefix 1)
+  (corfu-preview-current nil)
+  (corfu-min-width 25)
+  (corfu-max-width 80)
+  (corfu-count 14)
+  (corfu-scroll-margin 4)
+  (corfu-quit-no-match 'separator)
+  (corfu-preselect 'prompt)
+  :init
+  (global-corfu-mode))
+
+(with-eval-after-load 'corfu
+  (require 'corfu-popupinfo)
+  (setq corfu-popupinfo-delay 0.5)
+  (corfu-popupinfo-mode))
+
+;; ---------------------------------------------------------------------------
+;; Vertico + Orderless + Savehist (modern completion stack)
+;; ---------------------------------------------------------------------------
+
+(use-package vertico
+  :init
+  (vertico-mode))
+
+(use-package orderless
+  :custom
+  (completion-styles '(orderless basic))
+  (completion-category-defaults nil)
+  (completion-category-overrides '((file (styles basic partial-completion)))))
+
+(use-package savehist
+  :init
+  (savehist-mode))
+
+;; ---------------------------------------------------------------------------
+;; Save Recent Files and Session
+;; ---------------------------------------------------------------------------
+
+(recentf-mode 1)
+(setq recentf-max-saved-items 200)
+(save-place-mode 1)
+(desktop-save-mode 1)
+
+;; ---------------------------------------------------------------------------
+;; LSP Configuration
+;; ---------------------------------------------------------------------------
+
+(use-package lsp-mode
+  :hook ((c-mode c++-mode rust-mode) . lsp)
+  :commands lsp
+  :custom
+  (lsp-completion-provider :none)
+  (lsp-enable-symbol-highlighting nil)
+  (lsp-enable-on-type-formatting nil)
+  (lsp-signature-auto-activate nil)
+  (lsp-diagnostics-provider :none)
+  (lsp-enable-folding nil)
+  (lsp-enable-links nil)
+  (lsp-headerline-breadcrumb-enable nil)
+  (lsp-enable-indentation nil)
+  (lsp-enable-on-type-formatting nil))
+
+(setq lsp-auto-guess-root t)
+
+(use-package lsp-ui
+  :commands lsp-ui-mode
+  :config
+  (setq lsp-ui-sideline-enable nil
+        lsp-ui-doc-enable nil))
+
+;; ---------------------------------------------------------------------------
+;; Disable debuginfod prompt
+;; ---------------------------------------------------------------------------
+
+(setenv "DEBUGINFOD_URLS" "")
+(setq gdb-command-name "gdb -q -iex 'set debuginfod enabled off'")
+(setq gdb-many-windows t
+      gdb-show-main t)
+
+;; ---------------------------------------------------------------------------
+;; Quality-of-life Defaults
+;; ---------------------------------------------------------------------------
+
+(fset 'yes-or-no-p 'y-or-n-p)
+(setq ring-bell-function 'ignore)
+(setq sentence-end-double-space nil)
+(global-auto-revert-mode 1)
+(show-paren-mode 1)
+
+;; ---------------------------------------------------------------------------
+;; Enable icomplete-mode for minibuffer autocomplete
+;; ---------------------------------------------------------------------------
+
+(icomplete-mode 1)
