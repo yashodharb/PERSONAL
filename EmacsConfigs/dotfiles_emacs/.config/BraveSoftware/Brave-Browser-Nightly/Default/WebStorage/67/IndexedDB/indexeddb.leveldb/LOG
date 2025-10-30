@@ -1,0 +1,6 @@
+2025/10/26-03:45:38.034 413 Creating DB /home/phantom/.config/BraveSoftware/Brave-Browser-Nightly/Default/WebStorage/67/IndexedDB/indexeddb.leveldb since it was missing.
+2025/10/26-03:45:38.100 413 Reusing MANIFEST /home/phantom/.config/BraveSoftware/Brave-Browser-Nightly/Default/WebStorage/67/IndexedDB/indexeddb.leveldb/MANIFEST-000001
+2025/10/26-03:55:47.958 417 Level-0 table #5: started
+2025/10/26-03:55:47.983 417 Level-0 table #5: 8576 bytes OK
+2025/10/26-03:55:48.033 417 Delete type=0 #3
+2025/10/26-03:55:48.034 417 Manual compaction at level-0 from (begin) .. (end); will stop at (end)

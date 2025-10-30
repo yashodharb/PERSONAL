@@ -1,0 +1,9 @@
+2025/10/30-09:32:00.648 2cd3 Reusing MANIFEST /home/phantom/.config/BraveSoftware/Brave-Browser-Nightly/Default/IndexedDB/https_mail.google.com_0.indexeddb.leveldb/MANIFEST-000001
+2025/10/30-09:32:00.648 2cd3 Recovering log #3
+2025/10/30-09:32:00.799 2cd3 Reusing old log /home/phantom/.config/BraveSoftware/Brave-Browser-Nightly/Default/IndexedDB/https_mail.google.com_0.indexeddb.leveldb/000003.log 
+2025/10/30-09:32:21.555 2cd5 Level-0 table #5: started
+2025/10/30-09:32:21.660 2cd5 Level-0 table #5: 3179652 bytes OK
+2025/10/30-09:32:21.701 2cd5 Delete type=0 #3
+2025/10/30-09:33:09.046 2cd5 Level-0 table #7: started
+2025/10/30-09:33:09.148 2cd5 Level-0 table #7: 2864584 bytes OK
+2025/10/30-09:33:09.189 2cd5 Delete type=0 #4

@@ -1,0 +1,24 @@
+2025/10/30-16:59:37.728 c20 Reusing MANIFEST /home/phantom/.config/BraveSoftware/Brave-Browser-Nightly/Default/Local Extension Settings/gppongmhjkpfnbhagpmjfkannfbllamg/MANIFEST-000001
+2025/10/30-16:59:37.728 c20 Recovering log #859
+2025/10/30-16:59:37.732 c20 Reusing old log /home/phantom/.config/BraveSoftware/Brave-Browser-Nightly/Default/Local Extension Settings/gppongmhjkpfnbhagpmjfkannfbllamg/000859.log 
+2025/10/30-16:59:43.745 c22 Level-0 table #864: started
+2025/10/30-16:59:43.812 c22 Level-0 table #864: 620033 bytes OK
+2025/10/30-16:59:43.896 c22 Delete type=0 #859
+2025/10/30-16:59:56.817 c22 Level-0 table #866: started
+2025/10/30-16:59:56.869 c22 Level-0 table #866: 769114 bytes OK
+2025/10/30-16:59:56.929 c22 Delete type=0 #863
+2025/10/30-16:59:57.154 c22 Level-0 table #868: started
+2025/10/30-16:59:57.219 c22 Level-0 table #868: 1298894 bytes OK
+2025/10/30-16:59:57.270 c22 Delete type=0 #865
+2025/10/30-17:00:42.777 c22 Level-0 table #870: started
+2025/10/30-17:00:42.825 c22 Level-0 table #870: 466724 bytes OK
+2025/10/30-17:00:42.893 c22 Delete type=0 #867
+2025/10/30-17:00:42.895 c22 Compacting 4@0 + 1@1 files
+2025/10/30-17:00:42.958 c22 Generated table #871@0: 1 keys, 37605 bytes
+2025/10/30-17:00:42.959 c22 Compacted 4@0 + 1@1 files => 37605 bytes
+2025/10/30-17:00:43.017 c22 compacted to: files[ 0 1 1 0 0 0 0 ]
+2025/10/30-17:00:43.017 c22 Delete type=2 #861
+2025/10/30-17:00:43.018 c22 Delete type=2 #864
+2025/10/30-17:00:43.018 c22 Delete type=2 #866
+2025/10/30-17:00:43.018 c22 Delete type=2 #868
+2025/10/30-17:00:43.018 c22 Delete type=2 #870

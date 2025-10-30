@@ -1,0 +1,77 @@
+{
+   "checksum": "6fc300e11ccfe95aca1d6ec262fe98c5",
+   "roots": {
+      "bookmark_bar": {
+         "children": [ {
+            "children": [ {
+               "date_added": "13404936368000000",
+               "date_last_used": "0",
+               "guid": "23ada5b2-f4ec-4052-8126-60e01eea893a",
+               "id": "6",
+               "name": "Get Help",
+               "type": "url",
+               "url": "https://support.mozilla.org/products/firefox"
+            }, {
+               "date_added": "13404936368000000",
+               "date_last_used": "0",
+               "guid": "489c38ff-1b51-4afe-8663-eacce1fd3175",
+               "id": "7",
+               "name": "Customize Firefox",
+               "type": "url",
+               "url": "https://support.mozilla.org/kb/customize-firefox-controls-buttons-and-toolbars?utm_source=firefox-browser&utm_medium=default-bookmarks&utm_campaign=customize"
+            }, {
+               "date_added": "13404936368000000",
+               "date_last_used": "0",
+               "guid": "3dffe4fd-7f7a-454c-beab-ba6120fbf65d",
+               "id": "8",
+               "name": "Get Involved",
+               "type": "url",
+               "url": "https://www.mozilla.org/contribute/"
+            }, {
+               "date_added": "13404936368000000",
+               "date_last_used": "0",
+               "guid": "1654dd74-57d7-4bb9-b4a8-59c3849e1af4",
+               "id": "9",
+               "name": "About Us",
+               "type": "url",
+               "url": "https://www.mozilla.org/about/"
+            } ],
+            "date_added": "13405011415687140",
+            "date_last_used": "0",
+            "date_modified": "0",
+            "guid": "dd3d25c5-7548-4426-b128-f46536de0f12",
+            "id": "5",
+            "name": "Mozilla Firefox",
+            "type": "folder"
+         } ],
+         "date_added": "13405011393315247",
+         "date_last_used": "0",
+         "date_modified": "0",
+         "guid": "0bc5d13f-2cba-5d74-951f-3f233fe6c908",
+         "id": "1",
+         "name": "Bookmarks",
+         "type": "folder"
+      },
+      "other": {
+         "children": [  ],
+         "date_added": "13405011393315247",
+         "date_last_used": "0",
+         "date_modified": "0",
+         "guid": "82b081ec-3dd3-529c-8475-ab6c344590dd",
+         "id": "2",
+         "name": "Other bookmarks",
+         "type": "folder"
+      },
+      "synced": {
+         "children": [  ],
+         "date_added": "13405011393315247",
+         "date_last_used": "0",
+         "date_modified": "0",
+         "guid": "4cf2e351-0e85-532b-bb37-df045d8f8d0f",
+         "id": "3",
+         "name": "Mobile bookmarks",
+         "type": "folder"
+      }
+   },
+   "version": 1
+}

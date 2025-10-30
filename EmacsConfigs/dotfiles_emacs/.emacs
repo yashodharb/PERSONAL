@@ -1,7 +1,6 @@
 ;;; -*- lexical-binding: t -*-
 
-(setq custom-file "~/.emacs.custom.el" )
-
+(setq custom-file "~/.emacs.custom.el")
 (load-file "~/.emacs.custom.el")
 
 ;; ---------------------------------------------------------------------------
@@ -18,7 +17,6 @@
 ;; Package Refresh
 ;; ---------------------------------------------------------------------------
 
-
 (unless package-archive-contents
   (package-refresh-contents))
 
@@ -26,10 +24,8 @@
 ;; Ensure `use-package` is installed
 ;; ---------------------------------------------------------------------------
 
-
 (unless (package-installed-p 'use-package)
   (package-install 'use-package))
-
 (require 'use-package)
 (setq use-package-always-ensure t)
 
@@ -41,43 +37,44 @@
   :config
   (yas-global-mode 1))
 
-;; Ibuffer Customization
-;;(use-package ibuffer
-;;  :ensure t
-;;  :bind ("C-x C-b" . ibuffer)) ;; Replace default buffer list with ibuffer
+;; ---------------------------------------------------------------------------
+;; DISABLE AUTOSAVE, BACKUPFILES AND LOCKFILES
+;; ---------------------------------------------------------------------------
+
+(setq auto-save-default nil)
+(setq make-backup-files nil)
+(setq create-lockfiles nil)
 
 ;; ---------------------------------------------------------------------------
 ;; UI Customizations
 ;; ---------------------------------------------------------------------------
 
-(menu-bar-mode -1) ;; Remove menu bar
-(tool-bar-mode -1) ;; Remove tool bar
-(scroll-bar-mode -1) ;; Remove scroll bar
-(setq inhibit-startup-screen t) ;; Disable startup screen
-(setq-default indent-tabs-mode nil  ;; Use spaces instead of tabs globally
-              tab-width 4)          ;; Set global tab width to 4 spaces
+(menu-bar-mode -1)
+(tool-bar-mode -1)
+(scroll-bar-mode -1)
+(setq inhibit-startup-screen t)
+(setq-default indent-tabs-mode nil tab-width 4)
 (setq display-line-numbers-type 'relative)
-(global-display-line-numbers-mode t) ;; Enable relative line numbers
-
+(global-display-line-numbers-mode t)
 
 ;; ---------------------------------------------------------------------------
 ;; C/C++ indentation settings
 ;; ---------------------------------------------------------------------------
+
 (add-hook 'c-mode-common-hook
           (lambda ()
-            (setq indent-tabs-mode nil)  ;; use spaces, not tabs
-            (setq tab-width 4)           ;; visual width of tab = 4
-            (setq c-basic-offset 4)))    ;; actual indentation level = 4
+            (setq indent-tabs-mode nil)
+            (setq tab-width 4)
+            (setq c-basic-offset 4)))
 
 ;; ---------------------------------------------------------------------------
-;; indentation settings {any programming mode (like Python, JS, etc.) to default to 4 spaces}
+;; Generic indentation (Python, JS, etc.)
 ;; ---------------------------------------------------------------------------
 
 (add-hook 'prog-mode-hook
           (lambda ()
             (setq indent-tabs-mode nil)
             (setq tab-width 4)))
-
 
 ;; ---------------------------------------------------------------------------
 ;; Whitespace settings
@@ -86,25 +83,19 @@
 (require 'whitespace)
 (setq whitespace-style '(face spaces tabs newline space-mark tab-mark))
 (setq whitespace-display-mappings
-      '((space-mark   ?\    [?\u00B7]  [?.])    ;; middle dot for space
+      '((space-mark   ?\    [?\u00B7]  [?.])
         (newline-mark ?\n   [?$ ?\n])
-        (tab-mark     ?\t   [?\u2192 ?\t] [?> ?\t]))) ;; arrow for tab
+        (tab-mark     ?\t   [?\u2192 ?\t] [?> ?\t])))
 (set-face-attribute 'whitespace-space nil :foreground "gray40" :background nil)
 (set-face-attribute 'whitespace-newline nil :foreground "gray40" :background nil)
 (set-face-attribute 'whitespace-tab nil :foreground "gray40" :background nil)
 (global-whitespace-mode 1)
 
-
 ;; ---------------------------------------------------------------------------
-;; Case-insensitive search
+;; Case-insensitive search and completion
 ;; ---------------------------------------------------------------------------
 
 (setq-default case-fold-search t)
-
-;; ---------------------------------------------------------------------------
-;; Case-insensitive completion for file names, buffers, etc.
-;; ---------------------------------------------------------------------------
-
 (setq read-file-name-completion-ignore-case t)
 (setq read-buffer-completion-ignore-case t)
 (setq completion-ignore-case t)
@@ -113,45 +104,39 @@
 ;; Disable Arrow Keys with Guidance
 ;; ---------------------------------------------------------------------------
 
-(global-set-key (kbd "<up>")
-                (lambda () (interactive) (message "Use C-p instead of the up arrow key!")))
-(global-set-key (kbd "<down>")
-                (lambda () (interactive) (message "Use C-n instead of the down arrow key!")))
-(global-set-key (kbd "<left>")
-                (lambda () (interactive) (message "Use C-b instead of the left arrow key!")))
-(global-set-key (kbd "<right>")
-                (lambda () (interactive) (message "Use C-f instead of the right arrow key!")))
+(global-set-key (kbd "<up>")    (lambda () (interactive) (message "Use C-p instead of ↑")))
+(global-set-key (kbd "<down>")  (lambda () (interactive) (message "Use C-n instead of ↓")))
+(global-set-key (kbd "<left>")  (lambda () (interactive) (message "Use C-b instead of ←")))
+(global-set-key (kbd "<right>") (lambda () (interactive) (message "Use C-f instead of →")))
 
 ;; ---------------------------------------------------------------------------
-;; Disable Arrow Keys with Guidance
-;; ---------------------------------------------------------------------------
-
 ;; Fullscreen on Startup
-(add-to-list 'default-frame-alist '(fullscreen . fullboth)) ;; Launch Emacs in fullscreen mode
-
-;; ---------------------------------------------------------------------------
-;; Disable Arrow Keys with Guidance
 ;; ---------------------------------------------------------------------------
 
-;; Enhanced and Smaller Mode Line
+(add-to-list 'default-frame-alist '(fullscreen . fullboth))
+
+;; ---------------------------------------------------------------------------
+;; Simplified Mode Line
+;; ---------------------------------------------------------------------------
+
 (setq-default mode-line-format
               '("%e"
                 mode-line-front-space
-                "%b"                        ;; Buffer name
-                "   %l:%c"                   ;; Line and column
-                "   %I"                      ;; Buffer size
-                "   %m"                      ;; Major mode
+                "%b"
+                "   %l:%c"
+                "   %I"
+                "   %m"
                 (:eval (unless (string= (symbol-name buffer-file-coding-system) "utf-8-unix")
-                         (concat " · " (symbol-name buffer-file-coding-system)))) ;; Show encoding if not UTF-8
-                mode-line-modes))            ;; Minor modes
+                         (concat " � " (symbol-name buffer-file-coding-system))))
+                mode-line-modes))
 
 ;; ---------------------------------------------------------------------------
-;; Set DejaVu Sans Mono Font
+;; Font
 ;; ---------------------------------------------------------------------------
 
 (set-face-attribute 'default nil
-                    :family "JetBrainsMono Nerd Font" ;; Set font to DejaVu Sans Mono, a widely available font
-                    :height 170)              ;; Set font size to 200%
+                    :family "JetBrainsMono Nerd Font"
+                    :height 170)
 
 ;; ---------------------------------------------------------------------------
 ;; Remove default scratch buffer message
@@ -160,21 +145,17 @@
 (setq initial-scratch-message nil)
 
 ;; ---------------------------------------------------------------------------
-;; Python and RUST support added
+;; Python & Rust support
 ;; ---------------------------------------------------------------------------
 
+(use-package python-mode :defer t)
+(use-package rust-mode :defer t)
 
-(use-package python-mode
-  :ensure t
-  :defer t) ;; load only when a Python file is opened
-
-(use-package rust-mode
-  :ensure t
-  :defer t) ;; load only when a Rust file is opened
+;; ---------------------------------------------------------------------------
+;; Multiple Cursors
+;; ---------------------------------------------------------------------------
 
 (use-package multiple-cursors
-  :ensure t
-  :defer t  ;; load only when one of its commands is used
   :bind (("C->" . mc/mark-next-like-this)
          ("C-<" . mc/mark-previous-like-this)
          ("C-c C-<" . mc/mark-all-like-this)
@@ -185,7 +166,6 @@
 ;; ---------------------------------------------------------------------------
 
 (use-package corfu
-  :ensure t
   :custom
   (corfu-auto t)
   (corfu-auto-delay 0.1)
@@ -198,49 +178,36 @@
   :init
   (global-corfu-mode))
 
-;; ---------------------------------------------------------------------------
-;; Corfu Popup Info (built into corfu)
-;; ---------------------------------------------------------------------------
-
 (with-eval-after-load 'corfu
   (require 'corfu-popupinfo)
   (setq corfu-popupinfo-delay 0.5)
   (corfu-popupinfo-mode))
 
 ;; ---------------------------------------------------------------------------
-;; Vertico
+;; Vertico + Orderless (Better Completion)
 ;; ---------------------------------------------------------------------------
 
 (use-package vertico
-  :ensure t
-  :init
-  (vertico-mode))
-
-;; ---------------------------------------------------------------------------
-;; Orderless
-;; ---------------------------------------------------------------------------
+  :init (vertico-mode))
 
 (use-package orderless
-  :ensure t
   :custom
   (completion-styles '(orderless basic))
   (completion-category-defaults nil)
   (completion-category-overrides '((file (styles basic partial-completion)))))
 
 ;; ---------------------------------------------------------------------------
-;; Save-hist
+;; Save-hist (remember minibuffer history)
 ;; ---------------------------------------------------------------------------
 
 (use-package savehist
-  :init
-  (savehist-mode))
+  :init (savehist-mode))
 
 ;; ---------------------------------------------------------------------------
-;; LSP Configuration (integrated with Corfu)
+;; LSP Configuration
 ;; ---------------------------------------------------------------------------
 
 (use-package lsp-mode
-  :ensure t
   :hook ((c-mode c++-mode rust-mode) . lsp)
   :commands lsp
   :custom
@@ -252,37 +219,44 @@
   (lsp-enable-folding nil)
   (lsp-enable-links nil)
   (lsp-headerline-breadcrumb-enable nil)
-;; Prevent LSP from overriding Emacs indentation settings
   (lsp-enable-indentation nil)
   (lsp-enable-on-type-formatting nil))
 
 (setq lsp-auto-guess-root t)
 
 (use-package lsp-ui
-  :ensure t
   :commands lsp-ui-mode
   :config
   (setq lsp-ui-sideline-enable nil
         lsp-ui-doc-enable nil))
 
 ;; ---------------------------------------------------------------------------
-;; LSP Configuration (integrated with Corfu)
+;; GDB Config
 ;; ---------------------------------------------------------------------------
 
-
-;; Disable the debuginfod prompt completely
 (setenv "DEBUGINFOD_URLS" "")
 (setq gdb-command-name "gdb -q -iex 'set debuginfod enabled off'")
-
-
-;; Optional: enable GDB multi-window mode for a nice UI
 (setq gdb-many-windows t
       gdb-show-main t)
 
 ;; ---------------------------------------------------------------------------
-;; Enable icomplete-mode for minibuffer autocomplete
+;; icomplete for minibuffer autocomplete
 ;; ---------------------------------------------------------------------------
 
 (icomplete-mode 1)
 
+;; ---------------------------------------------------------------------------
+;; Performance Optimizations
+;; ---------------------------------------------------------------------------
 
+(setq gc-cons-threshold (* 128 1024 1024))  ;; 128MB before GC
+(setq read-process-output-max (* 4 1024 1024))  ;; 4MB for LSP data
+(setq idle-update-delay 0.5)
+(setq fast-but-imprecise-scrolling t)
+(setq redisplay-skip-fontification-on-input t)
+(setq jit-lock-defer-time 0)
+(setq inhibit-compacting-font-caches t)
+
+;; Enable native-comp (faster Lisp)
+(when (boundp 'native-comp-async-report-warnings-errors)
+  (setq native-comp-async-report-warnings-errors nil))

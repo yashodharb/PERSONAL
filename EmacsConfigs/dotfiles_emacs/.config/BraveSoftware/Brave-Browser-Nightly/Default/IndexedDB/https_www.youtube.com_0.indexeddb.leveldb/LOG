@@ -1,0 +1,6 @@
+2025/10/30-16:59:42.424 c22 Reusing MANIFEST /home/phantom/.config/BraveSoftware/Brave-Browser-Nightly/Default/IndexedDB/https_www.youtube.com_0.indexeddb.leveldb/MANIFEST-000001
+2025/10/30-16:59:42.424 c22 Recovering log #125
+2025/10/30-16:59:42.435 c22 Reusing old log /home/phantom/.config/BraveSoftware/Brave-Browser-Nightly/Default/IndexedDB/https_www.youtube.com_0.indexeddb.leveldb/000125.log 
+2025/10/30-17:01:48.477 c22 Level-0 table #131: started
+2025/10/30-17:01:48.538 c22 Level-0 table #131: 1966076 bytes OK
+2025/10/30-17:01:48.597 c22 Delete type=0 #125

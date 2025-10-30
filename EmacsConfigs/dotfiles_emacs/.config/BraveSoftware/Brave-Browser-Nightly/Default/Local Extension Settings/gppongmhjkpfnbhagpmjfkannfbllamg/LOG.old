@@ -1,0 +1,60 @@
+2025/10/30-16:30:03.045 53f Reusing MANIFEST /home/phantom/.config/BraveSoftware/Brave-Browser-Nightly/Default/Local Extension Settings/gppongmhjkpfnbhagpmjfkannfbllamg/MANIFEST-000001
+2025/10/30-16:30:03.086 53f Recovering log #836
+2025/10/30-16:30:03.584 53f Reusing old log /home/phantom/.config/BraveSoftware/Brave-Browser-Nightly/Default/Local Extension Settings/gppongmhjkpfnbhagpmjfkannfbllamg/000836.log 
+2025/10/30-16:30:29.017 4fc Level-0 table #840: started
+2025/10/30-16:30:29.059 4fc Level-0 table #840: 471258 bytes OK
+2025/10/30-16:30:29.109 4fc Delete type=0 #836
+2025/10/30-16:30:29.352 4fc Level-0 table #842: started
+2025/10/30-16:30:29.409 4fc Level-0 table #842: 799442 bytes OK
+2025/10/30-16:30:29.477 4fc Delete type=0 #839
+2025/10/30-16:30:29.480 4fc Compacting 4@0 + 1@1 files
+2025/10/30-16:30:29.567 4fc Generated table #843@0: 1 keys, 359542 bytes
+2025/10/30-16:30:29.567 4fc Compacted 4@0 + 1@1 files => 359542 bytes
+2025/10/30-16:30:29.625 4fc compacted to: files[ 0 1 1 0 0 0 0 ]
+2025/10/30-16:30:29.626 4fc Delete type=2 #833
+2025/10/30-16:30:29.626 4fc Delete type=2 #835
+2025/10/30-16:30:29.626 4fc Delete type=2 #837
+2025/10/30-16:30:29.626 4fc Delete type=2 #840
+2025/10/30-16:30:29.626 4fc Delete type=2 #842
+2025/10/30-16:30:35.882 4fc Level-0 table #845: started
+2025/10/30-16:30:36.025 4fc Level-0 table #845: 434816 bytes OK
+2025/10/30-16:30:36.076 4fc Delete type=0 #841
+2025/10/30-16:30:59.618 4fc Level-0 table #847: started
+2025/10/30-16:30:59.741 4fc Level-0 table #847: 441398 bytes OK
+2025/10/30-16:30:59.799 4fc Delete type=0 #844
+2025/10/30-16:31:15.881 4fc Level-0 table #849: started
+2025/10/30-16:31:16.012 4fc Level-0 table #849: 802664 bytes OK
+2025/10/30-16:31:16.215 4fc Delete type=0 #846
+2025/10/30-16:31:21.172 50c Level-0 table #851: started
+2025/10/30-16:31:21.223 50c Level-0 table #851: 723266 bytes OK
+2025/10/30-16:31:21.291 50c Delete type=0 #848
+2025/10/30-16:31:21.294 50c Compacting 4@0 + 1@1 files
+2025/10/30-16:31:21.373 50c Generated table #852@0: 1 keys, 361923 bytes
+2025/10/30-16:31:21.373 50c Compacted 4@0 + 1@1 files => 361923 bytes
+2025/10/30-16:31:21.431 50c compacted to: files[ 0 1 1 0 0 0 0 ]
+2025/10/30-16:31:21.432 50c Delete type=2 #843
+2025/10/30-16:31:21.432 50c Delete type=2 #845
+2025/10/30-16:31:21.432 50c Delete type=2 #847
+2025/10/30-16:31:21.432 50c Delete type=2 #849
+2025/10/30-16:31:21.432 50c Delete type=2 #851
+2025/10/30-16:31:36.819 50c Level-0 table #854: started
+2025/10/30-16:31:36.872 50c Level-0 table #854: 585322 bytes OK
+2025/10/30-16:31:36.947 50c Delete type=0 #850
+2025/10/30-16:32:55.399 4fc Level-0 table #856: started
+2025/10/30-16:32:55.459 4fc Level-0 table #856: 839385 bytes OK
+2025/10/30-16:32:55.543 4fc Delete type=0 #853
+2025/10/30-16:33:49.570 4fc Level-0 table #858: started
+2025/10/30-16:33:49.622 4fc Level-0 table #858: 595351 bytes OK
+2025/10/30-16:33:49.681 4fc Delete type=0 #855
+2025/10/30-16:38:52.316 50c Level-0 table #860: started
+2025/10/30-16:38:52.473 50c Level-0 table #860: 593630 bytes OK
+2025/10/30-16:38:52.683 50c Delete type=0 #857
+2025/10/30-16:38:52.685 50c Compacting 4@0 + 1@1 files
+2025/10/30-16:38:52.788 50c Generated table #861@0: 1 keys, 36941 bytes
+2025/10/30-16:38:52.788 50c Compacted 4@0 + 1@1 files => 36941 bytes
+2025/10/30-16:38:52.990 50c compacted to: files[ 0 1 1 0 0 0 0 ]
+2025/10/30-16:38:52.992 50c Delete type=2 #852
+2025/10/30-16:38:52.992 50c Delete type=2 #854
+2025/10/30-16:38:52.992 50c Delete type=2 #856
+2025/10/30-16:38:52.992 50c Delete type=2 #858
+2025/10/30-16:38:52.992 50c Delete type=2 #860

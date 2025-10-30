@@ -1,0 +1,15 @@
+2025/10/30-12:49:34.548 1d74 Reusing MANIFEST /home/phantom/.config/BraveSoftware/Brave-Browser-Nightly/Default/IndexedDB/https_medium.com_0.indexeddb.leveldb/MANIFEST-000001
+2025/10/30-12:49:34.548 1d74 Recovering log #7
+2025/10/30-12:49:34.629 1d74 Reusing old log /home/phantom/.config/BraveSoftware/Brave-Browser-Nightly/Default/IndexedDB/https_medium.com_0.indexeddb.leveldb/000007.log 
+2025/10/30-12:50:02.160 1d77 Level-0 table #12: started
+2025/10/30-12:50:02.193 1d77 Level-0 table #12: 65724 bytes OK
+2025/10/30-12:50:02.252 1d77 Delete type=0 #7
+2025/10/30-12:50:02.253 1d77 Manual compaction at level-0 from (begin) .. (end); will stop at (end)
+2025/10/30-12:50:02.253 1d77 Manual compaction at level-1 from (begin) .. (end); will stop at '\x00\x01\x01\x1f\x03\x00\xe0\x8b\xcd?\xa3yB\x00\x01\x12\x00m\x00h\x00d\x003\x00g\x00y\x00b\x00h\x00x\x006\x009\x00r\x00v\x00o\x00g\x00n\x00v\x00j' @ 8140 : 1
+2025/10/30-12:50:02.253 1d77 Compacting 1@1 + 1@2 files
+2025/10/30-12:50:02.285 1d77 Generated table #13@1: 505 keys, 24485 bytes
+2025/10/30-12:50:02.285 1d77 Compacted 1@1 + 1@2 files => 24485 bytes
+2025/10/30-12:50:02.343 1d77 compacted to: files[ 0 0 1 0 0 0 0 ]
+2025/10/30-12:50:02.344 1d77 Delete type=2 #9
+2025/10/30-12:50:02.344 1d77 Delete type=2 #12
+2025/10/30-12:50:02.345 1d77 Manual compaction at level-1 from '\x00\x01\x01\x1f\x03\x00\xe0\x8b\xcd?\xa3yB\x00\x01\x12\x00m\x00h\x00d\x003\x00g\x00y\x00b\x00h\x00x\x006\x009\x00r\x00v\x00o\x00g\x00n\x00v\x00j' @ 8140 : 1 .. (end); will stop at (end)

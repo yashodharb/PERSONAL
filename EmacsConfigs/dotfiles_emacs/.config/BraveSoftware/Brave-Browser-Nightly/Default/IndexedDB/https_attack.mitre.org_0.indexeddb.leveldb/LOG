@@ -1,0 +1,164 @@
+2025/10/28-00:19:36.375 44b Creating DB /home/phantom/.config/BraveSoftware/Brave-Browser-Nightly/Default/IndexedDB/https_attack.mitre.org_0.indexeddb.leveldb since it was missing.
+2025/10/28-00:19:36.450 44b Reusing MANIFEST /home/phantom/.config/BraveSoftware/Brave-Browser-Nightly/Default/IndexedDB/https_attack.mitre.org_0.indexeddb.leveldb/MANIFEST-000001
+2025/10/28-00:19:37.558 44e Level-0 table #5: started
+2025/10/28-00:19:37.745 44e Level-0 table #5: 2022364 bytes OK
+2025/10/28-00:19:37.807 44b Current memtable full; waiting...
+2025/10/28-00:19:37.809 44e Delete type=0 #3
+2025/10/28-00:19:37.811 44e Level-0 table #7: started
+2025/10/28-00:19:37.855 44b Current memtable full; waiting...
+2025/10/28-00:19:37.894 44e Level-0 table #7: 1727662 bytes OK
+2025/10/28-00:19:37.967 44e Delete type=0 #4
+2025/10/28-00:19:37.969 44e Level-0 table #9: started
+2025/10/28-00:19:38.110 44e Level-0 table #9: 2085758 bytes OK
+2025/10/28-00:19:38.113 44b Current memtable full; waiting...
+2025/10/28-00:19:38.175 44e Delete type=0 #6
+2025/10/28-00:19:38.177 44e Level-0 table #11: started
+2025/10/28-00:19:38.268 44e Level-0 table #11: 2072814 bytes OK
+2025/10/28-00:19:38.335 44e Delete type=0 #8
+2025/10/28-00:19:38.358 44e Level-0 table #13: started
+2025/10/28-00:19:38.418 44b Current memtable full; waiting...
+2025/10/28-00:19:38.451 44e Level-0 table #13: 1933693 bytes OK
+2025/10/28-00:19:38.509 44e Delete type=0 #10
+2025/10/28-00:19:38.512 44e Level-0 table #15: started
+2025/10/28-00:19:38.728 44e Level-0 table #15: 2041912 bytes OK
+2025/10/28-00:19:38.738 44b Current memtable full; waiting...
+2025/10/28-00:19:38.801 44e Delete type=0 #12
+2025/10/28-00:19:38.804 44e Compacting 4@0 + 1@1 files
+2025/10/28-00:19:38.805 44e Level-0 table #17: started
+2025/10/28-00:19:38.892 44b Current memtable full; waiting...
+2025/10/28-00:19:38.901 44e Level-0 table #17: 2194323 bytes OK
+2025/10/28-00:19:38.967 44e Delete type=0 #14
+2025/10/28-00:19:38.970 44e Level-0 table #20: started
+2025/10/28-00:19:39.065 44b Current memtable full; waiting...
+2025/10/28-00:19:39.067 44e Level-0 table #20: 2184921 bytes OK
+2025/10/28-00:19:39.126 44e Delete type=0 #16
+2025/10/28-00:19:39.129 44e Level-0 table #22: started
+2025/10/28-00:19:39.234 44e Level-0 table #22: 2159649 bytes OK
+2025/10/28-00:19:39.247 44b Current memtable full; waiting...
+2025/10/28-00:19:39.293 44e Delete type=0 #19
+2025/10/28-00:19:39.296 44e Level-0 table #24: started
+2025/10/28-00:19:39.377 44b Current memtable full; waiting...
+2025/10/28-00:19:39.384 44e Level-0 table #24: 2180910 bytes OK
+2025/10/28-00:19:39.442 44e Delete type=0 #21
+2025/10/28-00:19:39.447 44e Level-0 table #26: started
+2025/10/28-00:19:39.594 44e Level-0 table #26: 2183170 bytes OK
+2025/10/28-00:19:39.717 44e Delete type=0 #23
+2025/10/28-00:19:39.816 44e Generated table #18@0: 2822 keys, 2125379 bytes
+2025/10/28-00:19:39.948 44e Generated table #27@0: 1283 keys, 3924280 bytes
+2025/10/28-00:19:39.948 44e Level-0 table #29: started
+2025/10/28-00:19:40.124 44e Level-0 table #29: 2504335 bytes OK
+2025/10/28-00:19:40.201 44e Delete type=0 #25
+2025/10/28-00:19:40.293 44e Generated table #30@0: 81 keys, 1267646 bytes
+2025/10/28-00:19:40.293 44e Compacted 4@0 + 1@1 files => 7317305 bytes
+2025/10/28-00:19:40.358 44e compacted to: files[ 6 3 1 0 0 0 0 ]
+2025/10/28-00:19:40.358 44e Delete type=2 #7
+2025/10/28-00:19:40.358 44e Delete type=2 #9
+2025/10/28-00:19:40.358 44e Delete type=2 #11
+2025/10/28-00:19:40.359 44e Delete type=2 #13
+2025/10/28-00:19:40.359 44e Delete type=2 #15
+2025/10/28-00:19:40.361 44e Level-0 table #32: started
+2025/10/28-00:19:40.408 44b Current memtable full; waiting...
+2025/10/28-00:19:40.435 44e Level-0 table #32: 2378801 bytes OK
+2025/10/28-00:19:40.500 44e Delete type=0 #28
+2025/10/28-00:19:40.501 44e Compacting 7@0 + 3@1 files
+2025/10/28-00:19:40.502 44e Level-0 table #35: started
+2025/10/28-00:19:40.566 44b Current memtable full; waiting...
+2025/10/28-00:19:40.576 44e Level-0 table #35: 2397994 bytes OK
+2025/10/28-00:19:40.642 44e Delete type=0 #31
+2025/10/28-00:19:40.644 44e Level-0 table #37: started
+2025/10/28-00:19:40.802 44e Level-0 table #37: 2489850 bytes OK
+2025/10/28-00:19:40.868 44e Delete type=0 #33
+2025/10/28-00:19:40.958 44e Generated table #34@0: 9943 keys, 2133921 bytes
+2025/10/28-00:19:40.974 44e Level-0 table #40: started
+2025/10/28-00:19:41.051 44e Level-0 table #40: 2403594 bytes OK
+2025/10/28-00:19:41.150 44e Delete type=0 #36
+2025/10/28-00:19:41.216 44e Generated table #38@0: 378 keys, 2113620 bytes
+2025/10/28-00:19:41.274 44e Generated table #41@0: 1084 keys, 2111575 bytes
+2025/10/28-00:19:41.404 44e Generated table #42@0: 4032 keys, 3907895 bytes
+2025/10/28-00:19:41.423 44e Level-0 table #45: started
+2025/10/28-00:19:41.526 44e Level-0 table #45: 2343743 bytes OK
+2025/10/28-00:19:41.608 45f Current memtable full; waiting...
+2025/10/28-00:19:41.667 44e Delete type=0 #39
+2025/10/28-00:19:41.669 44e Level-0 table #47: started
+2025/10/28-00:19:41.753 44e Level-0 table #47: 2450075 bytes OK
+2025/10/28-00:19:41.816 44e Delete type=0 #44
+2025/10/28-00:19:42.063 44e Generated table #43@0: 522 keys, 3911632 bytes
+2025/10/28-00:19:42.115 45f Too many L0 files; waiting...
+2025/10/28-00:19:42.189 44e Generated table #48@0: 399 keys, 3999477 bytes
+2025/10/28-00:19:42.235 44e Generated table #49@0: 130 keys, 749934 bytes
+2025/10/28-00:19:42.236 44e Compacted 7@0 + 3@1 files => 18928054 bytes
+2025/10/28-00:19:42.291 44e compacted to: files[ 5 7 1 0 0 0 0 ]
+2025/10/28-00:19:42.292 44e Delete type=2 #17
+2025/10/28-00:19:42.292 44e Delete type=2 #18
+2025/10/28-00:19:42.293 44e Delete type=2 #20
+2025/10/28-00:19:42.293 44e Delete type=2 #22
+2025/10/28-00:19:42.294 44e Delete type=2 #24
+2025/10/28-00:19:42.294 44e Delete type=2 #26
+2025/10/28-00:19:42.294 44e Delete type=2 #27
+2025/10/28-00:19:42.295 44e Delete type=2 #29
+2025/10/28-00:19:42.295 44e Delete type=2 #30
+2025/10/28-00:19:42.295 44e Delete type=2 #32
+2025/10/28-00:19:42.300 44e Expanding@1 1+1 (2133921+2022364 bytes) to 7+1 (18928054+2022364 bytes)
+2025/10/28-00:19:42.300 44e Compacting 7@1 + 1@2 files
+2025/10/28-00:19:42.301 44e Level-0 table #52: started
+2025/10/28-00:19:42.377 44e Level-0 table #52: 2412093 bytes OK
+2025/10/28-00:19:42.497 44b Current memtable full; waiting...
+2025/10/28-00:19:42.542 44e Delete type=0 #46
+2025/10/28-00:19:42.545 44e Level-0 table #54: started
+2025/10/28-00:19:42.749 44e Level-0 table #54: 2502993 bytes OK
+2025/10/28-00:19:42.784 44b Current memtable full; waiting...
+2025/10/28-00:19:42.817 44e Delete type=0 #50
+2025/10/28-00:19:42.821 44e Level-0 table #56: started
+2025/10/28-00:19:42.970 44e Level-0 table #56: 2355031 bytes OK
+2025/10/28-00:19:43.059 44e Delete type=0 #53
+2025/10/28-00:19:43.166 44e Generated table #51@1: 972 keys, 2118515 bytes
+2025/10/28-00:19:43.249 44e Generated table #57@1: 407 keys, 2116512 bytes
+2025/10/28-00:19:43.332 44e Generated table #58@1: 360 keys, 2125451 bytes
+2025/10/28-00:19:43.472 44e Generated table #59@1: 4950 keys, 3643576 bytes
+2025/10/28-00:19:43.647 44e Generated table #60@1: 478 keys, 3952680 bytes
+2025/10/28-00:19:43.822 44e Generated table #61@1: 472 keys, 3950265 bytes
+2025/10/28-00:19:43.917 44e Generated table #62@1: 282 keys, 2391727 bytes
+2025/10/28-00:19:43.917 44e Compacted 7@1 + 1@2 files => 20298726 bytes
+2025/10/28-00:19:43.982 44e compacted to: files[ 8 0 7 0 0 0 0 ]
+2025/10/28-00:19:43.984 44e Delete type=2 #5
+2025/10/28-00:19:43.984 44e Delete type=2 #34
+2025/10/28-00:19:43.984 44e Delete type=2 #38
+2025/10/28-00:19:43.984 44e Delete type=2 #41
+2025/10/28-00:19:43.985 44e Delete type=2 #42
+2025/10/28-00:19:43.985 44e Delete type=2 #43
+2025/10/28-00:19:43.986 44e Delete type=2 #48
+2025/10/28-00:19:43.986 44e Delete type=2 #49
+2025/10/28-00:19:43.992 44e Compacting 8@0 + 0@1 files
+2025/10/28-00:19:44.066 44e Generated table #63@0: 4574 keys, 2120646 bytes
+2025/10/28-00:19:44.132 44e Generated table #64@0: 305 keys, 2124549 bytes
+2025/10/28-00:19:44.245 44e Generated table #65@0: 2354 keys, 3503810 bytes
+2025/10/28-00:19:44.363 44e Generated table #66@0: 277 keys, 4037002 bytes
+2025/10/28-00:19:44.462 44e Generated table #67@0: 176 keys, 2487006 bytes
+2025/10/28-00:19:44.463 44e Compacted 8@0 + 0@1 files => 14273013 bytes
+2025/10/28-00:19:44.516 44e compacted to: files[ 0 5 7 0 0 0 0 ]
+2025/10/28-00:19:44.516 44e Delete type=2 #35
+2025/10/28-00:19:44.517 44e Delete type=2 #37
+2025/10/28-00:19:44.517 44e Delete type=2 #40
+2025/10/28-00:19:44.517 44e Delete type=2 #45
+2025/10/28-00:19:44.517 44e Delete type=2 #47
+2025/10/28-00:19:44.517 44e Delete type=2 #52
+2025/10/28-00:19:44.517 44e Delete type=2 #54
+2025/10/28-00:19:44.518 44e Delete type=2 #56
+2025/10/28-00:19:44.521 44e Compacting 1@1 + 3@2 files
+2025/10/28-00:19:44.599 44e Generated table #68@1: 908 keys, 2120022 bytes
+2025/10/28-00:19:44.666 44e Generated table #69@1: 360 keys, 2114729 bytes
+2025/10/28-00:19:44.741 44e Generated table #70@1: 294 keys, 2114619 bytes
+2025/10/28-00:19:44.799 44e Generated table #71@1: 336 keys, 1874672 bytes
+2025/10/28-00:19:44.799 44e Compacted 1@1 + 3@2 files => 8224042 bytes
+2025/10/28-00:19:44.866 44e compacted to: files[ 0 4 8 0 0 0 0 ]
+2025/10/28-00:19:44.866 44e Delete type=2 #51
+2025/10/28-00:19:44.866 44e Delete type=2 #57
+2025/10/28-00:19:44.866 44e Delete type=2 #58
+2025/10/28-00:19:44.866 44e Delete type=2 #63
+2025/10/28-00:19:44.869 44e Compacting 1@1 + 1@2 files
+2025/10/28-00:19:44.924 44e Generated table #72@1: 308 keys, 2112658 bytes
+2025/10/28-00:19:44.991 44e Generated table #73@1: 333 keys, 1886560 bytes
+2025/10/28-00:19:44.991 44e Compacted 1@1 + 1@2 files => 3999218 bytes
+2025/10/28-00:19:45.041 44e compacted to: files[ 0 3 9 0 0 0 0 ]
+2025/10/28-00:19:45.041 44e Delete type=2 #64
+2025/10/28-00:19:45.041 44e Delete type=2 #71

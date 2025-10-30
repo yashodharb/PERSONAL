@@ -1,0 +1,6 @@
+2025/10/21-06:09:56.054 404 Creating DB /home/phantom/.config/BraveSoftware/Brave-Browser-Nightly/Default/IndexedDB/https_www.sciencedirect.com_0.indexeddb.leveldb since it was missing.
+2025/10/21-06:09:56.120 404 Reusing MANIFEST /home/phantom/.config/BraveSoftware/Brave-Browser-Nightly/Default/IndexedDB/https_www.sciencedirect.com_0.indexeddb.leveldb/MANIFEST-000001
+2025/10/21-06:10:08.420 406 Level-0 table #5: started
+2025/10/21-06:10:08.453 406 Level-0 table #5: 58103 bytes OK
+2025/10/21-06:10:08.486 406 Delete type=0 #3
+2025/10/21-06:10:08.487 406 Manual compaction at level-0 from (begin) .. (end); will stop at (end)

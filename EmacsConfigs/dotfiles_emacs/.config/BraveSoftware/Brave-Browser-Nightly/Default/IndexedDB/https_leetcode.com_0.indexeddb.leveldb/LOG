@@ -1,0 +1,7 @@
+2025/10/17-18:18:34.246 590 Reusing MANIFEST /home/phantom/.config/BraveSoftware/Brave-Browser-Nightly/Default/IndexedDB/https_leetcode.com_0.indexeddb.leveldb/MANIFEST-000001
+2025/10/17-18:18:34.246 590 Recovering log #3
+2025/10/17-18:18:34.247 590 Reusing old log /home/phantom/.config/BraveSoftware/Brave-Browser-Nightly/Default/IndexedDB/https_leetcode.com_0.indexeddb.leveldb/000003.log 
+2025/10/17-19:06:31.357 593 Level-0 table #5: started
+2025/10/17-19:06:31.382 593 Level-0 table #5: 1247 bytes OK
+2025/10/17-19:06:31.432 593 Delete type=0 #3
+2025/10/17-19:06:31.433 593 Manual compaction at level-0 from (begin) .. (end); will stop at (end)

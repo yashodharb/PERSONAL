@@ -1,0 +1,13 @@
+[window]
+decorations = "Transparent"
+opacity = 0.7
+blur = true
+decorations_theme_variant= "None"
+
+
+[font]
+size=15
+
+[font.normal]
+family = "JetBrainsMono Nerd Font"
+style = "Regular"

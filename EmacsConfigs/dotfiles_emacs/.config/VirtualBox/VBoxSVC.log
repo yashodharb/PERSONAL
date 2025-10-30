@@ -1,0 +1,56 @@
+00:00:00.006407 main     VirtualBox XPCOM Server 7.2.2 r170484 linux.amd64 (Sep 24 2025 20:15:03) release log
+00:00:00.006409 main     Log opened 2025-10-19T03:08:42.388219000Z
+00:00:00.006409 main     Build Type: release
+00:00:00.006411 main     OS Product: Linux
+00:00:00.006411 main     OS Release: 6.17.2-arch1-1
+00:00:00.006412 main     OS Version: #1 SMP PREEMPT_DYNAMIC Sun, 12 Oct 2025 12:45:18 +0000
+00:00:00.006431 main     DMI Product Name: System Product Name
+00:00:00.006439 main     DMI Product Version: System Version
+00:00:00.006444 main     Firmware type: UEFI
+00:00:00.006663 main     Secure Boot: Disabled
+00:00:00.006691 main     Host RAM: 15889MB (15.5GB) total, 14777MB (14.4GB) available
+00:00:00.006693 main     Executable: /usr/lib/virtualbox/VBoxSVC
+00:00:00.006693 main     Process ID: 120199
+00:00:00.006693 main     Package type: LINUX_64BITS_GENERIC (OSE)
+00:00:00.015285 main     IPC socket path: /tmp/.vbox-phantom-ipc/ipcd
+00:00:00.092598 DCon01   VirtualBox: object creation starts
+00:00:00.092750 DCon01   Home directory: '/home/phantom/.config/VirtualBox'
+00:00:00.093016 DCon01   Loading settings file "/home/phantom/.config/VirtualBox/VirtualBox.xml" with version "1.12-linux"
+00:00:00.094187 DCon01   HostDnsMonitor: initializing
+00:00:00.094342 DCon01   NAT: resolv.conf: nameserver 192.168.1.1
+00:00:00.094359 DCon01   NAT: resolv.conf: nameserver 8.8.8.8
+00:00:00.094371 DCon01   NAT: resolv.conf: nameserver 4.4.4.4
+00:00:00.094382 DCon01   NAT: resolv.conf: too many nameserver lines, ignoring fe80::1%enp7s0
+00:00:00.094400 DCon01   HostDnsMonitor: updating information
+00:00:00.094431 DCon01   HostDnsMonitor: old information
+00:00:00.094440 DCon01     no server entries
+00:00:00.094449 DCon01     no domain set
+00:00:00.094458 DCon01     no search string entries
+00:00:00.094467 DCon01   HostDnsMonitor: new information
+00:00:00.094476 DCon01     server 1: 192.168.1.1
+00:00:00.094486 DCon01     server 2: 8.8.8.8
+00:00:00.094495 DCon01     server 3: 4.4.4.4
+00:00:00.094504 DCon01     no domain set
+00:00:00.094513 DCon01     no search string entries
+00:00:00.097520 DCon01   VD: VDInit finished with VINF_SUCCESS
+00:00:00.097756 DCon01   ERROR [COM]: aRC=NS_ERROR_FAILURE (0x80004005) aIID={925084b0-625f-422f-a67d-0ede1880a56c} aComponent={SystemPropertiesWrap} aText={Cannot determine default Guest Additions ISO location. Most likely they are not available}, preserve=false aResultDetail=0
+00:00:00.099488 DCon01   Platform architecture set to 'x86'
+00:00:00.100211 DCon01   Loading settings file "/home/phantom/VirtualBox VMs/Parrot OS 6.4 MATE Security Edition/Parrot OS 6.4 MATE Security Edition.vbox" with version "1.19-linux"
+00:00:00.100463 DCon01   Platform architecture set to 'x86'
+00:00:00.100754 DCon01   Platform architecture set to 'x86'
+00:00:00.101297 DCon01   Loading settings file "/home/phantom/VirtualBox VMs/MS2/MS2.vbox" with version "1.19-linux"
+00:00:00.101520 DCon01   Platform architecture set to 'x86'
+00:00:00.102106 DCon01   VirtualBox: object created
+00:00:00.911621 DCon04   WARNING [COM]: aRC=NS_ERROR_FAILURE (0x80004005) aIID={d5dcece0-b202-4416-a138-03502784cc07} aComponent={HostWrap} aText={VirtualBox is not currently allowed to access USB devices.  You can change this by adding your user to the 'vboxusers' group.  Please see the user manual for a more detailed explanation}, preserve=true aResultDetail=0
+00:00:00.912837 DCon04   WARNING [COM]: aRC=NS_ERROR_FAILURE (0x80004005) aIID={d5dcece0-b202-4416-a138-03502784cc07} aComponent={HostWrap} aText={VirtualBox is not currently allowed to access USB devices.  You can change this by adding your user to the 'vboxusers' group.  Please see the user manual for a more detailed explanation}, preserve=false aResultDetail=0
+00:00:00.945940 DCon04   ERROR [COM]: aRC=VBOX_E_OBJECT_NOT_FOUND (0x80bb0001) aIID={5bfd8965-b81b-469f-8649-f717ce97a5d5} aComponent={NvramStoreWrap} aText={The UEFI NVRAM file is not existing for this machine}, preserve=false aResultDetail=0
+00:00:01.046006 DCon04   ERROR [COM]: aRC=VBOX_E_INVALID_VM_STATE (0x80bb0002) aIID={e36a5081-a82a-40bd-9e4e-42a44d6ce50f} aComponent={MachineWrap} aText={The machine is not mutable, saved or running (state is PoweredOff)}, preserve=false aResultDetail=0
+00:00:01.115620 DCon04   WARNING [COM]: aRC=NS_ERROR_FAILURE (0x80004005) aIID={d5dcece0-b202-4416-a138-03502784cc07} aComponent={HostWrap} aText={VirtualBox is not currently allowed to access USB devices.  You can change this by adding your user to the 'vboxusers' group.  Please see the user manual for a more detailed explanation}, preserve=true aResultDetail=0
+00:00:01.117011 DCon04   WARNING [COM]: aRC=NS_ERROR_FAILURE (0x80004005) aIID={d5dcece0-b202-4416-a138-03502784cc07} aComponent={HostWrap} aText={VirtualBox is not currently allowed to access USB devices.  You can change this by adding your user to the 'vboxusers' group.  Please see the user manual for a more detailed explanation}, preserve=true aResultDetail=0
+00:00:16.342393 main     VirtualBox: object deletion starts
+00:00:16.342491 main     ERROR [COM]: aRC=VBOX_E_OBJECT_IN_USE (0x80bb000c) aIID={7d510820-a678-4730-a862-818dcd3fbed0} aComponent={MediumWrap} aText={Medium '/home/phantom/VirtualBox VMs/Parrot OS 6.4 MATE Security Edition/Parrot-security-mate-6.4_amd64-disk001.vdi' cannot be closed because it is still attached to 1 virtual machines}, preserve=false aResultDetail=0
+00:00:16.342733 main     ERROR [COM]: aRC=VBOX_E_OBJECT_IN_USE (0x80bb000c) aIID={7d510820-a678-4730-a862-818dcd3fbed0} aComponent={MediumWrap} aText={Medium '/home/phantom/Downloads/ISO/Metasploitable2-Linux/Metasploitable.vmdk' cannot be closed because it is still attached to 1 virtual machines}, preserve=false aResultDetail=0
+00:00:16.343387 main     HostDnsMonitor: shutting down ...
+00:00:16.343784 main     HostDnsMonitor: shut down
+00:00:16.354579 Watcher  ERROR [COM]: aRC=E_ACCESSDENIED (0x80070005) aIID={2ce10519-3c09-45d8-a12d-e887786146b7} aComponent={VirtualBoxWrap} aText={The object is not ready}, preserve=false aResultDetail=0
+00:00:16.354703 main     VirtualBox: object deleted

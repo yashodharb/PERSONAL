@@ -1,0 +1,6 @@
+2025/10/30-16:29:57.488 5 Reusing MANIFEST /home/phantom/.config/BraveSoftware/Brave-Browser-Nightly/Default/Local Storage/leveldb/MANIFEST-000001
+2025/10/30-16:29:57.497 5 Recovering log #550
+2025/10/30-16:29:57.805 5 Reusing old log /home/phantom/.config/BraveSoftware/Brave-Browser-Nightly/Default/Local Storage/leveldb/000550.log 
+2025/10/30-16:33:18.635 7 Level-0 table #554: started
+2025/10/30-16:33:18.666 7 Level-0 table #554: 27968 bytes OK
+2025/10/30-16:33:18.725 7 Delete type=0 #550
