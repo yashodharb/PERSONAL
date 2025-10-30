@@ -1,0 +1,200 @@
+ Part 1: What is Git?
+
+Git is a version control system — it helps you track changes in your code or files.
+
+Think of it as a timeline of your project that you can rewind, branch, or merge anytime.
+
+ Diagram: How Git Works
+
+Here’s a visual of how files flow through Git stages:
+
++----------------+     +----------------+     +-----------------+
+|  Working Dir   | --> |   Staging Area | --> |   Repository    |
+| (Your files)   |     | (Index / Cache)|     | (.git folder)   |
++----------------+     +----------------+     +-----------------+
+        ↑                      ↑
+        |                      |
+    Edit, Delete           git add
+                           git commit
+
+️ Part 2: Setting up Git
+1️ Install Git
+
+On Arch/Manjaro:
+
+sudo pacman -S git
+
+
+On Ubuntu/Debian:
+
+sudo apt install git
+
+
+On Fedora:
+
+sudo dnf install git
+
+2️ Set your identity
+
+Run this once (replace your name/email):
+
+git config --global user.name "Your Name"
+git config --global user.email "you@example.com"
+
+
+You can check:
+
+git config --list
+
+ Part 3: Create your first project
+mkdir my-first-project
+cd my-first-project
+
+
+Initialize Git:
+
+git init
+
+
+You’ll see:
+
+Initialized empty Git repository in /home/user/my-first-project/.git/
+
+
+This means Git is now tracking this folder.
+
+ Part 4: Add your first file
+
+Create a file:
+
+echo "Hello Git!" > hello.txt
+
+
+Check Git’s status:
+
+git status
+
+
+You’ll see:
+
+Untracked files:
+  hello.txt
+
+
+That means Git sees the file but isn’t tracking it yet.
+
+ Part 5: Stage & Commit
+
+Stage means “mark this file to include in the next commit.”
+
+git add hello.txt
+
+
+Then commit:
+
+git commit -m "Initial commit: added hello.txt"
+
+
+ Now you’ve saved your project’s first snapshot.
+
+Check the log:
+
+git log
+
+ Part 6: Branching
+
+Branches are separate timelines for your project.
+
+Create a new branch:
+
+git branch feature1
+
+
+Switch to it:
+
+git switch feature1
+
+
+(Older Git: git checkout feature1)
+
+Now edit your file:
+
+echo "New line in feature1" >> hello.txt
+git add hello.txt
+git commit -m "Added a line in feature1 branch"
+
+
+Check branches:
+
+git branch
+
+
+Merge it back into main:
+
+git switch main
+git merge feature1
+
+ Part 7: Connect to a remote (GitLab or GitHub)
+Create a repository online
+
+On GitLab
+ or GitHub
+
+Copy the SSH URL (e.g. git@gitlab.com:username/my-first-project.git)
+
+Add it locally
+git remote add origin git@gitlab.com:username/my-first-project.git
+
+
+Push your local branch to remote:
+
+git push -u origin main
+
+
+Now your project is live online 
+
+ Part 8: Cloning and Pulling
+
+Clone someone’s repo:
+
+git clone git@gitlab.com:someone/project.git
+
+
+Fetch new changes:
+
+git pull
+
+
+Push your local changes:
+
+git push
+
+ Part 9: Collaborating (Pull Requests / Merge Requests)
+
+When working with others:
+
+You clone the repo
+
+Create a new branch for your change
+
+Commit & push that branch
+
+Open a “Merge Request” (GitLab) or “Pull Request” (GitHub)
+
+The maintainer reviews and merges your branch
+
+This is how open-source projects work 
+
+ Part 10: Quick Reference Summary
+Task	Command
+Initialize repo	git init
+Check status	git status
+Add file	git add filename
+Commit	git commit -m "message"
+View history	git log
+Create branch	git branch branchname
+Switch branch	git switch branchname
+Merge branch	git merge branchname
+Add remote	git remote add origin <url>
+Push	git push -u origin main
+Pull	git pull
