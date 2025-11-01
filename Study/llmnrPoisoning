@@ -1,0 +1,166 @@
+Understanding Local Hostname Resolution: mDNS, LLMNR, and Bonjour
+1. How We Got Here
+
+You were trying to connect to your Arch Linux machine from your macOS system using SSH.
+Initially, SSH worked only when you used the IP address, not the hostname. You also noticed that ping behaved differently in both directions — macOS could ping Arch, but Arch couldn’t ping macOS by name.
+
+That led us into exploring how local name resolution actually works on different operating systems — and why ssh phantom@wannacry may fail even when both systems are on the same network.
+
+2. Why the Problem Happened
+
+Each OS resolves local hostnames differently:
+
+macOS uses mDNS (Multicast DNS) through Bonjour.
+
+Linux uses Avahi, which also implements mDNS.
+
+Windows primarily uses LLMNR and NetBIOS.
+
+So when you tried:
+
+ssh phantom@wannacry
+
+
+macOS didn’t know how to resolve wannacry unless:
+
+You added it to /etc/hosts, or
+
+Your Arch Linux machine broadcast its hostname via mDNS (Avahi), making it reachable as:
+
+ssh phantom@wannacry.local
+
+3. mDNS (Multicast DNS)
+
+mDNS is a decentralized name resolution system used mainly on macOS and Linux.
+
+Works without a central DNS server.
+
+Uses multicast address 224.0.0.251 (IPv4) or ff02::fb (IPv6).
+
+Uses port 5353 (UDP).
+
+Allows .local names to be discovered automatically.
+
+Example
+
+If your Arch Linux machine is named wannacry, and you have Avahi running:
+
+ssh phantom@wannacry.local
+
+
+macOS will find it automatically.
+
+Tools
+
+macOS: mDNSResponder (part of Bonjour)
+
+Linux: Avahi-daemon
+
+4. LLMNR (Link-Local Multicast Name Resolution)
+
+LLMNR is Microsoft’s alternative to mDNS.
+
+Used when DNS lookup fails.
+
+Works on port 5355 (UDP).
+
+Used for resolving single-label hostnames like wannacry (not wannacry.local).
+
+Operates within a local subnet (no router hop).
+
+Security Risk: LLMNR Poisoning
+
+Attackers can respond faster to LLMNR queries and trick Windows machines into sending authentication hashes to them.
+
+Defense
+
+Disable LLMNR via Group Policy (Turn off Multicast Name Resolution).
+
+Prefer DNS or mDNS where possible.
+
+Monitor for unexpected LLMNR traffic.
+
+5. Bonjour
+
+Bonjour is Apple’s implementation of mDNS + DNS-SD (Service Discovery).
+
+Built into macOS and iOS.
+
+Optional for Windows (Bonjour for Windows).
+
+Enables devices to discover services like SSH, printers, and file sharing automatically.
+
+Uses .local suffix for mDNS.
+
+So, when macOS tries to connect to wannacry.local, Bonjour sends a multicast query — Avahi on Linux answers it.
+
+6. Cross-Platform Scenarios
+From	To	Protocol Used	Requirement
+macOS → Linux	mDNS	Linux must run Avahi	
+Linux → macOS	mDNS	macOS already has Bonjour	
+Windows → Windows	LLMNR / NetBIOS	Works out of the box	
+macOS → Windows	Bonjour (mDNS)	Bonjour must be installed on Windows	
+Windows → macOS	Bonjour (mDNS)	Bonjour must be installed on Windows	
+Linux → Windows	DNS or Bonjour	Bonjour or Avahi required	
+Windows → Linux	DNS or Bonjour	Bonjour or Avahi required	
+7. When Each Protocol Is Used
+Protocol	Used By	Port	Scope	Example Hostname
+mDNS	macOS, Linux	5353 UDP	Local subnet	wannacry.local
+LLMNR	Windows	5355 UDP	Local subnet	WANNACRY
+NetBIOS	Older Windows	137/138 UDP	Local subnet	WANNACRY
+Bonjour	Apple ecosystem	5353 UDP	Local subnet	macbook.local
+8. How to Connect by Hostname
+macOS → Arch Linux
+
+Enable Avahi on Arch:
+
+sudo systemctl enable --now avahi-daemon
+
+
+Then connect:
+
+ssh phantom@wannacry.local
+
+Arch Linux → macOS
+
+macOS already has Bonjour, so from Arch:
+
+ssh user@macbook.local
+
+macOS → Windows
+
+Install Bonjour for Windows, then:
+
+ssh user@windows.local
+
+9. Key Takeaways
+
+mDNS (Bonjour / Avahi): used by macOS & Linux.
+
+LLMNR / NetBIOS: used by Windows.
+
+Bonjour bridges macOS/Linux ↔ Windows.
+
+You can disable LLMNR to avoid poisoning attacks.
+
+.local hostnames indicate mDNS resolution.
+
+10. Visual Summary
+         ┌──────────────┐
+         │  macOS       │
+         │  Bonjour/mDNS│
+         └──────┬───────┘
+                │ 5353 UDP
+         ┌──────┴───────┐
+         │  Linux (Avahi)│
+         └────────────────┘
+
+Windows ↔ Windows → LLMNR / NetBIOS (5355/137)
+macOS ↔ Windows → Bonjour (if installed)
+
+11. In Short
+
+You wanted to SSH using a hostname between macOS and Arch.
+To make that work, both machines must “speak” a common local name-resolution language — mDNS (Bonjour/Avahi).
+
+LLMNR, used by Windows, is a similar but different system — and that’s where LLMNR poisoning comes in when attackers exploit the protocol.
